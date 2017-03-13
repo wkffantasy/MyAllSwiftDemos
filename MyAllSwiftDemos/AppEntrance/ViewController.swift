@@ -10,37 +10,71 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var homeDataArray: Array<HomeModel>! = []
+    var functionViewsArray: Array<HomeModel>! = []
+    var funnyViewsArray: Array<HomeModel>! = []
+    let headerDataArray = [
+        "some views that can be directly use",
+        "something fun,it looks like more friendly to users",
+    ]
     var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "MyAllSwiftDemos"
-
         thisDataSource()
         setupUI()
     }
 
-    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return self.homeDataArray.count
+    func numberOfSections(in _: UITableView) -> Int {
+        return headerDataArray.count
+    }
+
+    func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return self.functionViewsArray.count
+        } else {
+            return self.funnyViewsArray.count
+        }
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = HomeHeader.headerWithTableView(tableView: tableView)
+        header.updateContent(text: self.headerDataArray[section])
+        return header
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell: HomeCell = HomeCell.cellWithTableView(tableView: tableView)
-        cell.assignItData(model: self.homeDataArray[indexPath.row])
-        return cell
+        if indexPath.section == 0 {
+            let cell: HomeCell = HomeCell.cellWithTableView(tableView: tableView)
+            cell.assignItData(model: self.functionViewsArray[indexPath.row])
+            return cell
+        } else {
+            let cell: HomeCell = HomeCell.cellWithTableView(tableView: tableView)
+            cell.assignItData(model: self.funnyViewsArray[indexPath.row])
+            return cell
+        }
     }
 
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let thisModel: HomeModel = self.homeDataArray[indexPath.row]
+        var thisModel: HomeModel
+        if indexPath.section == 0 {
+            thisModel = self.functionViewsArray[indexPath.row]
+        } else {
+
+            thisModel = self.funnyViewsArray[indexPath.row]
+        }
         let selector = Selector.init(thisModel.jumpTo)
         self.perform(selector)
     }
 
     func jumpToMarqueeVC() {
         self.navigationController?.pushViewController(MarqueeController(), animated: true)
+    }
+
+    func jumpToCurveVC() {
+        self.navigationController?.pushViewController(CurveController(), animated: true)
     }
 
     func setupUI() {
@@ -50,6 +84,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedSectionHeaderHeight = 60
+        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
         tableView.separatorStyle = .none
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
@@ -59,23 +95,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func thisDataSource() {
 
-        let homeDictArray = [
-            [
-                "title": "Label的跑马灯",
-                "titleDescription": "当文字超过一定的长度的时候，该文字会一直轮播下去，也就是跑马灯的效果",
-                "status": "待做",
-                "jumpTo": "jumpToMarqueeVC",
-            ],
-        ]
-
-        for item in homeDictArray {
-
+        for item in functionsArray {
             let model = HomeModel()
             model.title = item["title"]
             model.titleDescription = item["titleDescription"]
             model.status = item["status"]
             model.jumpTo = item["jumpTo"]
-            homeDataArray.append(model)
+            functionViewsArray.append(model)
+        }
+
+        for item in funnyArray {
+            let model = HomeModel()
+            model.title = item["title"]
+            model.titleDescription = item["titleDescription"]
+            model.status = item["status"]
+            model.jumpTo = item["jumpTo"]
+            funnyViewsArray.append(model)
         }
     }
 }

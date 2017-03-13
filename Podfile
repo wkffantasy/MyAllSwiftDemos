@@ -5,9 +5,6 @@ use_frameworks!
 
 target ‘MyAllSwiftDemos’ do
 
-  pod 'MBProgressHUD'
-  pod 'SDWebImage'
   pod 'SnapKit'
-  pod 'SwiftHTTP'
-
+ 
 end
