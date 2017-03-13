@@ -10,32 +10,32 @@ import UIKit
 
 class TabsSelectView: UIView {
 
-    let buttonW = 100
+    //    let buttonW = 100
     typealias ClickButtonBlock = (Int) -> Void
 
-    var titleArray: Array<String>?
-    var selectColor: UIColor?
-    var normalColor: UIColor?
+    public var clickButtonBlock: ClickButtonBlock?
 
-    var imageNormalArray: Array<String>?
-    var imageSelectArray: Array<String>?
+    private var titleArray: Array<String>?
+    private var selectColor: UIColor?
+    private var normalColor: UIColor?
 
-    var scrollView: UIScrollView!
-    var selectButton: UIButton!
-    var dividingLine: UIView!
-    var buttonsArray: Array<UIButton>!
-    var movingLine: UIView!
-    var clickButtonBlock: ClickButtonBlock?
-    var haveImages: Bool!
+    private var imageNormalArray: Array<String>?
+    private var imageSelectArray: Array<String>?
 
+    private var scrollView: UIScrollView!
+    private var selectButton: UIButton!
+    private var dividingLine: UIView!
+    private var buttonsArray: Array<UIButton>!
+    private var movingLine: UIView!
+
+    private var haveImages: Bool!
     public func updateButtonState(tag: Int) {
-        print("updateButtonState tag ==\(tag)")
+
         assert(self.buttonsArray.count - 1 >= tag, "")
         let tagButton = self.buttonsArray[tag]
         self.changeButtonState(button: tagButton)
     }
 
-    // public
     init(titleArray: Array<String>, frame: CGRect, selectColor: UIColor, normalColor: UIColor) {
 
         super.init(frame: frame)
@@ -48,7 +48,6 @@ class TabsSelectView: UIView {
         setupViews()
     }
 
-    // public
     init(frame: CGRect, selectImageArray: Array<String>, normalImageArray: Array<String>) {
         super.init(frame: frame)
         assert(selectImageArray.count > 0, "")
@@ -69,8 +68,7 @@ class TabsSelectView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func clickButtonWithoutImage(button: UIButton) {
-        print("button.tag == \(button.tag)")
+    public func clickButtonWithoutImage(button: UIButton) {
 
         self.changeButtonState(button: button)
         if self.clickButtonBlock != nil {
@@ -78,7 +76,7 @@ class TabsSelectView: UIView {
         }
     }
 
-    func changeButtonState(button: UIButton) {
+    public func changeButtonState(button: UIButton) {
         if self.selectButton == button {
             return
         }

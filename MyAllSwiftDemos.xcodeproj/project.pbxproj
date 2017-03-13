@@ -28,6 +28,10 @@
 		9A78F02A1E7690C2008C93E9 /* TabsSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F0281E7690C2008C93E9 /* TabsSelectView.swift */; };
 		9A78F02D1E7694AE008C93E9 /* CurveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F02C1E7694AE008C93E9 /* CurveController.swift */; };
 		9A78F02F1E7695C6008C93E9 /* HomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F02E1E7695C6008C93E9 /* HomeHeader.swift */; };
+		9A78F0331E76A4B7008C93E9 /* TabsSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F0321E76A4B7008C93E9 /* TabsSelectController.swift */; };
+		9A78F0351E76A4CF008C93E9 /* TestOneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F0341E76A4CF008C93E9 /* TestOneController.swift */; };
+		9A78F0371E76A4DE008C93E9 /* TestTwoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F0361E76A4DE008C93E9 /* TestTwoController.swift */; };
+		9A78F0391E76A4ED008C93E9 /* TestThreeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F0381E76A4ED008C93E9 /* TestThreeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,10 @@
 		9A78F0281E7690C2008C93E9 /* TabsSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsSelectView.swift; sourceTree = "<group>"; };
 		9A78F02C1E7694AE008C93E9 /* CurveController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurveController.swift; sourceTree = "<group>"; };
 		9A78F02E1E7695C6008C93E9 /* HomeHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeader.swift; sourceTree = "<group>"; };
+		9A78F0321E76A4B7008C93E9 /* TabsSelectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsSelectController.swift; sourceTree = "<group>"; };
+		9A78F0341E76A4CF008C93E9 /* TestOneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestOneController.swift; sourceTree = "<group>"; };
+		9A78F0361E76A4DE008C93E9 /* TestTwoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTwoController.swift; sourceTree = "<group>"; };
+		9A78F0381E76A4ED008C93E9 /* TestThreeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestThreeController.swift; sourceTree = "<group>"; };
 		E6B82101F727A1B7E21D919B /* Pods-MyAllSwiftDemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAllSwiftDemos.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyAllSwiftDemos/Pods-MyAllSwiftDemos.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +189,7 @@
 		9A78F00C1E76458F008C93E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9A78F0311E76A477008C93E9 /* TabsSelectController */,
 				9A78F02B1E769489008C93E9 /* CurveController */,
 				9A78F01E1E7648D9008C93E9 /* MarqueeController */,
 			);
@@ -244,6 +253,17 @@
 				9A78F02C1E7694AE008C93E9 /* CurveController.swift */,
 			);
 			path = CurveController;
+			sourceTree = "<group>";
+		};
+		9A78F0311E76A477008C93E9 /* TabsSelectController */ = {
+			isa = PBXGroup;
+			children = (
+				9A78F0321E76A4B7008C93E9 /* TabsSelectController.swift */,
+				9A78F0341E76A4CF008C93E9 /* TestOneController.swift */,
+				9A78F0361E76A4DE008C93E9 /* TestTwoController.swift */,
+				9A78F0381E76A4ED008C93E9 /* TestThreeController.swift */,
+			);
+			path = TabsSelectController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,12 +458,16 @@
 				9A78F0191E76488F008C93E9 /* Constants.swift in Sources */,
 				9A78F02D1E7694AE008C93E9 /* CurveController.swift in Sources */,
 				9A78F0181E76488F008C93E9 /* ApiConstant.swift in Sources */,
+				9A78F0331E76A4B7008C93E9 /* TabsSelectController.swift in Sources */,
 				9A78F0221E764BD1008C93E9 /* HomeModel.swift in Sources */,
 				9A78F0151E764834008C93E9 /* ViewController.swift in Sources */,
+				9A78F0371E76A4DE008C93E9 /* TestTwoController.swift in Sources */,
 				9A78F0241E766CEB008C93E9 /* HomeCell.swift in Sources */,
 				9A78F01D1E7648A7008C93E9 /* UIColor+extension.swift in Sources */,
+				9A78F0391E76A4ED008C93E9 /* TestThreeController.swift in Sources */,
 				9A78F02A1E7690C2008C93E9 /* TabsSelectView.swift in Sources */,
 				9A78F0291E7690C2008C93E9 /* CurveView.swift in Sources */,
+				9A78F0351E76A4CF008C93E9 /* TestOneController.swift in Sources */,
 				9A78F01C1E7648A7008C93E9 /* NSString+extension.swift in Sources */,
 				9A78F0261E767658008C93E9 /* MarqueeView.swift in Sources */,
 				9A78F0141E764834008C93E9 /* AppDelegate.swift in Sources */,

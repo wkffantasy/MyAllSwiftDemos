@@ -77,6 +77,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(CurveController(), animated: true)
     }
 
+    func jumpToTabSelectVC() {
+        let tabsVC = TabsSelectController.init(isTitle: true)
+        self.navigationController?.pushViewController(tabsVC, animated: true)
+    }
+
     func setupUI() {
 
         tableView = UITableView.init(frame: CGRect.zero, style: .plain)
