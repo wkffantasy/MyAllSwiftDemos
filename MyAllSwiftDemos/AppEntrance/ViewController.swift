@@ -82,6 +82,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let tabsVC = TabsSelectController.init(isTitle: false)
         self.navigationController?.pushViewController(tabsVC, animated: true)
     }
+    func jumpToVideoVC() {
+        self.navigationController?.pushViewController(DemoVideoController(), animated: true)
+    }
 
     func jumpToNoMarginScrollVC() {
         self.navigationController?.pushViewController(NoMarginScrollController(), animated: true)

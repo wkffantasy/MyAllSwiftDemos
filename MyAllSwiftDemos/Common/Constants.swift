@@ -35,9 +35,15 @@ let functionsArray = [
     [
         "title": "scroll item的无缝无限循环滚动",
         "titleDescription": "一个scrollView 里面有好多图片 或者item，可以一直左滑 也可以一直右滑，使用frame做的，目前没有用到SnapKit",
-        "status": "正在做",
+        "status": "完成",
         "jumpTo": "jumpToNoMarginScrollVC",
     ],
+    [
+        "title": "自己写的视频播放器",
+        "titleDescription": "挑战一下自己",
+        "status": "正在做",
+        "jumpTo": "jumpToVideoVC",
+        ],
 ]
 
 let funnyArray = [
@@ -48,3 +54,6 @@ let funnyArray = [
         "jumpTo": "jumpToCurveVC",
     ],
 ]
+
+//video
+//let void kBackViewIdentifier = &kBackViewIdentifier;
