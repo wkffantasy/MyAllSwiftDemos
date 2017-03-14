@@ -10,7 +10,6 @@ import UIKit
 
 class TabsSelectView: UIView {
 
-    //    let buttonW = 100
     typealias ClickButtonBlock = (Int) -> Void
 
     public var clickButtonBlock: ClickButtonBlock?
@@ -63,7 +62,6 @@ class TabsSelectView: UIView {
         setupViews()
     }
 
-    // all is private
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -76,7 +74,7 @@ class TabsSelectView: UIView {
         }
     }
 
-    public func changeButtonState(button: UIButton) {
+    private func changeButtonState(button: UIButton) {
         if self.selectButton == button {
             return
         }
@@ -97,7 +95,7 @@ class TabsSelectView: UIView {
         self.addLineViews()
     }
 
-    func setupButtonsWithImages() {
+    private func setupButtonsWithImages() {
 
         var lastOne: UIButton?
         var tag = 0
@@ -133,7 +131,7 @@ class TabsSelectView: UIView {
         }
     }
 
-    func setupButtonsWithTitles() {
+    private func setupButtonsWithTitles() {
         var lastOne: UIButton?
         var tag = 0
 
@@ -168,7 +166,7 @@ class TabsSelectView: UIView {
         }
     }
 
-    func setupViews() {
+    private func setupViews() {
 
         // all buttons
         if self.haveImages == true {
@@ -188,11 +186,11 @@ class TabsSelectView: UIView {
         addLineViews()
     }
 
-    func makeMovingLine() {
+    private func makeMovingLine() {
         assert(self.selectButton != nil, "must have one select button")
     }
 
-    func addLineViews() {
+    private func addLineViews() {
         if movingLine != nil {
             movingLine.removeFromSuperview()
         }

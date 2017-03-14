@@ -19,7 +19,6 @@ class TabsSelectController: UIViewController, UIScrollViewDelegate {
     init(isTitle: Bool) {
         super.init(nibName: nil, bundle: nil)
         self.isTitle = isTitle
-        setupViews()
     }
 
     required init?(coder _: NSCoder) {
@@ -47,22 +46,37 @@ class TabsSelectController: UIViewController, UIScrollViewDelegate {
 
     func setupViews() {
 
-        print("self.isTitle ==", self.isTitle)
-        let titleArray = [
-            "发如雪",
-            "青花瓷",
-            "东风破",
-        ]
-        tabsSelectView = TabsSelectView.init(titleArray: titleArray, frame: CGRect.zero, selectColor: UIColor.colorWithRGB(red: 74, green: 153, blue: 255), normalColor: UIColor.colorWithRGB(red: 134, green: 134, blue: 134))
+        if self.isTitle == true {
+
+            let titleArray = [
+                "发如雪",
+                "青花瓷",
+                "东风破",
+            ]
+            tabsSelectView = TabsSelectView.init(titleArray: titleArray, frame: CGRect.zero, selectColor: UIColor.colorWithRGB(red: 74, green: 153, blue: 255), normalColor: UIColor.colorWithRGB(red: 134, green: 134, blue: 134))
+
+        } else {
+
+            let imageNormalArray = [
+                "message_notificationNomal",
+                "message_responseNormal",
+                "message_zanNormal",
+            ]
+            let imageSelectArray = [
+                "message_notificationSeleted",
+                "message_responseSelected",
+                "message_zanSelected",
+            ]
+            tabsSelectView = TabsSelectView.init(frame: CGRect.zero, selectImageArray: imageSelectArray, normalImageArray: imageNormalArray)
+        }
+
         self.view.addSubview(tabsSelectView)
         tabsSelectView.snp.makeConstraints { make in
             make.left.right.equalTo(0)
             make.height.equalTo(40)
             make.top.equalTo(64)
         }
-
         tabsSelectView.clickButtonBlock = { (tag: Int) in
-
             self.letItScroll(tag: tag)
         }
 
