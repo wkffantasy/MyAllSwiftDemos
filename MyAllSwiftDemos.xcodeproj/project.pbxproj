@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6B102C020FE2D14629527410 /* Pods_MyAllSwiftDemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60EF7749F486C25E83879E20 /* Pods_MyAllSwiftDemos.framework */; };
+		9A58F9CC1E778ED200500AB6 /* NoMarginScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58F9CB1E778ED200500AB6 /* NoMarginScrollController.swift */; };
+		9A58F9CE1E77907700500AB6 /* NoMarginRollingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58F9CD1E77907700500AB6 /* NoMarginRollingView.swift */; };
 		9A78EFE11E764443008C93E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A78EFDF1E764443008C93E9 /* Main.storyboard */; };
 		9A78EFE41E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A78EFE21E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld */; };
 		9A78EFE61E764443008C93E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A78EFE51E764443008C93E9 /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 /* Begin PBXFileReference section */
 		54EC8A27046AA2B288ACEE5A /* Pods-MyAllSwiftDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAllSwiftDemos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyAllSwiftDemos/Pods-MyAllSwiftDemos.debug.xcconfig"; sourceTree = "<group>"; };
 		60EF7749F486C25E83879E20 /* Pods_MyAllSwiftDemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyAllSwiftDemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A58F9CB1E778ED200500AB6 /* NoMarginScrollController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMarginScrollController.swift; sourceTree = "<group>"; };
+		9A58F9CD1E77907700500AB6 /* NoMarginRollingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMarginRollingView.swift; sourceTree = "<group>"; };
 		9A78EFD81E764443008C93E9 /* MyAllSwiftDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAllSwiftDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A78EFE01E764443008C93E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A78EFE31E764443008C93E9 /* MyAllSwiftDemos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyAllSwiftDemos.xcdatamodel; sourceTree = "<group>"; };
@@ -131,6 +135,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9A58F9CA1E778B2800500AB6 /* NoMarginScrollController */ = {
+			isa = PBXGroup;
+			children = (
+				9A58F9CB1E778ED200500AB6 /* NoMarginScrollController.swift */,
+			);
+			path = NoMarginScrollController;
+			sourceTree = "<group>";
+		};
 		9A78EFCF1E764443008C93E9 = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +201,7 @@
 		9A78F00C1E76458F008C93E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9A58F9CA1E778B2800500AB6 /* NoMarginScrollController */,
 				9A78F0311E76A477008C93E9 /* TabsSelectController */,
 				9A78F02B1E769489008C93E9 /* CurveController */,
 				9A78F01E1E7648D9008C93E9 /* MarqueeController */,
@@ -213,6 +226,7 @@
 				9A78F0271E7690C2008C93E9 /* CurveView.swift */,
 				9A78F0281E7690C2008C93E9 /* TabsSelectView.swift */,
 				9A78F0251E767658008C93E9 /* MarqueeView.swift */,
+				9A58F9CD1E77907700500AB6 /* NoMarginRollingView.swift */,
 			);
 			path = ReusableView;
 			sourceTree = "<group>";
@@ -470,7 +484,9 @@
 				9A78F0351E76A4CF008C93E9 /* TestOneController.swift in Sources */,
 				9A78F01C1E7648A7008C93E9 /* NSString+extension.swift in Sources */,
 				9A78F0261E767658008C93E9 /* MarqueeView.swift in Sources */,
+				9A58F9CC1E778ED200500AB6 /* NoMarginScrollController.swift in Sources */,
 				9A78F0141E764834008C93E9 /* AppDelegate.swift in Sources */,
+				9A58F9CE1E77907700500AB6 /* NoMarginRollingView.swift in Sources */,
 				9A78F0201E76491F008C93E9 /* MarqueeController.swift in Sources */,
 				9A78EFE41E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld in Sources */,
 				9A78F02F1E7695C6008C93E9 /* HomeHeader.swift in Sources */,

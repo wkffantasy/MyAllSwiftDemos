@@ -76,8 +76,8 @@ class TabsSelectController: UIViewController, UIScrollViewDelegate {
             make.height.equalTo(40)
             make.top.equalTo(64)
         }
-        tabsSelectView.clickButtonBlock = { (tag: Int) in
-            self.letItScroll(tag: tag)
+        tabsSelectView.clickButtonBlock = { [weak self] (tag: Int) in
+            self?.letItScroll(tag: tag)
         }
 
         vcScrollView = UIScrollView.init()

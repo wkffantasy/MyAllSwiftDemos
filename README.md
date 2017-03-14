@@ -11,8 +11,12 @@ swift写的所有可以复用的demos
 用frame的方式来创建 用法在MarqueeController这个控制器里面
 
 2.可以复用的tabsSelectView
+
 用的SnapKit进行的布局，支持图片 和 文字。很普通的一个view
 
+3.可以复用的一个可以无限滚动的scrollView
+
+用的frame进行布局，pageControl需要自己定制(定制的方法在NoMarginScrollController里面)。注意：需要在controller销毁的时候，把这个view的定时器给消除，调用removeTimer()方法。
 
 有兴趣做的小动画，很简单的小动画
 

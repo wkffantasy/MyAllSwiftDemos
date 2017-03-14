@@ -29,8 +29,14 @@ let functionsArray = [
     [
         "title": "tabsSelectView",
         "titleDescription": "很经典的一个样式，写的多了，比较麻烦，封装了一个这样的view，可以是文字，可以是图片。但具体的里面的颜色需要自己定制",
-        "status": "正在做",
+        "status": "完成",
         "jumpTo": "jumpToTabSelectVC",
+    ],
+    [
+        "title": "scroll item的无缝无限循环滚动",
+        "titleDescription": "一个scrollView 里面有好多图片 或者item，可以一直左滑 也可以一直右滑，使用frame做的，目前没有用到SnapKit",
+        "status": "正在做",
+        "jumpTo": "jumpToNoMarginScrollVC",
     ],
 ]
 

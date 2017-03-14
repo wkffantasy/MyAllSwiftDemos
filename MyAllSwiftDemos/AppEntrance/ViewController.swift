@@ -83,6 +83,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(tabsVC, animated: true)
     }
 
+    func jumpToNoMarginScrollVC() {
+        self.navigationController?.pushViewController(NoMarginScrollController(), animated: true)
+    }
+
     func setupUI() {
 
         tableView = UITableView.init(frame: CGRect.zero, style: .plain)
