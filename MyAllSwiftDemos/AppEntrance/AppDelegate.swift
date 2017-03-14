@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 
+import SwiftyBeaver
+let log = SwiftyBeaver.self
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,7 +19,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        settingUpLog()
+
         return true
+    }
+
+    func settingUpLog() {
+        let console = ConsoleDestination()
+        log.addDestination(console)
+
+        //        log.verbose("not so important")
+        //        log.debug("something to debug")
+        //        log.info("a nice information")
+        //        log.warning("oh no, that won’t be good")
+        //        log.error("ouch, an error did occur!")
+        //
+        //        log.verbose(123)
+        //        log.info(-123.45678)
+        //        log.warning(Date())
+        //        log.error(["I", "like", "logs!"])
+        //        log.error(["name": "Mr Beaver", "address": "7 Beaver Lodge"])
     }
 
     func applicationWillResignActive(_: UIApplication) {

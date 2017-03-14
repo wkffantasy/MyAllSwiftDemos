@@ -6,5 +6,6 @@ use_frameworks!
 target ‘MyAllSwiftDemos’ do
 
   pod 'SnapKit'
+  pod 'SwiftyBeaver'
  
 end

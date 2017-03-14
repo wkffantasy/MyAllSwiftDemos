@@ -120,7 +120,7 @@ class NoMarginRollingView: UIView, UIScrollViewDelegate {
 
     @objc private func runTimer() {
 
-        print("runTimer")
+        log.debug("runTimer")
         let thisWidth = self.frame.size.width
         var x: CGFloat = 0
         if self.currentPage == self.imagesArray.count - 3 {
