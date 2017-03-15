@@ -12,7 +12,7 @@ class VideoBottomMenu: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.black
+        self.backgroundColor = UIColor.colorWithHexString("000000", Alpha: 0.7)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -20,10 +20,19 @@ class WKFVideoPlayerView: UIView {
     
     var playUrl:String! {
         didSet {
+            assert(playUrl.length > 0,"")
             log.verbose("give view url \(playUrl)")
             player.playUrl = playUrl
         }
         
+    }
+    var playTitle:String! {
+        
+        didSet{
+            assert(playTitle.length > 0,"")
+            log.verbose("give view title \(playTitle)")
+            topMenu.playTitle = playTitle
+        }
     }
     
     override init(frame: CGRect) {
@@ -35,8 +44,7 @@ class WKFVideoPlayerView: UIView {
     }
     private func setupViews() {
         
-        player = WKFPlayer.init(frame: self.bounds)
-        self.addSubview(player)
+        setupPlayer()
         
         topMenu = VideoTopMenu()
         self.addSubview(topMenu)
@@ -61,9 +69,37 @@ class WKFVideoPlayerView: UIView {
         }
    
     }
+    private func setupPlayer(){
+    
+        player = WKFPlayer.init(frame: self.bounds)
+        player.PlayTotalTimeBlock = {  totalTime in
+            log.verbose("totalTime == \(totalTime)")
+        }
+        player.PlayStartSuccessBlock = {  [weak self] in
+            self?.loadingView.stopAnimating()
+            log.verbose("PlayStartSuccessBlock")
+        }
+        player.PlayingCurrentTimeBlock = { playCurrentTime in
+            log.verbose("playCurrentTime ==\(playCurrentTime)")
+        }
+        player.PlayFailedBlock = {
+            log.error("播放失败")
+        }
+        player.PlayLoadedTimeBlock = { loadedTime in
+            log.verbose("loaded time =\(loadedTime)")
+        }
+        player.PlayFinishedBlock = {
+            log.verbose("================ PlayFinishedBlock")
+        }
+        self.addSubview(player)
+    
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    deinit {
+        log.warning("this video player view will be deinit")
     }
     
    
