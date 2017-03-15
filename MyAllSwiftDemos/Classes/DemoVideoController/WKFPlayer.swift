@@ -154,8 +154,9 @@ class WKFPlayer: UIView {
         if self.PlayFinishedBlock != nil {
             self.PlayFinishedBlock!()
         }
-//        player.seek(to: kCMTimeZero) { [weak self](finished) in
-//        }
+        player.seek(to:kCMTimeZero) { (finished) in
+            
+        }
 
     }
     private func getCurrentTime() ->Float {

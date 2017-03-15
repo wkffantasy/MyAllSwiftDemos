@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B102C020FE2D14629527410 /* Pods_MyAllSwiftDemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60EF7749F486C25E83879E20 /* Pods_MyAllSwiftDemos.framework */; };
+		9A1F498D1E793E670099C2BB /* TimeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F498C1E793E670099C2BB /* TimeTool.swift */; };
 		9A58F9CC1E778ED200500AB6 /* NoMarginScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58F9CB1E778ED200500AB6 /* NoMarginScrollController.swift */; };
 		9A58F9CE1E77907700500AB6 /* NoMarginRollingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58F9CD1E77907700500AB6 /* NoMarginRollingView.swift */; };
 		9A58F9D31E77DC7B00500AB6 /* DemoVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58F9D21E77DC7B00500AB6 /* DemoVideoController.swift */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		54EC8A27046AA2B288ACEE5A /* Pods-MyAllSwiftDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAllSwiftDemos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyAllSwiftDemos/Pods-MyAllSwiftDemos.debug.xcconfig"; sourceTree = "<group>"; };
 		60EF7749F486C25E83879E20 /* Pods_MyAllSwiftDemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyAllSwiftDemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A1F498C1E793E670099C2BB /* TimeTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTool.swift; sourceTree = "<group>"; };
 		9A58F9CB1E778ED200500AB6 /* NoMarginScrollController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMarginScrollController.swift; sourceTree = "<group>"; };
 		9A58F9CD1E77907700500AB6 /* NoMarginRollingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMarginRollingView.swift; sourceTree = "<group>"; };
 		9A58F9D21E77DC7B00500AB6 /* DemoVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoVideoController.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			children = (
 				9A78F01A1E7648A7008C93E9 /* NSString+extension.swift */,
 				9A78F01B1E7648A7008C93E9 /* UIColor+extension.swift */,
+				9A1F498C1E793E670099C2BB /* TimeTool.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				9A58F9CE1E77907700500AB6 /* NoMarginRollingView.swift in Sources */,
 				9A78F0201E76491F008C93E9 /* MarqueeController.swift in Sources */,
 				9A78EFE41E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld in Sources */,
+				9A1F498D1E793E670099C2BB /* TimeTool.swift in Sources */,
 				9A78F02F1E7695C6008C93E9 /* HomeHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
