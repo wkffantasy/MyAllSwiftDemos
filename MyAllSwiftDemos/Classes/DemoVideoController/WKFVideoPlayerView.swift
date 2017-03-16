@@ -38,6 +38,7 @@ class WKFVideoPlayerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.clipsToBounds = true
         firstFrame = frame
         setupViews()
         
@@ -75,7 +76,9 @@ class WKFVideoPlayerView: UIView {
             
         }
         bottomMenu.playOrPauseBlock = {[weak self](nowIsPlaying) in
-            
+            if self?.loadingView.isHidden == false {
+                return
+            }
             self?.player.updatePlayerPauseAndPlay(isPlaying: nowIsPlaying)
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: nowIsPlaying)
             
@@ -96,9 +99,7 @@ class WKFVideoPlayerView: UIView {
             self?.bottomMenu.updateTotalTime(thisTime: totalTime)
         }
         player.PlayStartSuccessBlock = {  [weak self] in
-            if self?.loadingView.isHidden == false {
-                return
-            }
+            
             self?.loadingView.stopAnimating()
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: true)
         }
