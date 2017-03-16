@@ -43,7 +43,7 @@ let functionsArray = [
         "titleDescription": "挑战一下自己",
         "status": "正在做",
         "jumpTo": "jumpToVideoVC",
-        ],
+    ],
 ]
 
 let funnyArray = [
@@ -55,5 +55,5 @@ let funnyArray = [
     ],
 ]
 
-//video
-//let void kBackViewIdentifier = &kBackViewIdentifier;
+// video
+// let void kBackViewIdentifier = &kBackViewIdentifier;
