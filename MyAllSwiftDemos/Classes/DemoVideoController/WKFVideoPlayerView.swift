@@ -19,6 +19,10 @@ class WKFVideoPlayerView: UIView {
     private var bottomMenu: VideoBottomMenu!
     private var loadingView: UIActivityIndicatorView!
     private var player: WKFPlayer!
+    
+    private var nowIsShowMenuView:Bool = true
+    private let appearMenuTime = 5.0
+    private var timer:Timer?
 
     var playUrl: String! {
         didSet {
@@ -116,7 +120,7 @@ class WKFVideoPlayerView: UIView {
             self?.bottomMenu.updateTotalTime(thisTime: totalTime)
         }
         player.PlayStartSuccessBlock = { [weak self] in
-
+            log.verbose("==================开始播放")
             self?.loadingView.stopAnimating()
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: true)
         }
@@ -124,16 +128,69 @@ class WKFVideoPlayerView: UIView {
             self?.bottomMenu.updateCurrentTime(thisTime: playCurrentTime)
         }
         player.PlayFailedBlock = {
-            log.error("播放失败")
+            log.error("==================播放失败")
         }
         player.PlayLoadedTimeBlock = { [weak self] loadedTime in
             self?.bottomMenu.updateLoadedTime(thisTime: loadedTime)
         }
         player.PlayFinishedBlock = { [weak self] in
-            log.verbose("================ PlayFinishedBlock")
+            log.verbose("================ 播放完成")
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: false)
         }
         self.addSubview(player)
+        addGesturesAction()
+        addTimer()
+    }
+    private func addGesturesAction(){
+        
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(tapGestureTaped(tap:)))
+        player.addGestureRecognizer(tapGesture)
+    
+    }
+    @objc private func tapGestureTaped(tap:UITapGestureRecognizer){
+        log.warning("tapGestureTaped ==\(nowIsShowMenuView)")
+        if !nowIsShowMenuView {
+            
+            addTimer()
+        }
+        hideOrShowMenuViews(isShow: nowIsShowMenuView)
+        
+    }
+    private func hideOrShowMenuViews(isShow:Bool){
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            self.topMenu.isHidden = self.nowIsShowMenuView
+            self.bottomMenu.isHidden = self.nowIsShowMenuView
+            
+        }) { (finished) in
+            self.nowIsShowMenuView = !self.nowIsShowMenuView
+        }
+        
+    }
+    
+    private func addTimer(){
+        if timer != nil {
+            
+            removeTimer(timer: timer!)
+        }
+        
+        timer = Timer.scheduledTimer(timeInterval: appearMenuTime, target: self, selector: #selector(hideMenusWithTimer(thisTimer:)), userInfo: nil, repeats: false)
+    }
+    @objc private func hideMenusWithTimer(thisTimer:Timer){
+        
+        if  thisTimer == timer && nowIsShowMenuView {
+            self.hideOrShowMenuViews(isShow:true )
+            removeTimer(timer: thisTimer)
+        }
+    }
+    private func removeTimer(timer:Timer){
+        
+        timer.invalidate()
+        
+    }
+   
+    private func panGesturePaned(pan:UIPanGestureRecognizer){
+    
     }
 
     required init?(coder _: NSCoder) {
@@ -141,6 +198,7 @@ class WKFVideoPlayerView: UIView {
     }
 
     deinit {
+        removeTimer(timer: timer!)
         log.warning("this video player view will be deinit")
     }
 }
