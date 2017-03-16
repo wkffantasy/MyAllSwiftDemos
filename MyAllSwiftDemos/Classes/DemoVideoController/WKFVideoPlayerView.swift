@@ -110,7 +110,7 @@ class WKFVideoPlayerView: UIView {
 
         player = WKFPlayer.init(frame: self.bounds)
         player.PlayTotalTimeBlock = { [weak self] totalTime in
-            //            log.verbose("totalTime == \(totalTime)")
+            
             self?.bottomMenu.updateTotalTime(thisTime: totalTime)
         }
         player.PlayStartSuccessBlock = { [weak self] in
@@ -119,14 +119,12 @@ class WKFVideoPlayerView: UIView {
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: true)
         }
         player.PlayingCurrentTimeBlock = { [weak self] playCurrentTime in
-            //            log.verbose("playCurrentTime ==\(playCurrentTime)")
             self?.bottomMenu.updateCurrentTime(thisTime: playCurrentTime)
         }
         player.PlayFailedBlock = {
             log.error("播放失败")
         }
         player.PlayLoadedTimeBlock = { [weak self] loadedTime in
-            //            log.verbose("loaded time =\(loadedTime)")
             self?.bottomMenu.updateLoadedTime(thisTime: loadedTime)
         }
         player.PlayFinishedBlock = { [weak self] in

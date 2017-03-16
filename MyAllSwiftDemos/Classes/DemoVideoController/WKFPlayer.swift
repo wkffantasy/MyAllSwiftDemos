@@ -14,6 +14,7 @@ class WKFPlayer: UIView {
 
     typealias FloatParamBlock = (Float) -> Void
     typealias NoParamBlock = () -> Void
+    typealias BoolParamBlock = (Bool) -> Void
 
     // 总时长的回调
     public var PlayTotalTimeBlock: FloatParamBlock?
@@ -34,7 +35,7 @@ class WKFPlayer: UIView {
     public var PlayFinishedBlock: NoParamBlock?
 
     // 方向改变(全屏小屏)回调
-    public var PlayDirectionBlock: NoParamBlock?
+    public var PlayDirectionBlock: BoolParamBlock?
 
     // 播放停止的回调
     public var PlayStopBlock: NoParamBlock?
@@ -58,7 +59,7 @@ class WKFPlayer: UIView {
     }
 
     public func updateThisLayerFrame(frame: CGRect) {
-
+        self.frame = frame
         playerLayer.frame = frame
     }
 
@@ -169,8 +170,6 @@ class WKFPlayer: UIView {
         if self.PlayFinishedBlock != nil {
             self.PlayFinishedBlock!()
         }
-        player.seek(to: kCMTimeZero) { _ in
-        }
     }
 
     private func getCurrentTime() -> Float {
@@ -181,8 +180,6 @@ class WKFPlayer: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.black
-
-        NotificationCenter.default.addObserver(self, selector: #selector(orientChange(noti:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
 
     // 判断是否存在已下载好的文件
@@ -192,13 +189,8 @@ class WKFPlayer: UIView {
         filePath = NSURL.init(string: url)
     }
 
-    func orientChange(noti _: NSNotification) {
-        log.verbose("orientChange ", "noti")
-    }
-
     private func removeObservers() {
         NotificationCenter.default.removeObserver(self)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
 
         playerItem.removeObserver(self, forKeyPath: "status")
         playerItem.removeObserver(self, forKeyPath: "loadedTimeRanges")

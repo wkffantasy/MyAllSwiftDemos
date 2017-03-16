@@ -37,17 +37,5 @@ class DemoVideoController: UIViewController {
     deinit {
         log.warning("this video controller will be deinit")
     }
-
-    // about video
-    //    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
-    //        return UIInterfaceOrientation.landscapeRight
-    //    }
-    //
-    //    override var shouldAutorotate: Bool {
-    //        return false
-    //    }
-    //
-    //    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-    //        return UIInterfaceOrientationMask.landscapeRight
-    //    }
+    
 }
