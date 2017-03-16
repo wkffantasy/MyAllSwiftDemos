@@ -46,19 +46,9 @@ class WKFVideoPlayerView: UIView {
         
         setupPlayer()
         
-        topMenu = VideoTopMenu()
-        self.addSubview(topMenu)
-        topMenu.snp.makeConstraints { (make) in
-            make.top.left.right.equalTo(0)
-            make.height.equalTo(40)
-        }
+        setupTopMenu()
         
-        bottomMenu = VideoBottomMenu()
-        self.addSubview(bottomMenu)
-        bottomMenu.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalTo(0)
-            make.height.equalTo(40)
-        }
+        setupBottomMenu()
         
         loadingView = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
         loadingView.hidesWhenStopped = true
@@ -69,6 +59,35 @@ class WKFVideoPlayerView: UIView {
         }
    
     }
+    private func setupTopMenu(){
+        topMenu = VideoTopMenu()
+        self.addSubview(topMenu)
+        topMenu.snp.makeConstraints { (make) in
+            make.top.left.right.equalTo(0)
+            make.height.equalTo(40)
+        }
+    }
+    private func setupBottomMenu(){
+        
+        bottomMenu = VideoBottomMenu()
+        bottomMenu.fullOrSmallBlock = {(willBeFull) in
+            log.verbose("fullOrSmallBlock == \(willBeFull)")
+            
+        }
+        bottomMenu.playOrPauseBlock = {[weak self](nowIsPlaying) in
+            
+            self?.player.updatePlayerPauseAndPlay(isPlaying: nowIsPlaying)
+            self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: nowIsPlaying)
+            
+        }
+        self.addSubview(bottomMenu)
+        bottomMenu.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalTo(0)
+            make.height.equalTo(40)
+        }
+    
+    }
+
     private func setupPlayer(){
     
         player = WKFPlayer.init(frame: self.bounds)
@@ -77,12 +96,15 @@ class WKFVideoPlayerView: UIView {
             self?.bottomMenu.updateTotalTime(thisTime: totalTime)
         }
         player.PlayStartSuccessBlock = {  [weak self] in
+            if self?.loadingView.isHidden == false {
+                return
+            }
             self?.loadingView.stopAnimating()
-            log.verbose("PlayStartSuccessBlock")
+            self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: true)
         }
-        player.PlayingCurrentTimeBlock = { playCurrentTime in
+        player.PlayingCurrentTimeBlock = { [weak self]playCurrentTime in
             log.verbose("playCurrentTime ==\(playCurrentTime)")
-            self.bottomMenu.updateCurrentTime(thisTime: playCurrentTime)
+            self?.bottomMenu.updateCurrentTime(thisTime: playCurrentTime)
         }
         player.PlayFailedBlock = {
             log.error("播放失败")

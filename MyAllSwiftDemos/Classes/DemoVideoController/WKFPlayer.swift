@@ -58,6 +58,15 @@ class WKFPlayer: UIView {
         }
         
     }
+    public func updatePlayerPauseAndPlay(isPlaying:Bool){
+        
+        if isPlaying != true {
+            player.pause()
+        } else {
+            player.play()
+        }
+        
+    }
     private func initPlayer(){
         
         if player != nil {
@@ -94,16 +103,19 @@ class WKFPlayer: UIView {
         }
         
     }
+    private func callBackTotalTime(){
+        let duration = playerItem.duration
+        let totalSecond :Float64 = CMTimeGetSeconds(duration)
+        if self.PlayTotalTimeBlock != nil {
+            self.PlayTotalTimeBlock!(Float(totalSecond))
+        }
+    }
     
     private func observeForStatus() {
         
         if playerItem.status == .readyToPlay {
             
-            let duration = playerItem.duration
-            let totalSecond :Float64 = CMTimeGetSeconds(duration)
-            if self.PlayTotalTimeBlock != nil {
-                self.PlayTotalTimeBlock!(Float(totalSecond))
-            }
+            callBackTotalTime()
             
             if self.PlayStartSuccessBlock != nil {
                 self.PlayStartSuccessBlock!()

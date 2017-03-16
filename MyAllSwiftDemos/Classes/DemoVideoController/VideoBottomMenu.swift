@@ -12,6 +12,11 @@ class VideoBottomMenu: UIView {
     
     let buttonWH = 20
     
+    typealias BoolParamBlock = (Bool) -> Void
+    
+    public var fullOrSmallBlock :BoolParamBlock?
+    public var playOrPauseBlock :BoolParamBlock?
+    
     private var buttonPlay:UIButton!
     private var labelCurrentTime:UILabel!
     private var labelTotalTime:UILabel!
@@ -23,6 +28,9 @@ class VideoBottomMenu: UIView {
     private var totalTime:Float?
     private var currentTime:Float?
     
+    private var nowIsFull:Bool = false
+    private var nowIsPlaying:Bool = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.colorWithHexString("000000", Alpha: 0.7)
@@ -31,10 +39,21 @@ class VideoBottomMenu: UIView {
     public func updateTotalTime(thisTime:Float){
         totalTime = thisTime
         let thisString = TimeTool.tool.convertTimeIntToTimeString(time: Int64(thisTime))
-        labelTotalTime.text = "/" + thisString
+        labelTotalTime.text = "/ " + thisString
+    }
+    public func updatePauseAndPlayStatus(isPlaying:Bool){
+        
+        self.nowIsPlaying = isPlaying
+        if  isPlaying == true {
+            buttonPlay.setImage(UIImage.init(named: "nowPlayingStatus"), for: .normal)
+        } else {
+            buttonPlay.setImage(UIImage.init(named: "nowPauseStatus"), for: .normal)
+        }
     }
     public func updateLoadedTime(thisTime:Float){
-        
+        if totalTime == nil {
+            return
+        }
         viewLoadedLine.snp.remakeConstraints { (make) in
             make.left.equalTo(viewLine.snp.left)
             make.height.equalTo(2)
@@ -45,7 +64,9 @@ class VideoBottomMenu: UIView {
     }
     public func updateCurrentTime(thisTime:Float){
         currentTime = thisTime
-        
+        if totalTime == nil {
+            return
+        }
         let thisString = TimeTool.tool.convertTimeIntToTimeString(time: Int64(thisTime))
         labelCurrentTime.text = thisString
         
@@ -124,7 +145,7 @@ class VideoBottomMenu: UIView {
         
         //总的时间
         labelTotalTime = setupLabel()
-        labelTotalTime.text = "/00:00"
+        labelTotalTime.text = "/ 00:00"
         labelTotalTime.snp.makeConstraints { (make) in
             make.left.equalTo(labelCurrentTime.snp.right).offset(3)
             make.top.equalTo(labelCurrentTime.snp.top)
@@ -141,10 +162,24 @@ class VideoBottomMenu: UIView {
     
     }
     func clickPlayButton(button:UIButton) {
-        log.verbose("clickPlayButton")
+        
+        if self.playOrPauseBlock != nil {
+            self.playOrPauseBlock!(!self.nowIsPlaying)
+        }
     }
     func clickFullButton(button:UIButton)  {
-        log.verbose("clickPlayButton")
+        
+        if nowIsFull == true {
+            nowIsFull = false
+            buttonFullScreen.setImage(UIImage.init(named: "nowFullScreen"), for: .normal)
+        } else {
+            nowIsFull = true
+            buttonFullScreen.setImage(UIImage.init(named: "nowSmallScreen"), for: .normal)
+        }
+        if self.fullOrSmallBlock != nil {
+            self.fullOrSmallBlock!(nowIsFull)
+        }
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
