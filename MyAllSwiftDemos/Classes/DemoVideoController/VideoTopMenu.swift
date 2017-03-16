@@ -21,6 +21,16 @@ class VideoTopMenu: UIView {
         }
     }
 
+    public func relayoutThisLable(isFull: Bool) {
+
+        titleLabel.snp.remakeConstraints { make in
+
+            make.left.equalTo(20)
+            make.right.equalTo(-20)
+            make.centerY.equalTo(self.snp.centerY).offset(isFull == true ? 8 : 0)
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.colorWithHexString("000000", Alpha: 0.7)

@@ -66,8 +66,9 @@ class WKFVideoPlayerView: UIView {
         topMenu = VideoTopMenu()
         self.addSubview(topMenu)
         topMenu.snp.makeConstraints { make in
-            make.top.left.right.equalTo(0)
-            make.height.equalTo(40)
+
+            make.left.top.right.equalTo(0)
+            make.height.equalTo(45)
         }
     }
 
@@ -75,22 +76,23 @@ class WKFVideoPlayerView: UIView {
 
         bottomMenu = VideoBottomMenu()
         bottomMenu.fullOrSmallBlock = { [weak self] willBeFull in
+
             if self?.fullOrSmallBlock != nil {
                 self?.fullOrSmallBlock!(willBeFull)
             }
             if willBeFull == true {
 
                 UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
-                UIApplication.shared.statusBarOrientation = .landscapeRight
                 self?.frame = UIScreen.main.bounds
 
             } else {
+
                 UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-                UIApplication.shared.statusBarOrientation = .portrait
                 self?.frame = (self?.firstFrame)!
             }
 
             self?.player.updateThisLayerFrame(frame: (self?.bounds)!)
+            self?.topMenu.relayoutThisLable(isFull: willBeFull)
         }
         bottomMenu.playOrPauseBlock = { [weak self] nowIsPlaying in
             if self?.loadingView.isHidden == false {
@@ -110,7 +112,7 @@ class WKFVideoPlayerView: UIView {
 
         player = WKFPlayer.init(frame: self.bounds)
         player.PlayTotalTimeBlock = { [weak self] totalTime in
-            
+
             self?.bottomMenu.updateTotalTime(thisTime: totalTime)
         }
         player.PlayStartSuccessBlock = { [weak self] in
@@ -131,7 +133,6 @@ class WKFVideoPlayerView: UIView {
             log.verbose("================ PlayFinishedBlock")
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: false)
         }
-
         self.addSubview(player)
     }
 
