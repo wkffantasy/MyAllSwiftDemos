@@ -86,6 +86,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func jumpToVideoVC() {
         self.navigationController?.pushViewController(DemoVideoController(), animated: true)
     }
+    func jumpToWaveVC() {
+        self.navigationController?.pushViewController(WaveController(), animated: true)
+    }
 
     func jumpToNoMarginScrollVC() {
         self.navigationController?.pushViewController(NoMarginScrollController(), animated: true)

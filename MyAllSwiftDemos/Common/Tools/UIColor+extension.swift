@@ -73,7 +73,7 @@ extension UIColor {
         return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: Alpha)
     }
 
-    class func colorWithRGBH(red: Int, green: Int, blue: Int, Alpha: Int = 1) -> UIColor {
+    class func colorWithRGBH(red: Int, green: Int, blue: Int, Alpha: Float = 1.0) -> UIColor {
 
         return UIColor(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: CGFloat(Alpha))
     }
