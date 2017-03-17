@@ -27,7 +27,8 @@ class WKFVideoPlayerView: UIView {
     private var thisCurrentTime: Float = -1
     private var thisTotalTime: Float = -1
     private var nowIsPan: Bool = false
-    private var panCurrentTime: Float?
+    private var panCurrentTime: Float = 0
+    private var beganPoint: CGPoint = .zero
 
     var playUrl: String! {
         didSet {
@@ -181,11 +182,15 @@ class WKFVideoPlayerView: UIView {
 
         let locationPoint = pan.location(in: self)
         let velocityPoint = pan.velocity(in: self)
+        let translationPoint = pan.translation(in: self)
+        print("translationPoint ==", translationPoint)
         switch pan.state {
         case .began:
+
             let x = fabs(velocityPoint.x)
             let y = fabs(velocityPoint.y)
             if x > y { // 进度
+                beganPoint = locationPoint
                 panDirection = .panHorizontal
                 nowIsPan = true
                 bottomMenu.updatePauseAndPlayStatus(isPlaying: false)
@@ -193,6 +198,7 @@ class WKFVideoPlayerView: UIView {
                 removeTimer(timer: timer!)
                 nowIsShowMenuView = false
                 hideOrShowMenuViews()
+
             } else { // 声音与亮度
                 panDirection = .panVertical
                 if locationPoint.x > self.bounds.size.width / 2 {
@@ -204,17 +210,20 @@ class WKFVideoPlayerView: UIView {
                 }
             }
         case .changed:
+
             if panDirection == .panHorizontal {
                 let thisViewLineWidth = bottomMenu.getViewLineWidth()
+                let x = locationPoint.x - beganPoint.x
                 if thisCurrentTime != -1 && thisTotalTime != -1 && thisViewLineWidth > CGFloat(0) {
-                    panCurrentTime = Float(locationPoint.x / 3) * thisTotalTime / Float(thisViewLineWidth) + thisCurrentTime
-                    if panCurrentTime! > thisTotalTime {
+
+                    panCurrentTime = Float(x) * thisTotalTime / Float(thisViewLineWidth) + thisCurrentTime
+                    if panCurrentTime > thisTotalTime {
                         panCurrentTime = thisTotalTime - 1
-                    } else if panCurrentTime! < Float(0) {
+                    } else if panCurrentTime < Float(0) {
                         panCurrentTime = 0
                     }
-                    player.seekToTime(seconds: panCurrentTime!)
-                    bottomMenu.updateCurrentTime(thisTime: panCurrentTime!)
+                    player.seekToTime(seconds: panCurrentTime)
+                    bottomMenu.updateCurrentTime(thisTime: panCurrentTime)
                 }
             } else {
                 if panVolumeOrBright == .panVolume { // volume
@@ -227,8 +236,9 @@ class WKFVideoPlayerView: UIView {
             print("ended panDirection==\(panDirection)")
             if panDirection == .panHorizontal {
                 nowIsPan = false
-                panCurrentTime = 0
                 addTimer()
+                thisCurrentTime = panCurrentTime
+                panCurrentTime = 0
             }
         default:
             break
