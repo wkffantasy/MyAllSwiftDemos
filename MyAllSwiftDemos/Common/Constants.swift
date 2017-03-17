@@ -52,8 +52,8 @@ let functionsArray = [
     ],
     [
         "title": "自己写的视频播放器",
-        "titleDescription": "挑战一下自己",
-        "status": "正在做",
+        "titleDescription": "挑战一下自己,目前正常的功能已经完成。可以快进，快退，全屏，小屏。",
+        "status": "待完善吧",
         "jumpTo": "jumpToVideoVC",
     ],
 ]

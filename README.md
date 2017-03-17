@@ -18,6 +18,10 @@ swift写的所有可以复用的demos
 
 用的frame进行布局，pageControl需要自己定制(定制的方法在NoMarginScrollController里面)。注意：需要在controller销毁的时候，把这个view的定时器给消除，调用removeTimer()方法。
 
+4.AVPlayer写的一个视频播放器
+
+用的SnapKit写的布局。纯swift写的。这个播放器可以横屏 小屏，快进，快退，左上滑改亮度，右上滑改声音。待完善。a.和controller的耦合性比较高。b.当上下滑动改变亮度和声音的时候 需要加一个view来显示。c.一旦播放就要去下载这个视频，等下次播放的时候直接播放本地的。d.没有加网络判断。
+
 有兴趣做的小动画，很简单的小动画
 
 1.弧形的动画
