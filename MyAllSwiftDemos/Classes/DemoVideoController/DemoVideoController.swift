@@ -14,6 +14,9 @@ class DemoVideoController: UIViewController {
     let url2 = "http://www.jxgbwlxy.gov.cn/tm/course/041629011/sco1/1.mp4"
     // this url3 is an error url
     let url3 = "http://satic.tripbe.com/videofiles/20121214/9533522808.f4v.mp4"
+    let url4 = "http://media7.smartstudy.com/pd/videos/2015/af/c7/16040/mp4/dest.m3u8"
+    let url5 = "http://media7.smartstudy.com/pd/videos/2015/3e/5a/16041/mp4/dest.m3u8"
+    let url6 = "http://v.smartstudy.com/pd/videos/2015/67/df/10422/mp4/dest.m3u8"
 
     var playerView: WKFVideoPlayerView!
     var isFull: Bool! = false
@@ -36,7 +39,7 @@ class DemoVideoController: UIViewController {
             self?.setNeedsStatusBarAppearanceUpdate()
         }
         playerView.playTitle = "七里香"
-        playerView.playUrl = url1
+        playerView.playUrl = url6
         self.view.addSubview(playerView)
     }
 

@@ -19,10 +19,13 @@ class WKFVideoPlayerView: UIView {
     private var bottomMenu: VideoBottomMenu!
     private var loadingView: UIActivityIndicatorView!
     private var player: WKFPlayer!
-    
-    private var nowIsShowMenuView:Bool = true
+
+    private var nowIsShowMenuView: Bool = true
     private let appearMenuTime = 5.0
-    private var timer:Timer?
+    private var timer: Timer?
+
+    private var panDirection: PanDirection? = PanDirection.panHorizontal
+    private var panVolumeOrBright: PanVolumeOrBrightness? = PanVolumeOrBrightness.panVolume
 
     var playUrl: String! {
         didSet {
@@ -141,56 +144,94 @@ class WKFVideoPlayerView: UIView {
         addGesturesAction()
         addTimer()
     }
-    private func addGesturesAction(){
-        
+
+    private func addGesturesAction() {
+
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(tapGestureTaped(tap:)))
         player.addGestureRecognizer(tapGesture)
-    
+
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesturePaned(pan:)))
+        player.addGestureRecognizer(panGesture)
     }
-    @objc private func tapGestureTaped(tap:UITapGestureRecognizer){
+
+    @objc private func panGesturePaned(pan: UIPanGestureRecognizer) {
+
+        let locationPoint = pan.location(in: self)
+        let velocityPoint = pan.velocity(in: self)
+        switch pan.state {
+        case .began:
+            let x = fabs(velocityPoint.x)
+            let y = fabs(velocityPoint.y)
+            if x > y { // 进度
+                panDirection = .panHorizontal
+            } else { // 声音与亮度
+                panDirection = .panVertical
+                if locationPoint.x > self.bounds.size.width / 2 {
+                    // 声音
+                    panVolumeOrBright = .panVolume
+                } else {
+                    // 亮度
+                    panVolumeOrBright = .panBrightness
+                }
+            }
+        case .changed:
+            print("changed panDirection == \(panDirection)")
+            if panDirection == .panHorizontal {
+
+            } else {
+                if panVolumeOrBright == .panVolume { // volume
+                    player.updatePlayerVolume(volume: Float(velocityPoint.y) / 5000.0)
+                } else { // brightness
+                    UIScreen.main.brightness -= velocityPoint.y / 10000.0
+                }
+            }
+        case .ended:
+            print("ended panDirection==\(panDirection)")
+            if panDirection == .panHorizontal {
+            }
+        default:
+            break
+        }
+    }
+
+    @objc private func tapGestureTaped(tap _: UITapGestureRecognizer) {
         log.warning("tapGestureTaped ==\(nowIsShowMenuView)")
         if !nowIsShowMenuView {
-            
             addTimer()
         }
         hideOrShowMenuViews(isShow: nowIsShowMenuView)
-        
     }
-    private func hideOrShowMenuViews(isShow:Bool){
-        
+
+    private func hideOrShowMenuViews(isShow _: Bool) {
         UIView.animate(withDuration: 1.0, animations: {
             self.topMenu.isHidden = self.nowIsShowMenuView
             self.bottomMenu.isHidden = self.nowIsShowMenuView
-            
-        }) { (finished) in
+
+        }) { _ in
             self.nowIsShowMenuView = !self.nowIsShowMenuView
         }
-        
     }
-    
-    private func addTimer(){
+
+    private func addTimer() {
         if timer != nil {
-            
+
             removeTimer(timer: timer!)
         }
-        
+
         timer = Timer.scheduledTimer(timeInterval: appearMenuTime, target: self, selector: #selector(hideMenusWithTimer(thisTimer:)), userInfo: nil, repeats: false)
     }
-    @objc private func hideMenusWithTimer(thisTimer:Timer){
-        
-        if  thisTimer == timer && nowIsShowMenuView {
-            self.hideOrShowMenuViews(isShow:true )
+
+    @objc private func hideMenusWithTimer(thisTimer: Timer) {
+
+        if thisTimer == timer && nowIsShowMenuView {
+            self.hideOrShowMenuViews(isShow: true)
             removeTimer(timer: thisTimer)
         }
     }
-    private func removeTimer(timer:Timer){
-        
+
+    private func removeTimer(timer: Timer) {
+
         timer.invalidate()
-        
-    }
-   
-    private func panGesturePaned(pan:UIPanGestureRecognizer){
-    
     }
 
     required init?(coder _: NSCoder) {

@@ -14,6 +14,18 @@ import SnapKit
 
 // constants
 
+/// player pan gestrue direction
+enum PanDirection: Int {
+    case panHorizontal = 0
+    case panVertical = 1
+}
+
+/// player pan volume or brightness
+enum PanVolumeOrBrightness: Int {
+    case panVolume = 0
+    case panBrightness = 1
+}
+
 let curveMaxHeight: CGFloat = 60
 
 let ScreenWidth = UIScreen.main.bounds.size.width

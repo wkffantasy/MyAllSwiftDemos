@@ -72,6 +72,10 @@ class WKFPlayer: UIView {
         }
     }
 
+    public func updatePlayerVolume(volume: Float) {
+        player.volume -= volume
+    }
+
     private func initPlayer() {
 
         if player != nil {
@@ -91,7 +95,7 @@ class WKFPlayer: UIView {
         playerLayer = AVPlayerLayer.init(player: player)
         playerLayer.frame = self.bounds
         self.layer.insertSublayer(playerLayer, at: 0)
-
+        player.volume = 0.5
         player.play()
 
         playerItem.addObserver(self, forKeyPath: "status", options: .new, context: nil)
