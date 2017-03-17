@@ -68,6 +68,7 @@ class WKFVideoPlayerView: UIView {
             make.center.equalTo(self.snp.center)
         }
     }
+
     private func setupTopMenu() {
         topMenu = VideoTopMenu()
         self.addSubview(topMenu)
@@ -76,6 +77,7 @@ class WKFVideoPlayerView: UIView {
             make.height.equalTo(45)
         }
     }
+
     private func setupBottomMenu() {
         bottomMenu = VideoBottomMenu()
         bottomMenu.fullOrSmallBlock = { [weak self] willBeFull in
@@ -106,7 +108,7 @@ class WKFVideoPlayerView: UIView {
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: nowIsPlaying)
         }
         bottomMenu.beganPanBlock = { [weak self] pan in
-            self?.paningGesture(pan: pan,canMoveUpAndDown: false)
+            self?.paningGesture(pan: pan, canMoveUpAndDown: false)
         }
         self.addSubview(bottomMenu)
         bottomMenu.snp.makeConstraints { make in
@@ -114,6 +116,7 @@ class WKFVideoPlayerView: UIView {
             make.height.equalTo(40)
         }
     }
+
     private func setupPlayer() {
         player = WKFPlayer.init(frame: self.bounds)
         player.PlayTotalTimeBlock = { [weak self] totalTime in
@@ -156,14 +159,16 @@ class WKFVideoPlayerView: UIView {
         addGesturesAction()
         addTimer()
     }
+
     private func addGesturesAction() {
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(tapGestureTaped(tap:)))
         player.addGestureRecognizer(tapGesture)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesturePaned(pan:)))
         self.addGestureRecognizer(panGesture)
     }
-    private func paningGesture(pan:UIPanGestureRecognizer,canMoveUpAndDown moveUp:Bool){
-        
+
+    private func paningGesture(pan: UIPanGestureRecognizer, canMoveUpAndDown moveUp: Bool) {
+
         let locationPoint = pan.location(in: self)
         let velocityPoint = pan.velocity(in: self)
         let translationPoint = pan.translation(in: self)
@@ -199,9 +204,9 @@ class WKFVideoPlayerView: UIView {
         case .changed:
             if panDirection == .panHorizontal {
                 let thisViewLineWidth = bottomMenu.getViewLineWidth()
-                
+
                 if thisCurrentTime != -1 && thisTotalTime != -1 && thisViewLineWidth > CGFloat(0) {
-                    
+
                     panCurrentTime = Float(translationPoint.x) * thisTotalTime / Float(thisViewLineWidth) + thisCurrentTime
                     if panCurrentTime > thisTotalTime {
                         panCurrentTime = thisTotalTime - 1
@@ -229,11 +234,12 @@ class WKFVideoPlayerView: UIView {
         default:
             break
         }
-        
     }
+
     @objc private func panGesturePaned(pan: UIPanGestureRecognizer) {
-        paningGesture(pan: pan,canMoveUpAndDown: true)
+        paningGesture(pan: pan, canMoveUpAndDown: true)
     }
+
     @objc private func tapGestureTaped(tap _: UITapGestureRecognizer) {
         log.warning("tapGestureTaped ==\(nowIsShowMenuView)")
         if !nowIsShowMenuView {
@@ -241,6 +247,7 @@ class WKFVideoPlayerView: UIView {
         }
         hideOrShowMenuViews()
     }
+
     private func hideOrShowMenuViews() {
         UIView.animate(withDuration: 1.0, animations: {
             self.topMenu.isHidden = self.nowIsShowMenuView
@@ -249,24 +256,29 @@ class WKFVideoPlayerView: UIView {
             self.nowIsShowMenuView = !self.nowIsShowMenuView
         }
     }
+
     private func addTimer() {
         if timer != nil {
             removeTimer(timer: timer!)
         }
         timer = Timer.scheduledTimer(timeInterval: appearMenuTime, target: self, selector: #selector(hideMenusWithTimer(thisTimer:)), userInfo: nil, repeats: false)
     }
+
     @objc private func hideMenusWithTimer(thisTimer: Timer) {
         if thisTimer == timer && nowIsShowMenuView {
             self.hideOrShowMenuViews()
             removeTimer(timer: thisTimer)
         }
     }
+
     private func removeTimer(timer: Timer) {
         timer.invalidate()
     }
+
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     deinit {
         removeTimer(timer: timer!)
         log.warning("this video player view will be deinit")
