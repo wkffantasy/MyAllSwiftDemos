@@ -69,6 +69,10 @@ class WKFPlayer: UIView {
         playerLayer.frame = frame
     }
 
+    public func seekToTime(seconds: Float) {
+        player.seek(to: CMTimeMakeWithSeconds(Float64(seconds), Int32(NSEC_PER_SEC)))
+    }
+
     public func updatePlayerPauseAndPlay(isPlaying: Bool) {
 
         if isPlaying != true {
@@ -172,20 +176,25 @@ class WKFPlayer: UIView {
 
     private func observeForLoadedTimeRanges() {
 
-        let timeInterval = playerAvalableDuration()
-        DispatchQueue.main.async {
-            if self.PlayLoadedTimeBlock != nil {
-                self.PlayLoadedTimeBlock!(Float(timeInterval))
+        if let timeInterval = playerAvalableDuration() {
+            DispatchQueue.main.async {
+                if self.PlayLoadedTimeBlock != nil {
+                    self.PlayLoadedTimeBlock!(Float(timeInterval))
+                }
             }
         }
     }
 
     // 计算缓冲区的时间
-    private func playerAvalableDuration() -> TimeInterval {
-        let loadedTimeArray = player.currentItem?.loadedTimeRanges
-        let timeRange = loadedTimeArray?.first?.timeRangeValue
-
-        return CMTimeGetSeconds((timeRange?.start)!) + CMTimeGetSeconds((timeRange?.duration)!)
+    private func playerAvalableDuration() -> TimeInterval? {
+        if let loadedTimeArray = player.currentItem?.loadedTimeRanges {
+            let timeRange = loadedTimeArray.first?.timeRangeValue
+            if timeRange != nil {
+                return CMTimeGetSeconds((timeRange?.start)!) + CMTimeGetSeconds((timeRange?.duration)!)
+            }
+            return nil
+        }
+        return nil
     }
 
     // 视频播放完成之后

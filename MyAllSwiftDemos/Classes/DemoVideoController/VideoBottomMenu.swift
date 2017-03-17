@@ -13,9 +13,11 @@ class VideoBottomMenu: UIView {
     let buttonWH = 20
 
     typealias BoolParamBlock = (Bool) -> Void
+    //    typealias CGFloatParamBlock = (CGFloat) -> Void
 
     public var fullOrSmallBlock: BoolParamBlock?
     public var playOrPauseBlock: BoolParamBlock?
+    //    public var viewLineWidthBlock: CGFloatParamBlock?
 
     private var buttonPlay: UIButton!
     private var labelCurrentTime: UILabel!
@@ -35,6 +37,10 @@ class VideoBottomMenu: UIView {
         super.init(frame: frame)
         self.backgroundColor = UIColor.colorWithHexString("000000", Alpha: 0.7)
         setupViews()
+    }
+
+    public func getViewLineWidth() -> CGFloat {
+        return viewLine.frame.size.width
     }
 
     public func updateTotalTime(thisTime: Float) {

@@ -24,6 +24,10 @@ class WKFVideoPlayerView: UIView {
     private var timer: Timer?
     private var panDirection: PanDirection? = PanDirection.panHorizontal
     private var panVolumeOrBright: PanVolumeOrBrightness? = PanVolumeOrBrightness.panVolume
+    private var thisCurrentTime: Float = -1
+    private var thisTotalTime: Float = -1
+    private var nowIsPan: Bool = false
+    private var panCurrentTime: Float?
 
     var playUrl: String! {
         didSet {
@@ -110,6 +114,9 @@ class WKFVideoPlayerView: UIView {
             self?.player.updatePlayerPauseAndPlay(isPlaying: nowIsPlaying)
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: nowIsPlaying)
         }
+        //        bottomMenu.viewLineWidthBlock = {[weak self] width in
+        //            self?.thisViewLineWidth = width
+        //        }
         self.addSubview(bottomMenu)
         bottomMenu.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(0)
@@ -121,7 +128,7 @@ class WKFVideoPlayerView: UIView {
 
         player = WKFPlayer.init(frame: self.bounds)
         player.PlayTotalTimeBlock = { [weak self] totalTime in
-
+            self?.thisTotalTime = totalTime
             self?.bottomMenu.updateTotalTime(thisTime: totalTime)
         }
         player.PlayStartSuccessBlock = { [weak self] in
@@ -130,6 +137,8 @@ class WKFVideoPlayerView: UIView {
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: true)
         }
         player.PlayingCurrentTimeBlock = { [weak self] playCurrentTime in
+            if self?.nowIsPan == true { return }
+            self?.thisCurrentTime = playCurrentTime
             self?.bottomMenu.updateCurrentTime(thisTime: playCurrentTime)
         }
         player.PlayFailedBlock = {
@@ -149,7 +158,9 @@ class WKFVideoPlayerView: UIView {
         }
         player.BufferLikelyToPlayBlock = { [weak self] in
             print("!!!!!!!!!!!!!!!!!!!!! BufferLikelyToPlayBlock")
+            if self?.nowIsPan == true { return }
             self?.loadingView.stopAnimating()
+            self?.player.updatePlayerPauseAndPlay(isPlaying: true)
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: true)
         }
         self.addSubview(player)
@@ -176,6 +187,12 @@ class WKFVideoPlayerView: UIView {
             let y = fabs(velocityPoint.y)
             if x > y { // 进度
                 panDirection = .panHorizontal
+                nowIsPan = true
+                bottomMenu.updatePauseAndPlayStatus(isPlaying: false)
+                player.updatePlayerPauseAndPlay(isPlaying: false)
+                removeTimer(timer: timer!)
+                nowIsShowMenuView = false
+                hideOrShowMenuViews()
             } else { // 声音与亮度
                 panDirection = .panVertical
                 if locationPoint.x > self.bounds.size.width / 2 {
@@ -187,13 +204,21 @@ class WKFVideoPlayerView: UIView {
                 }
             }
         case .changed:
-            print("changed panDirection == \(panDirection)")
             if panDirection == .panHorizontal {
-
+                let thisViewLineWidth = bottomMenu.getViewLineWidth()
+                if thisCurrentTime != -1 && thisTotalTime != -1 && thisViewLineWidth > CGFloat(0) {
+                    panCurrentTime = Float(locationPoint.x / 3) * thisTotalTime / Float(thisViewLineWidth) + thisCurrentTime
+                    if panCurrentTime! > thisTotalTime {
+                        panCurrentTime = thisTotalTime - 1
+                    } else if panCurrentTime! < Float(0) {
+                        panCurrentTime = 0
+                    }
+                    player.seekToTime(seconds: panCurrentTime!)
+                    bottomMenu.updateCurrentTime(thisTime: panCurrentTime!)
+                }
             } else {
                 if panVolumeOrBright == .panVolume { // volume
                     player.updatePlayerVolume(volume: Float(velocityPoint.y) / 5000.0)
-
                 } else { // brightness
                     UIScreen.main.brightness -= velocityPoint.y / 10000.0
                 }
@@ -201,6 +226,9 @@ class WKFVideoPlayerView: UIView {
         case .ended:
             print("ended panDirection==\(panDirection)")
             if panDirection == .panHorizontal {
+                nowIsPan = false
+                panCurrentTime = 0
+                addTimer()
             }
         default:
             break
@@ -212,14 +240,13 @@ class WKFVideoPlayerView: UIView {
         if !nowIsShowMenuView {
             addTimer()
         }
-        hideOrShowMenuViews(isShow: nowIsShowMenuView)
+        hideOrShowMenuViews()
     }
 
-    private func hideOrShowMenuViews(isShow _: Bool) {
+    private func hideOrShowMenuViews() {
         UIView.animate(withDuration: 1.0, animations: {
             self.topMenu.isHidden = self.nowIsShowMenuView
             self.bottomMenu.isHidden = self.nowIsShowMenuView
-
         }) { _ in
             self.nowIsShowMenuView = !self.nowIsShowMenuView
         }
@@ -237,7 +264,7 @@ class WKFVideoPlayerView: UIView {
     @objc private func hideMenusWithTimer(thisTimer: Timer) {
 
         if thisTimer == timer && nowIsShowMenuView {
-            self.hideOrShowMenuViews(isShow: true)
+            self.hideOrShowMenuViews()
             removeTimer(timer: thisTimer)
         }
     }
