@@ -34,6 +34,10 @@ class WKFVideoPlayerView: UIView {
             player.playUrl = playUrl
         }
     }
+    
+    public func removeThisView(){
+        removeTimer(timer: timer!)
+    }
 
     var playTitle: String! {
 

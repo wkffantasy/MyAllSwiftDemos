@@ -52,6 +52,7 @@ class DemoVideoController: UIViewController {
     }
 
     deinit {
+        playerView.removeThisView()
         log.warning("this video controller will be deinit")
     }
 }
