@@ -13,11 +13,11 @@ class VideoBottomMenu: UIView {
     let buttonWH = 20
 
     typealias BoolParamBlock = (Bool) -> Void
-    //    typealias CGFloatParamBlock = (CGFloat) -> Void
+    typealias PanGestureParamBlock = (UIPanGestureRecognizer) -> Void
 
     public var fullOrSmallBlock: BoolParamBlock?
     public var playOrPauseBlock: BoolParamBlock?
-    //    public var viewLineWidthBlock: CGFloatParamBlock?
+    public var beganPanBlock:PanGestureParamBlock?
 
     private var buttonPlay: UIButton!
     private var labelCurrentTime: UILabel!
@@ -159,14 +159,30 @@ class VideoBottomMenu: UIView {
             make.left.equalTo(labelCurrentTime.snp.right).offset(3)
             make.top.equalTo(labelCurrentTime.snp.top)
         }
+        
+        let panView = UIView()
+        panView.backgroundColor = UIColor.clear
+        addSubview(panView)
+        panView.snp.makeConstraints { (make) in
+            make.top.bottom.equalTo(0)
+            make.left.equalTo(viewLine.snp.left)
+            make.right.equalTo(viewLine.snp.right)
+        }
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesturePaned(pan:)))
+        self.addGestureRecognizer(panGesture)
     }
-
+    @objc private func panGesturePaned(pan: UIPanGestureRecognizer) {
+        if beganPanBlock != nil {
+            beganPanBlock!(pan)
+        }
+    }
     private func setupLabel() -> UILabel {
 
         let label = UILabel.init()
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 12)
-        self.addSubview(label)
+        addSubview(label)
         return label
     }
 

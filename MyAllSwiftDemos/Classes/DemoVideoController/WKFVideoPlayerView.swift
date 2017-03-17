@@ -28,7 +28,6 @@ class WKFVideoPlayerView: UIView {
     private var thisTotalTime: Float = -1
     private var nowIsPan: Bool = false
     private var panCurrentTime: Float = 0
-    private var beganPoint: CGPoint = .zero
 
     var playUrl: String! {
         didSet {
@@ -43,7 +42,6 @@ class WKFVideoPlayerView: UIView {
     }
 
     var playTitle: String! {
-
         didSet {
             assert(playTitle.length > 0, "")
             log.verbose("give view title \(playTitle)")
@@ -53,20 +51,15 @@ class WKFVideoPlayerView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         self.clipsToBounds = true
         firstFrame = frame
         setupViews()
     }
 
     private func setupViews() {
-
         setupPlayer()
-
         setupTopMenu()
-
         setupBottomMenu()
-
         loadingView = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
         loadingView.hidesWhenStopped = true
         loadingView.startAnimating()
@@ -75,32 +68,27 @@ class WKFVideoPlayerView: UIView {
             make.center.equalTo(self.snp.center)
         }
     }
-
     private func setupTopMenu() {
         topMenu = VideoTopMenu()
         self.addSubview(topMenu)
         topMenu.snp.makeConstraints { make in
-
             make.left.top.right.equalTo(0)
             make.height.equalTo(45)
         }
     }
-
     private func setupBottomMenu() {
-
         bottomMenu = VideoBottomMenu()
         bottomMenu.fullOrSmallBlock = { [weak self] willBeFull in
-
+            self?.removeTimer(timer: (self?.timer!)!)
+            self?.addTimer()
             if self?.fullOrSmallBlock != nil {
                 self?.fullOrSmallBlock!(willBeFull)
             }
             if willBeFull == true {
-
                 UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
                 self?.frame = UIScreen.main.bounds
 
             } else {
-
                 UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
                 self?.frame = (self?.firstFrame)!
             }
@@ -112,21 +100,21 @@ class WKFVideoPlayerView: UIView {
             if self?.loadingView.isHidden == false {
                 return
             }
+            self?.removeTimer(timer: (self?.timer!)!)
+            self?.addTimer()
             self?.player.updatePlayerPauseAndPlay(isPlaying: nowIsPlaying)
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: nowIsPlaying)
         }
-        //        bottomMenu.viewLineWidthBlock = {[weak self] width in
-        //            self?.thisViewLineWidth = width
-        //        }
+        bottomMenu.beganPanBlock = { [weak self] pan in
+            self?.paningGesture(pan: pan,canMoveUpAndDown: false)
+        }
         self.addSubview(bottomMenu)
         bottomMenu.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(0)
             make.height.equalTo(40)
         }
     }
-
     private func setupPlayer() {
-
         player = WKFPlayer.init(frame: self.bounds)
         player.PlayTotalTimeBlock = { [weak self] totalTime in
             self?.thisTotalTime = totalTime
@@ -168,29 +156,29 @@ class WKFVideoPlayerView: UIView {
         addGesturesAction()
         addTimer()
     }
-
     private func addGesturesAction() {
-
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(tapGestureTaped(tap:)))
         player.addGestureRecognizer(tapGesture)
-
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesturePaned(pan:)))
         self.addGestureRecognizer(panGesture)
     }
-
-    @objc private func panGesturePaned(pan: UIPanGestureRecognizer) {
-
+    private func paningGesture(pan:UIPanGestureRecognizer,canMoveUpAndDown moveUp:Bool){
+        
         let locationPoint = pan.location(in: self)
         let velocityPoint = pan.velocity(in: self)
         let translationPoint = pan.translation(in: self)
-        print("translationPoint ==", translationPoint)
         switch pan.state {
         case .began:
-
+            if moveUp == true {
+                panDirection = .panHorizontal
+                removeTimer(timer: timer!)
+                nowIsShowMenuView = false
+                hideOrShowMenuViews()
+                break
+            }
             let x = fabs(velocityPoint.x)
             let y = fabs(velocityPoint.y)
             if x > y { // 进度
-                beganPoint = locationPoint
                 panDirection = .panHorizontal
                 nowIsPan = true
                 bottomMenu.updatePauseAndPlayStatus(isPlaying: false)
@@ -198,7 +186,6 @@ class WKFVideoPlayerView: UIView {
                 removeTimer(timer: timer!)
                 nowIsShowMenuView = false
                 hideOrShowMenuViews()
-
             } else { // 声音与亮度
                 panDirection = .panVertical
                 if locationPoint.x > self.bounds.size.width / 2 {
@@ -210,13 +197,12 @@ class WKFVideoPlayerView: UIView {
                 }
             }
         case .changed:
-
             if panDirection == .panHorizontal {
                 let thisViewLineWidth = bottomMenu.getViewLineWidth()
-                let x = locationPoint.x - beganPoint.x
+                
                 if thisCurrentTime != -1 && thisTotalTime != -1 && thisViewLineWidth > CGFloat(0) {
-
-                    panCurrentTime = Float(x) * thisTotalTime / Float(thisViewLineWidth) + thisCurrentTime
+                    
+                    panCurrentTime = Float(translationPoint.x) * thisTotalTime / Float(thisViewLineWidth) + thisCurrentTime
                     if panCurrentTime > thisTotalTime {
                         panCurrentTime = thisTotalTime - 1
                     } else if panCurrentTime < Float(0) {
@@ -243,8 +229,11 @@ class WKFVideoPlayerView: UIView {
         default:
             break
         }
+        
     }
-
+    @objc private func panGesturePaned(pan: UIPanGestureRecognizer) {
+        paningGesture(pan: pan,canMoveUpAndDown: true)
+    }
     @objc private func tapGestureTaped(tap _: UITapGestureRecognizer) {
         log.warning("tapGestureTaped ==\(nowIsShowMenuView)")
         if !nowIsShowMenuView {
@@ -252,7 +241,6 @@ class WKFVideoPlayerView: UIView {
         }
         hideOrShowMenuViews()
     }
-
     private func hideOrShowMenuViews() {
         UIView.animate(withDuration: 1.0, animations: {
             self.topMenu.isHidden = self.nowIsShowMenuView
@@ -261,33 +249,24 @@ class WKFVideoPlayerView: UIView {
             self.nowIsShowMenuView = !self.nowIsShowMenuView
         }
     }
-
     private func addTimer() {
         if timer != nil {
-
             removeTimer(timer: timer!)
         }
-
         timer = Timer.scheduledTimer(timeInterval: appearMenuTime, target: self, selector: #selector(hideMenusWithTimer(thisTimer:)), userInfo: nil, repeats: false)
     }
-
     @objc private func hideMenusWithTimer(thisTimer: Timer) {
-
         if thisTimer == timer && nowIsShowMenuView {
             self.hideOrShowMenuViews()
             removeTimer(timer: thisTimer)
         }
     }
-
     private func removeTimer(timer: Timer) {
-
         timer.invalidate()
     }
-
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     deinit {
         removeTimer(timer: timer!)
         log.warning("this video player view will be deinit")
