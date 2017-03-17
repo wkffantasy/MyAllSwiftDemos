@@ -19,11 +19,9 @@ class WKFVideoPlayerView: UIView {
     private var bottomMenu: VideoBottomMenu!
     private var loadingView: UIActivityIndicatorView!
     private var player: WKFPlayer!
-
     private var nowIsShowMenuView: Bool = true
     private let appearMenuTime = 5.0
     private var timer: Timer?
-
     private var panDirection: PanDirection? = PanDirection.panHorizontal
     private var panVolumeOrBright: PanVolumeOrBrightness? = PanVolumeOrBrightness.panVolume
 
@@ -34,8 +32,8 @@ class WKFVideoPlayerView: UIView {
             player.playUrl = playUrl
         }
     }
-    
-    public func removeThisView(){
+
+    public func removeThisView() {
         removeTimer(timer: timer!)
     }
 
@@ -144,6 +142,16 @@ class WKFVideoPlayerView: UIView {
             log.verbose("================ 播放完成")
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: false)
         }
+        player.BufferEmptyBlock = { [weak self] in
+            print("*******************BufferEmptyBlock")
+            self?.loadingView.startAnimating()
+            self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: false)
+        }
+        player.BufferLikelyToPlayBlock = { [weak self] in
+            print("!!!!!!!!!!!!!!!!!!!!! BufferLikelyToPlayBlock")
+            self?.loadingView.stopAnimating()
+            self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: true)
+        }
         self.addSubview(player)
         addGesturesAction()
         addTimer()
@@ -155,7 +163,7 @@ class WKFVideoPlayerView: UIView {
         player.addGestureRecognizer(tapGesture)
 
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesturePaned(pan:)))
-        player.addGestureRecognizer(panGesture)
+        self.addGestureRecognizer(panGesture)
     }
 
     @objc private func panGesturePaned(pan: UIPanGestureRecognizer) {
@@ -185,6 +193,7 @@ class WKFVideoPlayerView: UIView {
             } else {
                 if panVolumeOrBright == .panVolume { // volume
                     player.updatePlayerVolume(volume: Float(velocityPoint.y) / 5000.0)
+
                 } else { // brightness
                     UIScreen.main.brightness -= velocityPoint.y / 10000.0
                 }

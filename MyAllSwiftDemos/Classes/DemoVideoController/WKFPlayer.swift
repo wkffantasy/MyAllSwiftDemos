@@ -43,6 +43,12 @@ class WKFPlayer: UIView {
     // 播放暂停的回调
     public var PlayPauseBlock: NoParamBlock?
 
+    // 缓存区 空了需要等待
+    public var BufferEmptyBlock: NoParamBlock?
+
+    // 有足够的缓存 可以播放了
+    public var BufferLikelyToPlayBlock: NoParamBlock?
+
     private var player: AVPlayer!
     private var filePath: NSURL!
     private var playerItem: AVPlayerItem!
@@ -97,18 +103,32 @@ class WKFPlayer: UIView {
         self.layer.insertSublayer(playerLayer, at: 0)
         player.volume = 0.5
         player.play()
+        // 缓冲区空了，需要等待数据
+        playerItem.addObserver(self, forKeyPath: "playbackBufferEmpty", options: .new, context: nil)
+        // 缓冲区有足够数据可以播放了
+        playerItem.addObserver(self, forKeyPath: "playbackLikelyToKeepUp", options: .new, context: nil)
 
         playerItem.addObserver(self, forKeyPath: "status", options: .new, context: nil)
         playerItem.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(playerFinished), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of _: Any?, change _: [NSKeyValueChangeKey: Any]?, context _: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?, of sth: Any?, change thisChange: [NSKeyValueChangeKey: Any]?, context thisContext: UnsafeMutableRawPointer?) {
 
         if keyPath == "status" {
             observeForStatus()
         } else if keyPath == "loadedTimeRanges" {
             observeForLoadedTimeRanges()
+        } else if keyPath == "playbackBufferEmpty" {
+            if self.BufferEmptyBlock != nil {
+                self.BufferEmptyBlock!()
+            }
+        } else if keyPath == "playbackLikelyToKeepUp" {
+            if self.BufferLikelyToPlayBlock != nil {
+                self.BufferLikelyToPlayBlock!()
+            }
+        } else {
+            super.observeValue(forKeyPath: keyPath, of: sth, change: thisChange, context: thisContext)
         }
     }
 
@@ -195,8 +215,9 @@ class WKFPlayer: UIView {
 
     private func removeObservers() {
         NotificationCenter.default.removeObserver(self)
-
         playerItem.removeObserver(self, forKeyPath: "status")
+        playerItem.removeObserver(self, forKeyPath: "playbackLikelyToKeepUp")
+        playerItem.removeObserver(self, forKeyPath: "playbackBufferEmpty")
         playerItem.removeObserver(self, forKeyPath: "loadedTimeRanges")
     }
 
