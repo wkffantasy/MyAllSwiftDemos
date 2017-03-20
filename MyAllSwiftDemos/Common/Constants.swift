@@ -56,6 +56,12 @@ let functionsArray = [
         "status": "待完善吧",
         "jumpTo": "jumpToVideoVC",
     ],
+    [
+        "title": "一个转盘",
+        "titleDescription": "因公司需要，自己写一个可以手动转的转盘",
+        "status": "在写",
+        "jumpTo": "jumpToNoDialVC",
+    ],
 ]
 
 let funnyArray = [
@@ -65,12 +71,12 @@ let funnyArray = [
         "status": "完成",
         "jumpTo": "jumpToCurveVC",
     ],
-    [
-        "title": "一个waveView",
-        "titleDescription": "网上看到好多这个wave的。找了一个 自己用swift写了一下，只有写一点，才能学一点。",
-        "status": "正在写",
-        "jumpTo": "jumpToWaveVC",
-    ],
+//    [
+//        "title": "一个waveView",
+//        "titleDescription": "网上看到好多这个wave的。找了一个 自己用swift写了一下，只有写一点，才能学一点。",
+//        "status": "正在写",
+//        "jumpTo": "jumpToWaveVC",
+//    ],
 ]
 
 // video

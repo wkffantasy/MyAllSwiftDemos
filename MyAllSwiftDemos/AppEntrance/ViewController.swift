@@ -93,6 +93,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func jumpToNoMarginScrollVC() {
         self.navigationController?.pushViewController(NoMarginScrollController(), animated: true)
     }
+    func jumpToNoDialVC() {
+        self.navigationController?.pushViewController(DialController(), animated: true)
+    }
 
     func setupUI() {
 

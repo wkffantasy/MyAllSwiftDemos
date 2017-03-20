@@ -42,7 +42,7 @@
 		9A78F0391E76A4ED008C93E9 /* TestThreeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F0381E76A4ED008C93E9 /* TestThreeController.swift */; };
 		9ABDE3C21E7BF46A001A1963 /* WaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C11E7BF46A001A1963 /* WaveController.swift */; };
 		9ABDE3C41E7BF58C001A1963 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C31E7BF58C001A1963 /* WaveView.swift */; };
-		9ABDE3C61E7BF7F1001A1963 /* LLWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C51E7BF7F1001A1963 /* LLWaveView.m */; };
+		9AD4F2AF1E7FAE7500458777 /* DialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4F2AE1E7FAE7500458777 /* DialController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +106,7 @@
 		9A78F0381E76A4ED008C93E9 /* TestThreeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestThreeController.swift; sourceTree = "<group>"; };
 		9ABDE3C11E7BF46A001A1963 /* WaveController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveController.swift; sourceTree = "<group>"; };
 		9ABDE3C31E7BF58C001A1963 /* WaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
-		9ABDE3C51E7BF7F1001A1963 /* LLWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLWaveView.m; sourceTree = "<group>"; };
+		9AD4F2AE1E7FAE7500458777 /* DialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialController.swift; sourceTree = "<group>"; };
 		E6B82101F727A1B7E21D919B /* Pods-MyAllSwiftDemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAllSwiftDemos.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyAllSwiftDemos/Pods-MyAllSwiftDemos.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,6 +231,7 @@
 		9A78F00C1E76458F008C93E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9AD4F2AD1E7FAE5800458777 /* DialController */,
 				9ABDE3C01E7BF443001A1963 /* WaveController */,
 				9A58F9D11E77DC5F00500AB6 /* DemoVideoController */,
 				9A58F9CA1E778B2800500AB6 /* NoMarginScrollController */,
@@ -316,11 +317,18 @@
 		9ABDE3C01E7BF443001A1963 /* WaveController */ = {
 			isa = PBXGroup;
 			children = (
-				9ABDE3C51E7BF7F1001A1963 /* LLWaveView.m */,
 				9ABDE3C11E7BF46A001A1963 /* WaveController.swift */,
 				9ABDE3C31E7BF58C001A1963 /* WaveView.swift */,
 			);
 			path = WaveController;
+			sourceTree = "<group>";
+		};
+		9AD4F2AD1E7FAE5800458777 /* DialController */ = {
+			isa = PBXGroup;
+			children = (
+				9AD4F2AE1E7FAE7500458777 /* DialController.swift */,
+			);
+			path = DialController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,7 +521,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A58F9D51E77DC9B00500AB6 /* WKFVideoPlayerView.swift in Sources */,
-				9ABDE3C61E7BF7F1001A1963 /* LLWaveView.m in Sources */,
 				9A58F9DB1E77E7D500500AB6 /* WKFPlayer.swift in Sources */,
 				9A78F0191E76488F008C93E9 /* Constants.swift in Sources */,
 				9A78F02D1E7694AE008C93E9 /* CurveController.swift in Sources */,
@@ -540,6 +547,7 @@
 				9A58F9CE1E77907700500AB6 /* NoMarginRollingView.swift in Sources */,
 				9A78F0201E76491F008C93E9 /* MarqueeController.swift in Sources */,
 				9A78EFE41E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld in Sources */,
+				9AD4F2AF1E7FAE7500458777 /* DialController.swift in Sources */,
 				9A1F498D1E793E670099C2BB /* TimeTool.swift in Sources */,
 				9A78F02F1E7695C6008C93E9 /* HomeHeader.swift in Sources */,
 			);
