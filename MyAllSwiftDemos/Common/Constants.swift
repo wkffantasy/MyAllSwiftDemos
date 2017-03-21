@@ -71,12 +71,12 @@ let funnyArray = [
         "status": "完成",
         "jumpTo": "jumpToCurveVC",
     ],
-//    [
-//        "title": "一个waveView",
-//        "titleDescription": "网上看到好多这个wave的。找了一个 自己用swift写了一下，只有写一点，才能学一点。",
-//        "status": "正在写",
-//        "jumpTo": "jumpToWaveVC",
-//    ],
+    //    [
+    //        "title": "一个waveView",
+    //        "titleDescription": "网上看到好多这个wave的。找了一个 自己用swift写了一下，只有写一点，才能学一点。",
+    //        "status": "正在写",
+    //        "jumpTo": "jumpToWaveVC",
+    //    ],
 ]
 
 // video

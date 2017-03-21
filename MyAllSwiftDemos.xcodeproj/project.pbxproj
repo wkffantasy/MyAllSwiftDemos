@@ -40,6 +40,8 @@
 		9A78F0351E76A4CF008C93E9 /* TestOneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F0341E76A4CF008C93E9 /* TestOneController.swift */; };
 		9A78F0371E76A4DE008C93E9 /* TestTwoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F0361E76A4DE008C93E9 /* TestTwoController.swift */; };
 		9A78F0391E76A4ED008C93E9 /* TestThreeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F0381E76A4ED008C93E9 /* TestThreeController.swift */; };
+		9A83BFBF1E7FE6DE00A38036 /* DialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A83BFBE1E7FE6DE00A38036 /* DialView.swift */; };
+		9A83BFC11E7FE72900A38036 /* SectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A83BFC01E7FE72900A38036 /* SectorView.swift */; };
 		9ABDE3C21E7BF46A001A1963 /* WaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C11E7BF46A001A1963 /* WaveController.swift */; };
 		9ABDE3C41E7BF58C001A1963 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C31E7BF58C001A1963 /* WaveView.swift */; };
 		9AD4F2AF1E7FAE7500458777 /* DialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4F2AE1E7FAE7500458777 /* DialController.swift */; };
@@ -104,6 +106,8 @@
 		9A78F0341E76A4CF008C93E9 /* TestOneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestOneController.swift; sourceTree = "<group>"; };
 		9A78F0361E76A4DE008C93E9 /* TestTwoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTwoController.swift; sourceTree = "<group>"; };
 		9A78F0381E76A4ED008C93E9 /* TestThreeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestThreeController.swift; sourceTree = "<group>"; };
+		9A83BFBE1E7FE6DE00A38036 /* DialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialView.swift; sourceTree = "<group>"; };
+		9A83BFC01E7FE72900A38036 /* SectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectorView.swift; sourceTree = "<group>"; };
 		9ABDE3C11E7BF46A001A1963 /* WaveController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveController.swift; sourceTree = "<group>"; };
 		9ABDE3C31E7BF58C001A1963 /* WaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		9AD4F2AE1E7FAE7500458777 /* DialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialController.swift; sourceTree = "<group>"; };
@@ -326,7 +330,9 @@
 		9AD4F2AD1E7FAE5800458777 /* DialController */ = {
 			isa = PBXGroup;
 			children = (
+				9A83BFBE1E7FE6DE00A38036 /* DialView.swift */,
 				9AD4F2AE1E7FAE7500458777 /* DialController.swift */,
+				9A83BFC01E7FE72900A38036 /* SectorView.swift */,
 			);
 			path = DialController;
 			sourceTree = "<group>";
@@ -542,6 +548,7 @@
 				9A78F0351E76A4CF008C93E9 /* TestOneController.swift in Sources */,
 				9A78F01C1E7648A7008C93E9 /* NSString+extension.swift in Sources */,
 				9A78F0261E767658008C93E9 /* MarqueeView.swift in Sources */,
+				9A83BFC11E7FE72900A38036 /* SectorView.swift in Sources */,
 				9A58F9CC1E778ED200500AB6 /* NoMarginScrollController.swift in Sources */,
 				9A78F0141E764834008C93E9 /* AppDelegate.swift in Sources */,
 				9A58F9CE1E77907700500AB6 /* NoMarginRollingView.swift in Sources */,
@@ -549,6 +556,7 @@
 				9A78EFE41E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld in Sources */,
 				9AD4F2AF1E7FAE7500458777 /* DialController.swift in Sources */,
 				9A1F498D1E793E670099C2BB /* TimeTool.swift in Sources */,
+				9A83BFBF1E7FE6DE00A38036 /* DialView.swift in Sources */,
 				9A78F02F1E7695C6008C93E9 /* HomeHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

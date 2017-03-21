@@ -31,9 +31,6 @@ class HomeCell: UITableViewCell {
         titleLabel.text = model.title
         statusLabel.text = model.status
         descriptionLabel.text = model.titleDescription
-        log.debug(model.title)
-        log.debug(model.status)
-        log.debug(model.titleDescription)
     }
 
     private override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
