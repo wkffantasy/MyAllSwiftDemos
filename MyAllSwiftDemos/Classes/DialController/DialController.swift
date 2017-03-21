@@ -12,6 +12,7 @@ class DialController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
         self.view.backgroundColor = UIColor.colorWithRGB(red: 76, green: 130, blue: 255)
 
         setupDialView()
@@ -30,5 +31,23 @@ class DialController: UIViewController {
         ]
         let dial = DialView.init(frame: CGRect(x: 0, y: 64, width: ScreenWidth, height: ScreenWidth), titleArray: titleArray)
         self.view.addSubview(dial)
+
+        let line1 = UIView()
+        line1.backgroundColor = UIColor.blue
+        dial.addSubview(line1)
+        line1.snp.makeConstraints { make in
+            make.center.equalTo(dial.snp.center)
+            make.width.equalTo(1)
+            make.top.bottom.equalTo(0)
+        }
+
+        let line2 = UIView()
+        line2.backgroundColor = UIColor.blue
+        dial.addSubview(line2)
+        line2.snp.makeConstraints { make in
+            make.center.equalTo(dial.snp.center)
+            make.height.equalTo(1)
+            make.left.right.equalTo(0)
+        }
     }
 }

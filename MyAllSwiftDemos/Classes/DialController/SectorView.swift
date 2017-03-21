@@ -13,11 +13,11 @@ class SectorView: UIView {
     var title: String!
     var radius: CGFloat!
     var singleAngle: CGFloat!
-    var titleLabel:UILabel!
+    var titleLabel: UILabel!
 
     init(frame: CGRect, title: String, radius: CGFloat, singleAngle: CGFloat!) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clear
+        self.backgroundColor = UIColor.red
         assert(title.length > 0, "")
         assert(radius > 0, "")
         assert(singleAngle > 0, "")
@@ -28,7 +28,7 @@ class SectorView: UIView {
 
     override func draw(_: CGRect) {
         UIColor.white.setFill()
-        let point = CGPoint(x:self.frame.size.width/2,y:0)
+        let point = CGPoint(x: self.frame.size.width / 2, y: 0)
         let startAngle = CGFloat(M_PI / 2) - singleAngle / 2
         let endAngle = startAngle + singleAngle
         let path = UIBezierPath()
@@ -38,8 +38,12 @@ class SectorView: UIView {
         path.lineWidth = 1
         path.fill()
         path.close()
+        print("self.layer.position", self.layer.position)
+        print("self.frame", self.frame)
+        print("self.layer.anchorPoint", self.layer.anchorPoint)
         setupLabel()
     }
+
     func setupLabel() {
         if titleLabel != nil {
             return
@@ -48,7 +52,7 @@ class SectorView: UIView {
         titleLabel.text = title
         titleLabel.textColor = UIColor.colorWithHexString("333333")
         addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { (make) in
+        titleLabel.snp.makeConstraints { make in
             make.centerX.equalTo(self.snp.centerX)
             make.bottom.equalTo(self.snp.bottom).offset(-20)
         }
