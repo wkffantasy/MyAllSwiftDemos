@@ -79,5 +79,10 @@ let funnyArray = [
     //    ],
 ]
 
-// video
-// let void kBackViewIdentifier = &kBackViewIdentifier;
+//All Blocks in here
+typealias IntParamBlock = (Int) -> Void
+typealias FloatParamBlock = (Float) -> Void
+typealias CGFloatParamBlock = (CGFloat) -> Void
+typealias BoolParamBlock = (Bool) -> Void
+
+
