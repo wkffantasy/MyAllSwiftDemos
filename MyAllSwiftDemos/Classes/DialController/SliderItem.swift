@@ -17,7 +17,7 @@ class SliderItem: UIView {
         super.init(frame: frame)
         assert(title.length>0,"")
         assert(imageName.length>0,"")
-        backgroundColor = UIColor.randomColor()
+        backgroundColor = UIColor.clear
         self.title = title
         self.imageName = imageName
         setupViews()

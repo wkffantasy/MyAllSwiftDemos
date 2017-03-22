@@ -16,8 +16,10 @@ class SliderCircleView: UIView {
     private var imageNameArray:Array<String>!
     private var circleView:UIView!
     private var itemArray:Array<SliderItem>!
-    private var startAngel:CGFloat!
+    private var kStartAngel:CGFloat!
     private var itemSize = CGSize(width:50,height:70)
+    private var beganPoint :CGPoint = .zero
+    private var movePoint :CGPoint = .zero
     
     init(frame: CGRect,
          titleArray:Array<String>,
@@ -30,7 +32,7 @@ class SliderCircleView: UIView {
         self.imageNameArray = imageNameArray
         self.titleArray = titleArray
         itemArray = []
-        startAngel = CGFloat(M_PI / 2.0)
+        kStartAngel = CGFloat(M_PI / 2.0)
         
         circleView = UIView(frame: self.bounds)
         circleView.backgroundColor = UIColor.white
@@ -92,6 +94,49 @@ class SliderCircleView: UIView {
             tag += 1
         }
         layoutItems()
+        addPanGesture()
+        
+    }
+    private func addPanGesture(){
+        let pan = UIPanGestureRecognizer.init(target: self, action: #selector(paning(pan:)))
+        circleView.addGestureRecognizer(pan)
+    }
+    func paning(pan:UIPanGestureRecognizer) {
+        
+        switch pan.state {
+        case .began:
+            
+            beganPoint = pan.location(in: self)
+        case .changed:
+            
+            movePoint = pan.location(in: self)
+            let startAngle = getAngle(point: beganPoint)
+            let moveAngle = getAngle(point: movePoint)
+            if getQuadrant(point: movePoint) == 1 || getQuadrant(point: movePoint) == 4 {
+                kStartAngel = kStartAngel+moveAngle - startAngle
+            } else {
+                kStartAngel = kStartAngel+startAngle - moveAngle
+            }
+            layoutItems()
+            beganPoint = movePoint
+        case .ended:
+            print("end")
+        default: break
+        }
+    }
+    private func getQuadrant(point:CGPoint)->Int{
+        let x =  Int(point.x - self.frame.size.width / 2)
+        let y =  Int(point.y - self.frame.size.width / 2)
+        if x >= 0 {
+            return y>=0 ? 1 : 4
+        } else {
+            return y>=0 ? 2 : 3
+        }
+    }
+    private func getAngle(point:CGPoint) -> CGFloat{
+        let x =  point.x - self.frame.size.width / 2
+        let y =  point.y - self.frame.size.width / 2
+        return asinh(y/hypot(x, y))
     }
     private func layoutItems(){
         assert(itemArray.count == titleArray.count,"")
@@ -102,14 +147,12 @@ class SliderCircleView: UIView {
         for index in 0 ..< totalCount {
             let item:SliderItem = itemArray[index]
             
-            let yy = radius+CGFloat(radius-itemWidth/2-20)*sin(CGFloat(index)/CGFloat(totalCount)*2*CGFloat(M_PI)+startAngel)
-            let xx = radius+CGFloat(radius-itemWidth/2-20)*cos(CGFloat(index)/CGFloat(totalCount)*2*CGFloat(M_PI)+startAngel)
-            print("index ==",index)
-            print("yy ==",yy)
-            print("xx ==",xx)
+            let yy = radius+CGFloat(radius-itemWidth/2-20)*sin(CGFloat(index)/CGFloat(totalCount)*2*CGFloat(M_PI)+kStartAngel)
+            let xx = radius+CGFloat(radius-itemWidth/2-20)*cos(CGFloat(index)/CGFloat(totalCount)*2*CGFloat(M_PI)+kStartAngel)
             item.center = CGPoint(x:xx,y:yy)
             
         }
+        setNeedsLayout()
     }
     @objc private func clickThisItem(tap:UITapGestureRecognizer){
         let tag = tap.view?.tag

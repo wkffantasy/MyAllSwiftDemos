@@ -14,7 +14,6 @@ class DialController: UIViewController {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         self.view.backgroundColor = UIColor.colorWithRGB(red: 76, green: 130, blue: 255)
-
 //        setupDialView()
         setupSliderCircleView()
     }
