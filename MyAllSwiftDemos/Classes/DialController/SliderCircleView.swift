@@ -16,9 +16,9 @@ class SliderCircleView: UIView {
     private var imageNameArray: Array<String>!
     private var circleView: CircleView!
     private var itemArray: Array<SliderItem>!
-    
+
     private var kStartAngel: CGFloat!
-    private var kCircleTransformAngel:CGFloat! = 0
+    private var kCircleTransformAngel: CGFloat! = 0
     private var itemSize = CGSize(width: 50, height: 70)
     private var beganPoint: CGPoint = .zero
     private var movePoint: CGPoint = .zero
@@ -108,12 +108,12 @@ class SliderCircleView: UIView {
             movePoint = pan.location(in: self)
             let beganAngle = getAngle(point: beganPoint)
             let moveAngle = getAngle(point: movePoint)
-            var haveMovedAngle:CGFloat = 0
+            var haveMovedAngle: CGFloat = 0
             let currentQuadrant = getQuadrant(point: movePoint)
             if currentQuadrant == 1 || currentQuadrant == 4 {
-                haveMovedAngle=moveAngle - beganAngle
+                haveMovedAngle = moveAngle - beganAngle
             } else {
-                haveMovedAngle=beganAngle - moveAngle
+                haveMovedAngle = beganAngle - moveAngle
             }
             kStartAngel = kStartAngel + haveMovedAngle
             kCircleTransformAngel = kCircleTransformAngel + haveMovedAngle
@@ -127,15 +127,17 @@ class SliderCircleView: UIView {
         default: break
         }
     }
-    private func getQuadrant(point:CGPoint)->Int{
+
+    private func getQuadrant(point: CGPoint) -> Int {
         let x = point.x - self.frame.size.width / 2
         let y = point.y - self.frame.size.width / 2
-        if (x >= 0) {
-            return y >= 0 ? 4 : 1;
+        if x >= 0 {
+            return y >= 0 ? 4 : 1
         } else {
-            return y >= 0 ? 3 : 2;
+            return y >= 0 ? 3 : 2
         }
     }
+
     private func getAngle(point: CGPoint) -> CGFloat {
         let x = point.x - self.frame.size.width / 2
         let y = point.y - self.frame.size.width / 2

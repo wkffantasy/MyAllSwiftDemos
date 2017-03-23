@@ -58,8 +58,8 @@ let functionsArray = [
     ],
     [
         "title": "一个转盘",
-        "titleDescription": "因公司需要，自己写一个可以手动转的转盘",
-        "status": "在写",
+        "titleDescription": "自己写一个可以手动转的转盘，转盘至少要有n>1的item。转动的时候item和分割线一起转动。a.有一个体验不好的地方就是在y轴上pan的手势滑动效果不明显。b.item只能是垂直向下",
+        "status": "待完善吧",
         "jumpTo": "jumpToNoDialVC",
     ],
 ]
