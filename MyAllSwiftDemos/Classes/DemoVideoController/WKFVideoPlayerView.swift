@@ -108,7 +108,7 @@ class WKFVideoPlayerView: UIView {
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: nowIsPlaying)
         }
         bottomMenu.beganPanBlock = { [weak self] pan in
-            self?.paningGesture(pan: pan, canMoveUpAndDown: false)
+            self?.paningGesture(pan: pan, canMoveUpAndDown: true)
         }
         self.addSubview(bottomMenu)
         bottomMenu.snp.makeConstraints { make in
@@ -237,7 +237,7 @@ class WKFVideoPlayerView: UIView {
     }
 
     @objc private func panGesturePaned(pan: UIPanGestureRecognizer) {
-        paningGesture(pan: pan, canMoveUpAndDown: true)
+        paningGesture(pan: pan, canMoveUpAndDown: false)
     }
 
     @objc private func tapGestureTaped(tap _: UITapGestureRecognizer) {
