@@ -16,7 +16,9 @@ class SliderCircleView: UIView {
     private var imageNameArray: Array<String>!
     private var circleView: CircleView!
     private var itemArray: Array<SliderItem>!
+    
     private var kStartAngel: CGFloat!
+    private var kCircleTransformAngel:CGFloat! = 0
     private var itemSize = CGSize(width: 50, height: 70)
     private var beganPoint: CGPoint = .zero
     private var movePoint: CGPoint = .zero
@@ -36,16 +38,9 @@ class SliderCircleView: UIView {
 
         circleView = CircleView.init(frame: self.bounds, totalCount: titleArray.count)
         addSubview(circleView)
-
         addCenterCircleView()
         addRoundItems()
     }
-
-    /*
-
-     let rotationAngle = marginAngle / 2
-     self.transform = CGAffineTransform(rotationAngle: -rotationAngle)
-     */
 
     private func addCenterCircleView() {
 
@@ -91,7 +86,7 @@ class SliderCircleView: UIView {
             let tap = UITapGestureRecognizer.init(target: self, action: #selector(clickThisItem(tap:)))
             item.addGestureRecognizer(tap)
             item.tag = tag
-            circleView.addSubview(item)
+            addSubview(item)
             itemArray.append(item)
             tag += 1
         }
@@ -111,37 +106,36 @@ class SliderCircleView: UIView {
             beganPoint = pan.location(in: self)
         case .changed:
             movePoint = pan.location(in: self)
-            //            print("movePoint ==",movePoint)
-            let startAngle = getAngle(point: beganPoint)
+            let beganAngle = getAngle(point: beganPoint)
             let moveAngle = getAngle(point: movePoint)
-            print("startAngle==", startAngle, "moveAngle ==", moveAngle)
-            if getQuadrant(point: movePoint) == 1 || getQuadrant(point: movePoint) == 4 {
-                kStartAngel = kStartAngel + moveAngle - startAngle
-                print("第一、四象限")
+            var haveMovedAngle:CGFloat = 0
+            let currentQuadrant = getQuadrant(point: movePoint)
+            if currentQuadrant == 1 || currentQuadrant == 4 {
+                haveMovedAngle=moveAngle - beganAngle
             } else {
-                kStartAngel = kStartAngel + startAngle - moveAngle
-                print("第二、三象限")
+                haveMovedAngle=beganAngle - moveAngle
             }
-
+            kStartAngel = kStartAngel + haveMovedAngle
+            kCircleTransformAngel = kCircleTransformAngel + haveMovedAngle
             layoutItems()
+            circleView.transform = CGAffineTransform(rotationAngle: kCircleTransformAngel)
             beganPoint = movePoint
 
         case .ended:
-            print("end")
+            beganPoint = .zero
+            movePoint = .zero
         default: break
         }
     }
-
-    private func getQuadrant(point: CGPoint) -> Int {
-        let x = Int(point.x - self.frame.size.width / 2)
-        let y = Int(point.y - self.frame.size.width / 2)
-        if x >= 0 {
-            return y >= 0 ? 1 : 4
+    private func getQuadrant(point:CGPoint)->Int{
+        let x = point.x - self.frame.size.width / 2
+        let y = point.y - self.frame.size.width / 2
+        if (x >= 0) {
+            return y >= 0 ? 4 : 1;
         } else {
-            return y >= 0 ? 2 : 3
+            return y >= 0 ? 3 : 2;
         }
     }
-
     private func getAngle(point: CGPoint) -> CGFloat {
         let x = point.x - self.frame.size.width / 2
         let y = point.y - self.frame.size.width / 2
@@ -163,7 +157,9 @@ class SliderCircleView: UIView {
 
     @objc private func clickThisItem(tap: UITapGestureRecognizer) {
         let tag = tap.view?.tag
-        print("clickThisItem tag ==", tag ?? -1)
+        if clickItemTag != nil {
+            clickItemTag!(tag!)
+        }
     }
 
     required init?(coder _: NSCoder) {

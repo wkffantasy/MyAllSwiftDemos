@@ -21,22 +21,17 @@ class CircleView: UIView {
     }
 
     override func draw(_: CGRect) {
-
         let radius = self.frame.size.width / 2
         let marginAngle = CGFloat(M_PI) * 2 / CGFloat(totalCount)
-
         assert(totalCount > 1, "")
         for index in 0 ..< totalCount {
             let thisAngle = CGFloat(index) * marginAngle + marginAngle / 2
-
             let SinX = radius * sin(thisAngle)
             let CosY = radius * cos(thisAngle)
-
             let beganX = radius + SinX
-            let endX = radius + SinX / 3
+            let endX = radius + SinX / 1.5
             let beganY = radius + CosY
-            let endY = radius + CosY / 3
-
+            let endY = radius + CosY / 1.5
             let beganPoint = CGPoint(x: beganX, y: beganY)
             let endPoint = CGPoint(x: endX, y: endY)
             let path = UIBezierPath()

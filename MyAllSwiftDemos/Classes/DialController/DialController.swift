@@ -9,7 +9,7 @@
 import UIKit
 
 class DialController: UIViewController {
-
+    private var tipLabel :UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
@@ -17,7 +17,7 @@ class DialController: UIViewController {
         //        setupDialView()
         setupSliderCircleView()
     }
-
+    
     func setupSliderCircleView() {
         let titleArray = [
             "东风破",
@@ -42,7 +42,19 @@ class DialController: UIViewController {
         ]
         assert(imageNameArray.count == titleArray.count, "")
         let slider = SliderCircleView.init(frame: CGRect(x: 0, y: 64, width: ScreenWidth, height: ScreenWidth), titleArray: titleArray, imageNameArray: imageNameArray)
+        slider.clickItemTag = { [weak self] tag in
+            self?.tipLabel.text = String(format:"点击了第%d个item",tag)
+        }
         self.view.addSubview(slider)
+        
+        tipLabel = UILabel()
+        tipLabel.text = "你还没点item"
+        tipLabel.textColor = UIColor.white
+        view.addSubview(tipLabel)
+        tipLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(slider.snp.bottom).offset(20)
+            make.centerX.equalTo(view.snp.centerX)
+        }
     }
 
     func setupDialView() {
