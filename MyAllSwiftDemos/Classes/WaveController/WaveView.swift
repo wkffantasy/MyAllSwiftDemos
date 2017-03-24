@@ -13,7 +13,7 @@ class WaveView: UIView {
     let waterWaveWidth: CGFloat = ScreenWidth
     let waterWaveHeight: CGFloat = 200
 
-    let waveSpeed: CGFloat = CGFloat(0.25 / M_PI)
+    let waveSpeed: CGFloat = CGFloat(0.08 / M_PI)
     let waveSpeed2: CGFloat = CGFloat(0.3 / M_PI)
     var waveOffsetX: CGFloat = 0
     //    let wavePointY = waterWaveHeight - 50.0
@@ -41,34 +41,47 @@ class WaveView: UIView {
         firstLayer.fillColor = waveColor.cgColor
         self.layer.addSublayer(firstLayer)
 
-        //        secondLayer = CAShapeLayer()
-        //        secondLayer.fillColor = waveColor.cgColor
-        //        self.layer.addSublayer(secondLayer)
-        //
-        //        thirdLayer = CAShapeLayer()
-        //        thirdLayer.fillColor = waveColor.cgColor
-        //        self.layer.addSublayer(thirdLayer)
+        secondLayer = CAShapeLayer()
+        secondLayer.fillColor = UIColor.colorWithRGBH(red: 233, green: 233, blue: 233, Alpha: 0.1).cgColor
+        self.layer.addSublayer(secondLayer)
 
         displayLink = CADisplayLink(target: self, selector: #selector(getCurrentWave))
         displayLink.add(to: .main, forMode: .commonModes)
     }
 
     func getCurrentWave() {
-
         waveOffsetX += waveSpeed
         setFirstPath()
+        setSecondPath()
+    }
+
+    func setSecondPath() {
+        let waveCycle: CGFloat = CGFloat(1.1 * M_PI) / waterWaveWidth
+        let path = CGMutablePath()
+        var waveY: CGFloat = waterWaveHeight - 50
+        path.move(to: CGPoint(x: 0, y: waveY))
+        for x in 0 ... Int(waterWaveWidth) {
+            waveY = (waveAmplitude - 2) * sin(waveCycle * CGFloat(x) + waveOffsetX) + 10 + waterWaveHeight - 50
+            path.addLine(to: CGPoint(x: CGFloat(x), y: waveY))
+        }
+        path.addLine(to: CGPoint(x: waterWaveWidth, y: self.frame.size.height))
+        path.addLine(to: CGPoint(x: 0, y: self.frame.size.height))
+        path.closeSubpath()
+        secondLayer.path = path
     }
 
     func setFirstPath() {
-
-        //        let waveCycle:CGFloat =  CGFloat(1.29 * M_PI) / waterWaveWidth;
-        //        let path = CGMutablePath()
-        //        var y:CGFloat = waterWaveHeight - 50
-        //        path.move(to: CGPoint(x:0,y:y))
-
-        //        for var x:CGFloat = 0; x <= waterWaveHeight;x += 1{
-        //            y = waveAmplitude * sin(waveCycle * x + waveOffsetX - 10) + y + 10
-        //
-        //        }
+        let waveCycle: CGFloat = CGFloat(1.1 * M_PI) / waterWaveWidth
+        let path = CGMutablePath()
+        var waveY: CGFloat = waterWaveHeight - 50
+        path.move(to: CGPoint(x: 0, y: waveY))
+        for x in 0 ... Int(waterWaveWidth) {
+            waveY = waveAmplitude * sin(waveCycle * CGFloat(x) + waveOffsetX - 10) + 10 + waterWaveHeight - 50
+            path.addLine(to: CGPoint(x: CGFloat(x), y: waveY))
+        }
+        path.addLine(to: CGPoint(x: waterWaveWidth, y: self.frame.size.height))
+        path.addLine(to: CGPoint(x: 0, y: self.frame.size.height))
+        path.closeSubpath()
+        firstLayer.path = path
     }
 }
