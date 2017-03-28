@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6B102C020FE2D14629527410 /* Pods_MyAllSwiftDemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60EF7749F486C25E83879E20 /* Pods_MyAllSwiftDemos.framework */; };
+		9A044C211E88EEBB00C02D90 /* DownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A044C201E88EEBB00C02D90 /* DownloadController.swift */; };
+		9A044C231E88F37300C02D90 /* DownloadToolManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A044C221E88F37300C02D90 /* DownloadToolManage.swift */; };
+		9A044C251E88FBFB00C02D90 /* DownloadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A044C241E88FBFB00C02D90 /* DownloadCell.swift */; };
+		9A044C271E89066D00C02D90 /* DownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A044C261E89066D00C02D90 /* DownloadModel.swift */; };
+		9A044C291E890E7100C02D90 /* PathAndVideoNameTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A044C281E890E7100C02D90 /* PathAndVideoNameTool.swift */; };
 		9A12F9611E8229FB009EAD85 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12F9601E8229FB009EAD85 /* CircleView.swift */; };
 		9A1F498D1E793E670099C2BB /* TimeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F498C1E793E670099C2BB /* TimeTool.swift */; };
 		9A370DC11E81220900827D1B /* SliderCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A370DC01E81220900827D1B /* SliderCircleView.swift */; };
@@ -68,6 +73,11 @@
 /* Begin PBXFileReference section */
 		54EC8A27046AA2B288ACEE5A /* Pods-MyAllSwiftDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAllSwiftDemos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyAllSwiftDemos/Pods-MyAllSwiftDemos.debug.xcconfig"; sourceTree = "<group>"; };
 		60EF7749F486C25E83879E20 /* Pods_MyAllSwiftDemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyAllSwiftDemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A044C201E88EEBB00C02D90 /* DownloadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadController.swift; sourceTree = "<group>"; };
+		9A044C221E88F37300C02D90 /* DownloadToolManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadToolManage.swift; sourceTree = "<group>"; };
+		9A044C241E88FBFB00C02D90 /* DownloadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadCell.swift; sourceTree = "<group>"; };
+		9A044C261E89066D00C02D90 /* DownloadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadModel.swift; sourceTree = "<group>"; };
+		9A044C281E890E7100C02D90 /* PathAndVideoNameTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathAndVideoNameTool.swift; sourceTree = "<group>"; };
 		9A12F9601E8229FB009EAD85 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		9A1F498C1E793E670099C2BB /* TimeTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTool.swift; sourceTree = "<group>"; };
 		9A370DC01E81220900827D1B /* SliderCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCircleView.swift; sourceTree = "<group>"; };
@@ -159,6 +169,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9A044C1F1E88EE9200C02D90 /* DownloadController */ = {
+			isa = PBXGroup;
+			children = (
+				9A044C201E88EEBB00C02D90 /* DownloadController.swift */,
+				9A044C261E89066D00C02D90 /* DownloadModel.swift */,
+				9A044C241E88FBFB00C02D90 /* DownloadCell.swift */,
+			);
+			path = DownloadController;
+			sourceTree = "<group>";
+		};
 		9A58F9CA1E778B2800500AB6 /* NoMarginScrollController */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +257,7 @@
 		9A78F00C1E76458F008C93E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9A044C1F1E88EE9200C02D90 /* DownloadController */,
 				9AD4F2AD1E7FAE5800458777 /* DialController */,
 				9ABDE3C01E7BF443001A1963 /* WaveController */,
 				9A58F9D11E77DC5F00500AB6 /* DemoVideoController */,
@@ -273,6 +294,8 @@
 		9A78F00F1E7645D7008C93E9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				9A044C281E890E7100C02D90 /* PathAndVideoNameTool.swift */,
+				9A044C221E88F37300C02D90 /* DownloadToolManage.swift */,
 				9A78F01A1E7648A7008C93E9 /* NSString+extension.swift */,
 				9A78F01B1E7648A7008C93E9 /* UIColor+extension.swift */,
 				9A1F498C1E793E670099C2BB /* TimeTool.swift */,
@@ -546,9 +569,13 @@
 				9A58F9D71E77DCF200500AB6 /* VideoTopMenu.swift in Sources */,
 				9ABDE3C41E7BF58C001A1963 /* WaveView.swift in Sources */,
 				9A58F9D91E77DD0400500AB6 /* VideoBottomMenu.swift in Sources */,
+				9A044C251E88FBFB00C02D90 /* DownloadCell.swift in Sources */,
+				9A044C211E88EEBB00C02D90 /* DownloadController.swift in Sources */,
 				9A78F02A1E7690C2008C93E9 /* TabsSelectView.swift in Sources */,
+				9A044C271E89066D00C02D90 /* DownloadModel.swift in Sources */,
 				9A78F0291E7690C2008C93E9 /* CurveView.swift in Sources */,
 				9A370DC31E8129AC00827D1B /* SliderItem.swift in Sources */,
+				9A044C231E88F37300C02D90 /* DownloadToolManage.swift in Sources */,
 				9A78F0351E76A4CF008C93E9 /* TestOneController.swift in Sources */,
 				9A370DC11E81220900827D1B /* SliderCircleView.swift in Sources */,
 				9A78F01C1E7648A7008C93E9 /* NSString+extension.swift in Sources */,
@@ -558,6 +585,7 @@
 				9A78F0141E764834008C93E9 /* AppDelegate.swift in Sources */,
 				9A58F9CE1E77907700500AB6 /* NoMarginRollingView.swift in Sources */,
 				9A78F0201E76491F008C93E9 /* MarqueeController.swift in Sources */,
+				9A044C291E890E7100C02D90 /* PathAndVideoNameTool.swift in Sources */,
 				9A78EFE41E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld in Sources */,
 				9AD4F2AF1E7FAE7500458777 /* DialController.swift in Sources */,
 				9A1F498D1E793E670099C2BB /* TimeTool.swift in Sources */,

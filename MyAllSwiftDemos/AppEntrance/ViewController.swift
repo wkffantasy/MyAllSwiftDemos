@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var functionViewsArray: Array<HomeModel>! = []
     var funnyViewsArray: Array<HomeModel>! = []
     let headerDataArray = [
-        "some views that can be directly use",
+        "some views that can be directly used",
         "something fun,it looks like more friendly to users",
     ]
     var tableView: UITableView!
@@ -97,6 +97,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func jumpToNoDialVC() {
         self.navigationController?.pushViewController(DialController(), animated: true)
+    }
+
+    func jumpToNoDownloadVC() {
+        self.navigationController?.pushViewController(DownloadController(), animated: true)
     }
 
     func setupUI() {

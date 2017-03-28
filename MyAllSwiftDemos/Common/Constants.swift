@@ -62,6 +62,12 @@ let functionsArray = [
         "status": "待完善吧",
         "jumpTo": "jumpToNoDialVC",
     ],
+    [
+        "title": "下载的tool",
+        "titleDescription": "自己写的下载的tool，有下载速度，进度，剩余时间，后台下载，断点下载",
+        "status": "在写",
+        "jumpTo": "jumpToNoDownloadVC",
+    ],
 ]
 
 let funnyArray = [
@@ -79,8 +85,24 @@ let funnyArray = [
     ],
 ]
 
+//download state
+public enum DownloadState: Int {
+    
+    case Downloading
+    
+    case Pause
+    
+    case NotBegan
+    
+    case Compeleted
+    
+    case Failed
+}
+
 // All Blocks in here
 typealias IntParamBlock = (Int) -> Void
 typealias FloatParamBlock = (Float) -> Void
 typealias CGFloatParamBlock = (CGFloat) -> Void
 typealias BoolParamBlock = (Bool) -> Void
+typealias ErrorParamBlock = (Error) -> Void
+typealias StringParamBlock = (String) -> Void
