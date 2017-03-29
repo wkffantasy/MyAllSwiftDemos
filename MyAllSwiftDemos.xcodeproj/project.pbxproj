@@ -50,6 +50,9 @@
 		9A78F0391E76A4ED008C93E9 /* TestThreeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F0381E76A4ED008C93E9 /* TestThreeController.swift */; };
 		9ABDE3C21E7BF46A001A1963 /* WaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C11E7BF46A001A1963 /* WaveController.swift */; };
 		9ABDE3C41E7BF58C001A1963 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C31E7BF58C001A1963 /* WaveView.swift */; };
+		9AC256C31E8A5F110089B371 /* FMDBontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC256C11E8A5F110089B371 /* FMDBontroller.swift */; };
+		9AC256C41E8A5F110089B371 /* FMDBontroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC256C21E8A5F110089B371 /* FMDBontroller.xib */; };
+		9AC256C61E8A6A740089B371 /* TestFMDBManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC256C51E8A6A740089B371 /* TestFMDBManger.swift */; };
 		9AD4F2AF1E7FAE7500458777 /* DialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4F2AE1E7FAE7500458777 /* DialController.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,7 +104,6 @@
 		9A78EFFA1E764443008C93E9 /* MyAllSwiftDemosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAllSwiftDemosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A78EFFE1E764443008C93E9 /* MyAllSwiftDemosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAllSwiftDemosUITests.swift; sourceTree = "<group>"; };
 		9A78F0001E764443008C93E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A78F0111E764833008C93E9 /* MyAllSwiftDemos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyAllSwiftDemos-Bridging-Header.h"; sourceTree = "<group>"; };
 		9A78F0121E764834008C93E9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A78F0131E764834008C93E9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9A78F0161E76488F008C93E9 /* ApiConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConstant.swift; sourceTree = "<group>"; };
@@ -122,7 +124,11 @@
 		9A78F0381E76A4ED008C93E9 /* TestThreeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestThreeController.swift; sourceTree = "<group>"; };
 		9ABDE3C11E7BF46A001A1963 /* WaveController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveController.swift; sourceTree = "<group>"; };
 		9ABDE3C31E7BF58C001A1963 /* WaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		9AC256C11E8A5F110089B371 /* FMDBontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBontroller.swift; sourceTree = "<group>"; };
+		9AC256C21E8A5F110089B371 /* FMDBontroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMDBontroller.xib; sourceTree = "<group>"; };
+		9AC256C51E8A6A740089B371 /* TestFMDBManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFMDBManger.swift; sourceTree = "<group>"; };
 		9AD4F2AE1E7FAE7500458777 /* DialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialController.swift; sourceTree = "<group>"; };
+		9ADAF9401E8B836200D72E2D /* MyAllSwiftDemos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyAllSwiftDemos-Bridging-Header.h"; sourceTree = "<group>"; };
 		E6B82101F727A1B7E21D919B /* Pods-MyAllSwiftDemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAllSwiftDemos.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyAllSwiftDemos/Pods-MyAllSwiftDemos.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -257,6 +263,7 @@
 		9A78F00C1E76458F008C93E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9AC256BE1E8A51D30089B371 /* FMDBController */,
 				9A044C1F1E88EE9200C02D90 /* DownloadController */,
 				9AD4F2AD1E7FAE5800458777 /* DialController */,
 				9ABDE3C01E7BF443001A1963 /* WaveController */,
@@ -308,10 +315,10 @@
 			children = (
 				9A78F0121E764834008C93E9 /* AppDelegate.swift */,
 				9A78F0131E764834008C93E9 /* ViewController.swift */,
-				9A78F0111E764833008C93E9 /* MyAllSwiftDemos-Bridging-Header.h */,
 				9A78F0211E764BD1008C93E9 /* HomeModel.swift */,
 				9A78F0231E766CEB008C93E9 /* HomeCell.swift */,
 				9A78F02E1E7695C6008C93E9 /* HomeHeader.swift */,
+				9ADAF9401E8B836200D72E2D /* MyAllSwiftDemos-Bridging-Header.h */,
 			);
 			path = AppEntrance;
 			sourceTree = "<group>";
@@ -350,6 +357,16 @@
 				9ABDE3C31E7BF58C001A1963 /* WaveView.swift */,
 			);
 			path = WaveController;
+			sourceTree = "<group>";
+		};
+		9AC256BE1E8A51D30089B371 /* FMDBController */ = {
+			isa = PBXGroup;
+			children = (
+				9AC256C11E8A5F110089B371 /* FMDBontroller.swift */,
+				9AC256C21E8A5F110089B371 /* FMDBontroller.xib */,
+				9AC256C51E8A6A740089B371 /* TestFMDBManger.swift */,
+			);
+			path = FMDBController;
 			sourceTree = "<group>";
 		};
 		9AD4F2AD1E7FAE5800458777 /* DialController */ = {
@@ -477,6 +494,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AC256C41E8A5F110089B371 /* FMDBontroller.xib in Resources */,
 				9A78EFE91E764443008C93E9 /* LaunchScreen.storyboard in Resources */,
 				9A78EFE61E764443008C93E9 /* Assets.xcassets in Resources */,
 				9A78EFE11E764443008C93E9 /* Main.storyboard in Resources */,
@@ -554,6 +572,7 @@
 			files = (
 				9A58F9D51E77DC9B00500AB6 /* WKFVideoPlayerView.swift in Sources */,
 				9A58F9DB1E77E7D500500AB6 /* WKFPlayer.swift in Sources */,
+				9AC256C61E8A6A740089B371 /* TestFMDBManger.swift in Sources */,
 				9A78F0191E76488F008C93E9 /* Constants.swift in Sources */,
 				9A78F02D1E7694AE008C93E9 /* CurveController.swift in Sources */,
 				9A58F9D31E77DC7B00500AB6 /* DemoVideoController.swift in Sources */,
@@ -561,6 +580,7 @@
 				9A78F0331E76A4B7008C93E9 /* TabsSelectController.swift in Sources */,
 				9A78F0221E764BD1008C93E9 /* HomeModel.swift in Sources */,
 				9A78F0151E764834008C93E9 /* ViewController.swift in Sources */,
+				9AC256C31E8A5F110089B371 /* FMDBontroller.swift in Sources */,
 				9A78F0371E76A4DE008C93E9 /* TestTwoController.swift in Sources */,
 				9ABDE3C21E7BF46A001A1963 /* WaveController.swift in Sources */,
 				9A78F0241E766CEB008C93E9 /* HomeCell.swift in Sources */,

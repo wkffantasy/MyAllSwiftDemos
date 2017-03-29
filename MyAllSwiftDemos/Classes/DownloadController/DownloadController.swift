@@ -12,7 +12,6 @@ class DownloadController: UIViewController, UITableViewDelegate, UITableViewData
 
     var tableView: UITableView!
     var dataArray: Array<DownloadModel> = []
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +56,7 @@ class DownloadController: UIViewController, UITableViewDelegate, UITableViewData
         cell.assignItData(model: dataArray[indexPath.row])
         return cell
     }
+
     deinit {
         log.error("this download controller will be deinit")
     }

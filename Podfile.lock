@@ -1,15 +1,20 @@
 PODS:
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
   - SnapKit (3.2.0)
   - SwiftyBeaver (1.1.3)
 
 DEPENDENCIES:
+  - FMDB
   - SnapKit
   - SwiftyBeaver
 
 SPEC CHECKSUMS:
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyBeaver: 949aa1439b8fa3667f68555cfef65de46a70ccde
 
-PODFILE CHECKSUM: 0645cecfa8cf12d7d010855afed5bc52051b5033
+PODFILE CHECKSUM: 0a05049947d8c1026afd4e3bbe19ffd6d8de29d0
 
 COCOAPODS: 1.2.0

@@ -8,17 +8,15 @@
 
 import UIKit
 
-
-
 class DownloadCell: UITableViewCell {
 
     typealias ShouldReloadThisRow = (DownloadCell) -> Void
-    
-    public var reloadRow:ShouldReloadThisRow?
-    
-//    var downloadState = DownloadState.NotBegan
-    
-    var model:DownloadModel?
+
+    public var reloadRow: ShouldReloadThisRow?
+
+    //    var downloadState = DownloadState.NotBegan
+
+    var model: DownloadModel?
     let downloadTool = DownloadToolManage()
     var labelProgress: UILabel!
     var labelSpeed: UILabel!
@@ -35,12 +33,12 @@ class DownloadCell: UITableViewCell {
         }
         return cell as! DownloadCell
     }
-    
+
     public func assignItData(model: DownloadModel) {
-        print("url ==",model.url)
+        print("url ==", model.url)
         self.model = model
     }
-    
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -83,7 +81,7 @@ class DownloadCell: UITableViewCell {
             make.width.equalTo(buttonW)
             make.height.equalTo(buttonH)
         }
-        
+
         let pauseButton = UIButton(type: .custom)
         pauseButton.backgroundColor = .green
         pauseButton.setTitle("暂停", for: .normal)
@@ -97,7 +95,7 @@ class DownloadCell: UITableViewCell {
             make.width.equalTo(buttonW)
             make.height.equalTo(buttonH)
         }
-        
+
         let goonButton = UIButton(type: .custom)
         goonButton.backgroundColor = .green
         goonButton.setTitle("继续下载", for: .normal)
@@ -111,7 +109,7 @@ class DownloadCell: UITableViewCell {
             make.width.equalTo(buttonW)
             make.height.equalTo(buttonH)
         }
-        
+
         let sepLine = UIView()
         sepLine.backgroundColor = .red
         addSubview(sepLine)
@@ -122,10 +120,12 @@ class DownloadCell: UITableViewCell {
             make.bottom.equalTo(self.snp.bottom)
         }
     }
+
     func clickToPause(button _: UIButton) {
         print("clickToPause")
         downloadTool.pauseDownload()
     }
+
     func clickToGoon(button _: UIButton) {
         print("clickToGoon")
         self.downloadTool.goonDownload()
@@ -133,7 +133,7 @@ class DownloadCell: UITableViewCell {
 
     @objc private func clickToDownload() {
         print("clickToDownload")
-        let progressBlock = {[weak self](progress: String, remainTime: String, speed: String) in
+        let progressBlock = { [weak self] (progress: String, remainTime: String, speed: String) in
             self?.labelRemainTime.text = "剩余时间:" + remainTime
             self?.labelSpeed.text = "速度:" + speed
             self?.labelProgress.text = "进度:" + progress
@@ -144,13 +144,12 @@ class DownloadCell: UITableViewCell {
         let failedBlock = { (error: Error) in
             print("failedBlock error==", error)
         }
-        
+
         let downloadUrl = PathAndVideoNameTool.tool.videoConverUrlToDownloadUrl(urlString: (model?.url)!)
         let filePath = PathAndVideoNameTool.tool.videoConverUrlToPath(urlString: (model?.url)!)
-        print("downloadUrl ==",downloadUrl)
-        print("filePath ==",filePath)
+        print("downloadUrl ==", downloadUrl)
+        print("filePath ==", filePath)
         downloadTool.downloadVideoFiles(downloadUrl: downloadUrl, toSavePath: filePath as String, progressBlock: progressBlock, completeBlock: completeBlock, failedBlock: failedBlock)
-        
     }
 
     private func setupLabel() -> UILabel {

@@ -30,7 +30,6 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
         super.init()
         let configuration = URLSessionConfiguration.default
         self.session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
-
     }
 
     public func downloadVideoFiles(
@@ -62,7 +61,7 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
             return
         }
         // 检查：根据这个url去目录搜索是否有 resumeData存在
-        
+
         // 开始下载
         let request = URLRequest(url: URL(string: self.downloadUrl!)!)
         downloadTask = self.session?.downloadTask(with: request)
@@ -103,10 +102,8 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
                 self.failed!(error!)
             }
         }
-        //缓存下来
-        print("sessionTask ==",sessionTask.response)
-       
-        
+        // 缓存下来
+        print("sessionTask ==", sessionTask.response)
     }
 
     // 下载完成

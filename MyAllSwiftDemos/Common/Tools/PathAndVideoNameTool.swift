@@ -30,21 +30,20 @@ class PathAndVideoNameTool: NSObject {
     // 后缀为m3u8
     func videoConverUrlToPath(urlString: String) -> String {
         assert(urlString.length > 0, "")
-        
+
         var filePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last! as NSString
         filePath = filePath.appendingPathComponent(self.videoConverUrlToName(urlString: urlString)) as NSString
         return filePath as String
     }
-    
+
     // 后缀为m3u8
     func videoConverUrlToDownloadUrl(urlString: String) -> String {
         assert(urlString.length > 0, "")
-        
+
         if urlString.hasSuffix("m3u8") {
             let newString = urlString.subString(start: 0, end: urlString.length - 4)
             return newString + "mp4"
         }
         return urlString
     }
-
 }

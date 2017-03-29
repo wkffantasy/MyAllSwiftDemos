@@ -68,6 +68,12 @@ let functionsArray = [
         "status": "在写",
         "jumpTo": "jumpToNoDownloadVC",
     ],
+    [
+        "title": "浅学FMDB",
+        "titleDescription": "TestDemo",
+        "status": "在写",
+        "jumpTo": "jumpToFMDB",
+    ],
 ]
 
 let funnyArray = [
@@ -85,17 +91,17 @@ let funnyArray = [
     ],
 ]
 
-//download state
+// download state
 public enum DownloadState: Int {
-    
+
     case Downloading
-    
+
     case Pause
-    
+
     case NotBegan
-    
+
     case Compeleted
-    
+
     case Failed
 }
 

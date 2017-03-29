@@ -77,6 +77,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(CurveController(), animated: true)
     }
 
+    func jumpToFMDB() {
+        self.navigationController?.pushViewController(FMDBontroller(), animated: true)
+    }
+
     func jumpToTabSelectVC() {
         //        let tabsVC = TabsSelectController.init(isTitle: true)
         let tabsVC = TabsSelectController.init(isTitle: false)
