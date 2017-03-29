@@ -9,6 +9,4 @@
 import UIKit
 
 class TestFMDBManger: NSObject {
- 
-    
 }
