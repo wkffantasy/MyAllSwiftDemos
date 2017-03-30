@@ -9,9 +9,8 @@
 import UIKit
 
 class TestModel: NSObject {
-    
-    var progress:String!
-    var totalCount:Int64!
-    var currentCount:Int64!
-    
+
+    var progress: String!
+    var totalCount: Int64!
+    var currentCount: Int64!
 }

@@ -21,8 +21,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         settingUpLog()
-
+        add3DTouchItems()
         return true
+    }
+
+    func add3DTouchItems() {
+
+        let itemIcon1 = UIApplicationShortcutIcon.init(templateImageName: "test_0")
+        let itemIcon2 = UIApplicationShortcutIcon.init(templateImageName: "test_1")
+        let itemIcon3 = UIApplicationShortcutIcon.init(templateImageName: "test_2")
+        let item1 = UIApplicationShortcutItem.init(type: "com.leng.Play", localizedTitle: "test1", localizedSubtitle: "发如雪", icon: itemIcon1, userInfo: nil)
+        let item2 = UIApplicationShortcutItem.init(type: "com.leng.Play", localizedTitle: "test2", localizedSubtitle: "东风破", icon: itemIcon2, userInfo: nil)
+        let item3 = UIApplicationShortcutItem.init(type: "com.leng.Play", localizedTitle: "test3", localizedSubtitle: "青花瓷", icon: itemIcon3, userInfo: nil)
+        UIApplication.shared.shortcutItems = [item1, item2, item3]
+    }
+
+    func application(_: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler _: @escaping (Bool) -> Void) {
+
+        switch shortcutItem.localizedTitle {
+        case "test1":
+            print("click 3D Touch test1")
+        case "test2":
+            print("click 3D Touch test2")
+        case "test3":
+            print("click 3D Touch test3")
+        default: break
+        }
     }
 
     func settingUpLog() {
