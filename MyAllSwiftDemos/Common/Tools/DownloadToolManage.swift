@@ -61,6 +61,7 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
             return
         }
         // 检查：根据这个url去目录搜索是否有 resumeData存在
+        
 
         // 开始下载
         let request = URLRequest(url: URL(string: self.downloadUrl!)!)
@@ -97,10 +98,14 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
     // 下载出错
     func urlSession(_: URLSession, task sessionTask: URLSessionTask, didCompleteWithError error: Error?) {
         print("error ==", error?.localizedDescription)
-        if error?.localizedDescription != "cancelled" {
+        if error?.localizedDescription == "cancelled" {
             if self.failed != nil {
                 self.failed!(error!)
             }
+        } else if (error == nil) {//正常下载完成
+        
+        } else {//网络
+        
         }
         // 缓存下来
         print("sessionTask ==", sessionTask.response)
@@ -154,5 +159,8 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
             unitString = String(format: "%.1fKB", remainKB)
         }
         return unitString
+    }
+    deinit {
+        print("this downloadTool will be deinit")
     }
 }
