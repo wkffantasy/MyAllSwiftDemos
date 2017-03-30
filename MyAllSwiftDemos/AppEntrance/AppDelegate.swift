@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
 
         settingUpLog()
         add3DTouchItems()
@@ -27,26 +26,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func add3DTouchItems() {
 
-        let itemIcon1 = UIApplicationShortcutIcon.init(templateImageName: "test_0")
-        let itemIcon2 = UIApplicationShortcutIcon.init(templateImageName: "test_1")
-        let itemIcon3 = UIApplicationShortcutIcon.init(templateImageName: "test_2")
-        let item1 = UIApplicationShortcutItem.init(type: "com.leng.Play", localizedTitle: "test1", localizedSubtitle: "发如雪", icon: itemIcon1, userInfo: nil)
-        let item2 = UIApplicationShortcutItem.init(type: "com.leng.Play", localizedTitle: "test2", localizedSubtitle: "东风破", icon: itemIcon2, userInfo: nil)
-        let item3 = UIApplicationShortcutItem.init(type: "com.leng.Play", localizedTitle: "test3", localizedSubtitle: "青花瓷", icon: itemIcon3, userInfo: nil)
+        //        let itemIcon1 = UIApplicationShortcutIcon.init(type: .play)
+        //        let itemIcon2 = UIApplicationShortcutIcon.init(type: .captureVideo)
+        //        let itemIcon3 = UIApplicationShortcutIcon.init(type: .add)
+
+        let itemIcon1 = UIApplicationShortcutIcon.init(templateImageName: "touchIcon1")
+        let itemIcon2 = UIApplicationShortcutIcon.init(templateImageName: "touchIcon1")
+        let itemIcon3 = UIApplicationShortcutIcon.init(templateImageName: "touchIcon1")
+        let item1 = UIApplicationShortcutItem.init(type: "1", localizedTitle: "test1", localizedSubtitle: "发如雪", icon: itemIcon1, userInfo: nil)
+        let item2 = UIApplicationShortcutItem.init(type: "2", localizedTitle: "test2", localizedSubtitle: "东风破", icon: itemIcon2, userInfo: nil)
+        let item3 = UIApplicationShortcutItem.init(type: "3", localizedTitle: "test3", localizedSubtitle: "青花瓷", icon: itemIcon3, userInfo: nil)
         UIApplication.shared.shortcutItems = [item1, item2, item3]
     }
 
     func application(_: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler _: @escaping (Bool) -> Void) {
 
-        switch shortcutItem.localizedTitle {
-        case "test1":
-            print("click 3D Touch test1")
-        case "test2":
-            print("click 3D Touch test2")
-        case "test3":
-            print("click 3D Touch test3")
-        default: break
-        }
+        NotificationCenter.default.post(name: NSNotification.Name(touchNameOf3D), object: nil, userInfo: ["name": shortcutItem.localizedTitle])
     }
 
     func settingUpLog() {

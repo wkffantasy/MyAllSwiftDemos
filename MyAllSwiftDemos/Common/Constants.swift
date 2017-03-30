@@ -11,6 +11,7 @@ import UIKit
 import SnapKit
 
 // all notification names
+let touchNameOf3D = "touchNameOf3D"
 
 // constants
 

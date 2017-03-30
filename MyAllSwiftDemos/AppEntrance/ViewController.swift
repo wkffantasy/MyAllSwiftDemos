@@ -23,6 +23,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.title = "MyAllSwiftDemos"
         thisDataSource()
         setupUI()
+        addOberser()
+    }
+
+    func addOberser() {
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveNotification(noti:)), name: NSNotification.Name(rawValue: touchNameOf3D), object: nil)
+    }
+
+    func receiveNotification(noti: Notification) {
+        let userInfo = noti.userInfo
+        let name = String(format: "%@", userInfo?["name"] as! CVarArg)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.8) {
+            if name.length > 0 {
+                switch name {
+                case "test1":
+                    self.jumpToMarqueeVC()
+                case "test2":
+                    self.jumpToCurveVC()
+                case "test3":
+                    self.jumpToWaveVC()
+                default:break
+                }
+            }
+        }
     }
 
     func numberOfSections(in _: UITableView) -> Int {
@@ -142,5 +165,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             model.jumpTo = item["jumpTo"]
             funnyViewsArray.append(model)
         }
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
