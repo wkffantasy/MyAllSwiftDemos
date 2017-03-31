@@ -19,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.backgroundColor = .white
+        self.window?.makeKey()
+        self.window?.makeKeyAndVisible()
+        self.window?.rootViewController = TabBarController()
+
         settingUpLog()
         add3DTouchItems()
         return true
@@ -26,16 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func add3DTouchItems() {
 
-        //system image
-//                let itemIcon1 = UIApplicationShortcutIcon.init(type: .play)
-//                let itemIcon2 = UIApplicationShortcutIcon.init(type: .captureVideo)
-//                let itemIcon3 = UIApplicationShortcutIcon.init(type: .add)
+        // system image
+        //                let itemIcon1 = UIApplicationShortcutIcon.init(type: .play)
+        //                let itemIcon2 = UIApplicationShortcutIcon.init(type: .captureVideo)
+        //                let itemIcon3 = UIApplicationShortcutIcon.init(type: .add)
 
-        //custom image
+        // custom image
         let itemIcon1 = UIApplicationShortcutIcon.init(templateImageName: "snow.ico")
         let itemIcon2 = UIApplicationShortcutIcon.init(templateImageName: "snow.ico")
         let itemIcon3 = UIApplicationShortcutIcon.init(templateImageName: "snow.ico")
-        
+
         let item1 = UIApplicationShortcutItem.init(type: "1", localizedTitle: "test1", localizedSubtitle: "发如雪", icon: itemIcon1, userInfo: nil)
         let item2 = UIApplicationShortcutItem.init(type: "2", localizedTitle: "test2", localizedSubtitle: "东风破", icon: itemIcon2, userInfo: nil)
         let item3 = UIApplicationShortcutItem.init(type: "3", localizedTitle: "test3", localizedSubtitle: "青花瓷", icon: itemIcon3, userInfo: nil)

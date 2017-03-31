@@ -10,17 +10,30 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var functionViewsArray: Array<HomeModel>! = []
-    var funnyViewsArray: Array<HomeModel>! = []
+    private var paramArray: Array<Dictionary<String, String>> = []
+    private var index: Int = 0
+
+    private var dataArray: Array<HomeModel>! = []
+
     let headerDataArray = [
         "some views that can be directly used",
         "something fun,it looks like more friendly to users",
+        "something that not directly obvious",
     ]
     var tableView: UITableView!
 
+    init(index: Int, paramArray: Array<Dictionary<String, String>>) {
+        self.paramArray = paramArray
+        self.index = index
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "MyAllSwiftDemos"
         thisDataSource()
         setupUI()
         addOberser()
@@ -39,55 +52,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 case "test1":
                     self.jumpToMarqueeVC()
                 case "test2":
-                    self.jumpToCurveVC()
+                    self.jumpToTabSelectVC()
                 case "test3":
-                    self.jumpToWaveVC()
+                    self.jumpToVideoVC()
                 default:break
                 }
             }
         }
     }
 
-    func numberOfSections(in _: UITableView) -> Int {
-        return headerDataArray.count
-    }
-
-    func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return self.functionViewsArray.count
-        } else {
-            return self.funnyViewsArray.count
-        }
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return dataArray.count
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = HomeHeader.headerWithTableView(tableView: tableView)
-        header.updateContent(text: self.headerDataArray[section])
+        header.updateContent(text: headerDataArray[self.index])
         return header
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if indexPath.section == 0 {
-            let cell: HomeCell = HomeCell.cellWithTableView(tableView: tableView)
-            cell.assignItData(model: self.functionViewsArray[indexPath.row])
-            return cell
-        } else {
-            let cell: HomeCell = HomeCell.cellWithTableView(tableView: tableView)
-            cell.assignItData(model: self.funnyViewsArray[indexPath.row])
-            return cell
-        }
+        let cell: HomeCell = HomeCell.cellWithTableView(tableView: tableView)
+        cell.assignItData(model: dataArray[indexPath.row])
+        return cell
     }
 
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        var thisModel: HomeModel
-        if indexPath.section == 0 {
-            thisModel = self.functionViewsArray[indexPath.row]
-        } else {
-
-            thisModel = self.funnyViewsArray[indexPath.row]
-        }
+        let thisModel = dataArray[indexPath.row]
         let selector = Selector.init(thisModel.jumpTo)
         self.perform(selector)
     }
@@ -148,22 +141,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func thisDataSource() {
 
-        for item in functionsArray {
+        for item in paramArray {
             let model = HomeModel()
             model.title = item["title"]
             model.titleDescription = item["titleDescription"]
             model.status = item["status"]
             model.jumpTo = item["jumpTo"]
-            functionViewsArray.append(model)
-        }
-
-        for item in funnyArray {
-            let model = HomeModel()
-            model.title = item["title"]
-            model.titleDescription = item["titleDescription"]
-            model.status = item["status"]
-            model.jumpTo = item["jumpTo"]
-            funnyViewsArray.append(model)
+            dataArray.append(model)
         }
     }
 
