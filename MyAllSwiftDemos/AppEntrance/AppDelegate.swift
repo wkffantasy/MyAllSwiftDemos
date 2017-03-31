@@ -18,11 +18,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.backgroundColor = .white
+        self.window?.makeKey()
+        self.window?.makeKeyAndVisible()
+        self.window?.rootViewController = TabBarController()
 
         settingUpLog()
-
+        add3DTouchItems()
         return true
+    }
+
+    func add3DTouchItems() {
+
+        // system image
+        //                let itemIcon1 = UIApplicationShortcutIcon.init(type: .play)
+        //                let itemIcon2 = UIApplicationShortcutIcon.init(type: .captureVideo)
+        //                let itemIcon3 = UIApplicationShortcutIcon.init(type: .add)
+
+        // custom image
+        let itemIcon1 = UIApplicationShortcutIcon.init(templateImageName: "snow.ico")
+        let itemIcon2 = UIApplicationShortcutIcon.init(templateImageName: "snow.ico")
+        let itemIcon3 = UIApplicationShortcutIcon.init(templateImageName: "snow.ico")
+
+        let item1 = UIApplicationShortcutItem.init(type: "1", localizedTitle: "test1", localizedSubtitle: "发如雪", icon: itemIcon1, userInfo: nil)
+        let item2 = UIApplicationShortcutItem.init(type: "2", localizedTitle: "test2", localizedSubtitle: "东风破", icon: itemIcon2, userInfo: nil)
+        let item3 = UIApplicationShortcutItem.init(type: "3", localizedTitle: "test3", localizedSubtitle: "青花瓷", icon: itemIcon3, userInfo: nil)
+        UIApplication.shared.shortcutItems = [item1, item2, item3]
+    }
+
+    func application(_: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler _: @escaping (Bool) -> Void) {
+
+        NotificationCenter.default.post(name: NSNotification.Name(touchNameOf3D), object: nil, userInfo: ["name": shortcutItem.localizedTitle])
     }
 
     func settingUpLog() {

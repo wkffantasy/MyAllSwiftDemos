@@ -11,13 +11,11 @@ import FMDB
 
 class FMDBontroller: UIViewController {
 
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        TestFMDBManger.tool.openDatabase(successBlock: { (success) in
+        TestFMDBManger.tool.openDatabase(successBlock: { _ in
             print("打开数据库成功")
-        }) { (failed) in
+        }) { _ in
             print("打开数据库失败")
         }
     }
@@ -41,9 +39,9 @@ class FMDBontroller: UIViewController {
 
     @IBAction func clickToFindItem(_: UIButton) {
         print("clickToFindItem")
-        let array:Array<TestModel>? = TestFMDBManger.tool.findAllItems()
+        let array: Array<TestModel>? = TestFMDBManger.tool.findAllItems()
         for model in array! {
-            print("progress ==",model.progress,"totalCount ==",model.totalCount,"currentCount ==",model.currentCount)
+            print("progress ==", model.progress, "totalCount ==", model.totalCount, "currentCount ==", model.currentCount)
         }
     }
 
