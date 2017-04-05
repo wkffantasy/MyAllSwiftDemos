@@ -58,6 +58,8 @@
 		9AC256C41E8A5F110089B371 /* FMDBontroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC256C21E8A5F110089B371 /* FMDBontroller.xib */; };
 		9AC256C61E8A6A740089B371 /* TestFMDBManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC256C51E8A6A740089B371 /* TestFMDBManger.swift */; };
 		9AD4F2AF1E7FAE7500458777 /* DialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4F2AE1E7FAE7500458777 /* DialController.swift */; };
+		9AED02351E94939100F3CB7B /* DownloadFMDBManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AED02341E94939100F3CB7B /* DownloadFMDBManger.swift */; };
+		9AED02371E94D4E900F3CB7B /* DownloadFMDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AED02361E94D4E900F3CB7B /* DownloadFMDBModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,8 @@
 		9AC256C51E8A6A740089B371 /* TestFMDBManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFMDBManger.swift; sourceTree = "<group>"; };
 		9AD4F2AE1E7FAE7500458777 /* DialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialController.swift; sourceTree = "<group>"; };
 		9ADAF9401E8B836200D72E2D /* MyAllSwiftDemos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyAllSwiftDemos-Bridging-Header.h"; sourceTree = "<group>"; };
+		9AED02341E94939100F3CB7B /* DownloadFMDBManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFMDBManger.swift; sourceTree = "<group>"; };
+		9AED02361E94D4E900F3CB7B /* DownloadFMDBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFMDBModel.swift; sourceTree = "<group>"; };
 		E6B82101F727A1B7E21D919B /* Pods-MyAllSwiftDemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAllSwiftDemos.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyAllSwiftDemos/Pods-MyAllSwiftDemos.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +193,8 @@
 				9A044C201E88EEBB00C02D90 /* DownloadController.swift */,
 				9A044C261E89066D00C02D90 /* DownloadModel.swift */,
 				9A044C241E88FBFB00C02D90 /* DownloadCell.swift */,
+				9AED02341E94939100F3CB7B /* DownloadFMDBManger.swift */,
+				9AED02361E94D4E900F3CB7B /* DownloadFMDBModel.swift */,
 			);
 			path = DownloadController;
 			sourceTree = "<group>";
@@ -618,11 +624,13 @@
 				9A78F0141E764834008C93E9 /* AppDelegate.swift in Sources */,
 				9A58F9CE1E77907700500AB6 /* NoMarginRollingView.swift in Sources */,
 				9A78F0201E76491F008C93E9 /* MarqueeController.swift in Sources */,
+				9AED02351E94939100F3CB7B /* DownloadFMDBManger.swift in Sources */,
 				9A044C291E890E7100C02D90 /* PathAndVideoNameTool.swift in Sources */,
 				9A78EFE41E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld in Sources */,
 				9AD4F2AF1E7FAE7500458777 /* DialController.swift in Sources */,
 				9A3DD98A1E8DFBD300B97864 /* CustomTabBar.swift in Sources */,
 				9A0FE3351E8CAD1100723FBF /* TestModel.swift in Sources */,
+				9AED02371E94D4E900F3CB7B /* DownloadFMDBModel.swift in Sources */,
 				9A3DD9881E8DFA7500B97864 /* TabBarController.swift in Sources */,
 				9A1F498D1E793E670099C2BB /* TimeTool.swift in Sources */,
 				9A78F02F1E7695C6008C93E9 /* HomeHeader.swift in Sources */,

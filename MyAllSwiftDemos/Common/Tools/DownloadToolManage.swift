@@ -61,12 +61,17 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
             return
         }
         // 检查：根据这个url去目录搜索是否有 resumeData存在
-        
+        let resumeData = DownloadFMDBManger.tool.lookIntoAnItemAccordingUrl(downloadUrl: downloadUrl!)
 
-        // 开始下载
-        let request = URLRequest(url: URL(string: self.downloadUrl!)!)
-        downloadTask = self.session?.downloadTask(with: request)
-        downloadTask?.resume()
+        if resumeData == nil { // 没有 开始下载
+
+            let request = URLRequest(url: URL(string: self.downloadUrl!)!)
+            downloadTask = self.session?.downloadTask(with: request)
+            downloadTask?.resume()
+        } else { // 有
+            downloadTask = self.session?.downloadTask(withResumeData: resumeData!)
+            downloadTask?.resume()
+        }
         self.downloadState = DownloadState.Downloading
     }
 
@@ -95,20 +100,34 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
         self.downloadTask?.cancel()
     }
 
+    // delete this task
+    func deleteThisDownloadTool() {
+        self.downloadTask?.cancel()
+        self.downloadTask = nil
+    }
+
+    // MARK: - URLSessionDownloadDelegate
+
     // 下载出错
-    func urlSession(_: URLSession, task sessionTask: URLSessionTask, didCompleteWithError error: Error?) {
-        print("error ==", error?.localizedDescription)
-        if error?.localizedDescription == "cancelled" {
-            if self.failed != nil {
-                self.failed!(error!)
+    func urlSession(_: URLSession, task _: URLSessionTask, didCompleteWithError error: Error?) {
+
+        var newError = error as? NSError
+
+        print("error ==", newError?.userInfo)
+        if newError == nil { // 正常下载完成
+
+        } else {
+            if newError?.localizedDescription == "cancelled" { // 取消
+                let resumeData = newError?.userInfo["NSURLSessionDownloadTaskResumeData"] as? NSData
+
+                DownloadFMDBManger.tool.addItem(downloadUrl: downloadUrl!, resumeData: resumeData as! Data)
+
+            } else { // 网络
+                if self.failed != nil {
+                    self.failed!(error!)
+                }
             }
-        } else if (error == nil) {//正常下载完成
-        
-        } else {//网络
-        
         }
-        // 缓存下来
-        print("sessionTask ==", sessionTask.response)
     }
 
     // 下载完成
@@ -160,7 +179,8 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
         }
         return unitString
     }
+
     deinit {
-        print("this downloadTool will be deinit")
+        print("this downloadTool will be deinit and url ==", downloadUrl ?? "")
     }
 }

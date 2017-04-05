@@ -18,6 +18,13 @@ class DownloadController: UIViewController, UITableViewDelegate, UITableViewData
         view.backgroundColor = .white
         setupDataArray()
         setupView()
+
+        // 打开数据库
+        DownloadFMDBManger.tool.openDatabase(successBlock: { _ in
+            print("open fmdb success")
+        }) { _ in
+            print("open fmdb failed")
+        }
     }
 
     func setupDataArray() {
@@ -58,6 +65,7 @@ class DownloadController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     deinit {
+        DownloadFMDBManger.tool.closeThis()
         log.error("this download controller will be deinit")
     }
 }
