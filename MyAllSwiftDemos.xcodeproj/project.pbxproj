@@ -21,6 +21,7 @@
 		9A3DD9881E8DFA7500B97864 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DD9871E8DFA7500B97864 /* TabBarController.swift */; };
 		9A3DD98A1E8DFBD300B97864 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DD9891E8DFBD300B97864 /* CustomTabBar.swift */; };
 		9A3DD98C1E8DFEA900B97864 /* BaseNaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DD98B1E8DFEA900B97864 /* BaseNaviController.swift */; };
+		9A3DE1561E96311A00AE3CE9 /* DownloadUserDefualt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DE1551E96311A00AE3CE9 /* DownloadUserDefualt.swift */; };
 		9A58F9CC1E778ED200500AB6 /* NoMarginScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58F9CB1E778ED200500AB6 /* NoMarginScrollController.swift */; };
 		9A58F9CE1E77907700500AB6 /* NoMarginRollingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58F9CD1E77907700500AB6 /* NoMarginRollingView.swift */; };
 		9A58F9D31E77DC7B00500AB6 /* DemoVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58F9D21E77DC7B00500AB6 /* DemoVideoController.swift */; };
@@ -95,6 +96,7 @@
 		9A3DD9871E8DFA7500B97864 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9A3DD9891E8DFBD300B97864 /* CustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		9A3DD98B1E8DFEA900B97864 /* BaseNaviController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNaviController.swift; sourceTree = "<group>"; };
+		9A3DE1551E96311A00AE3CE9 /* DownloadUserDefualt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadUserDefualt.swift; sourceTree = "<group>"; };
 		9A58F9CB1E778ED200500AB6 /* NoMarginScrollController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMarginScrollController.swift; sourceTree = "<group>"; };
 		9A58F9CD1E77907700500AB6 /* NoMarginRollingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMarginRollingView.swift; sourceTree = "<group>"; };
 		9A58F9D21E77DC7B00500AB6 /* DemoVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoVideoController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				9A044C241E88FBFB00C02D90 /* DownloadCell.swift */,
 				9AED02341E94939100F3CB7B /* DownloadFMDBManger.swift */,
 				9AED02361E94D4E900F3CB7B /* DownloadFMDBModel.swift */,
+				9A3DE1551E96311A00AE3CE9 /* DownloadUserDefualt.swift */,
 			);
 			path = DownloadController;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				9A12F9611E8229FB009EAD85 /* CircleView.swift in Sources */,
 				9A78F0141E764834008C93E9 /* AppDelegate.swift in Sources */,
 				9A58F9CE1E77907700500AB6 /* NoMarginRollingView.swift in Sources */,
+				9A3DE1561E96311A00AE3CE9 /* DownloadUserDefualt.swift in Sources */,
 				9A78F0201E76491F008C93E9 /* MarqueeController.swift in Sources */,
 				9AED02351E94939100F3CB7B /* DownloadFMDBManger.swift in Sources */,
 				9A044C291E890E7100C02D90 /* PathAndVideoNameTool.swift in Sources */,

@@ -128,7 +128,7 @@ class DownloadFMDBManger: NSObject {
                     let model = DownloadFMDBModel()
                     model.url = url
                     model.resumeData = stringToData(resumeString: resumeData)
-                    print("all items url ==", url)
+                    print("all items url ==", url,"resumeData ==",resumeData)
                     thisArray.append(model)
                 }
             }

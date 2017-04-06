@@ -61,7 +61,7 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
             return
         }
         // 检查：根据这个url去目录搜索是否有 resumeData存在
-        let resumeData = DownloadFMDBManger.tool.lookIntoAnItemAccordingUrl(downloadUrl: downloadUrl!)
+        let resumeData = DownloadUserDefualt.tool.fetchResumeData(url: downloadUrl!)
 
         if resumeData == nil { // 没有 开始下载
 
@@ -111,16 +111,19 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
     // 下载出错
     func urlSession(_: URLSession, task _: URLSessionTask, didCompleteWithError error: Error?) {
 
-        var newError = error as? NSError
-
-        print("error ==", newError?.userInfo)
+        let newError = error as? NSError
+        let thisData = newError?.userInfo["NSURLSessionDownloadTaskResumeData"]
+        print("error type == ",newError?.localizedDescription ?? "~")
+        
+        
         if newError == nil { // 正常下载完成
-
+            DownloadUserDefualt.tool.removeItem(url: downloadUrl!)
         } else {
+            
             if newError?.localizedDescription == "cancelled" { // 取消
-                let resumeData = newError?.userInfo["NSURLSessionDownloadTaskResumeData"] as? NSData
-
-                DownloadFMDBManger.tool.addItem(downloadUrl: downloadUrl!, resumeData: resumeData as! Data)
+                if thisData != nil {
+                    DownloadUserDefualt.tool.saveDownloadUrlAndData(url: downloadUrl!, resumeData: thisData as! Data)
+                }
 
             } else { // 网络
                 if self.failed != nil {
@@ -167,7 +170,12 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
             }
         }
     }
-
+    
+//    private func dataToString(resumeData: Data) -> String? {
+//        let string = NSString(data: resumeData, encoding: String.Encoding.utf8.rawValue)
+//        return string as String?
+//    }
+    
     func convertBytesToUnit(bytes: CGFloat) -> String {
         let remainM = bytes / (1024 * 1024)
         let remainKB = bytes / 1024
@@ -183,4 +191,5 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
     deinit {
         print("this downloadTool will be deinit and url ==", downloadUrl ?? "")
     }
+    
 }
