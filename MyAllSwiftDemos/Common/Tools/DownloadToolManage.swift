@@ -113,13 +113,12 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
 
         let newError = error as? NSError
         let thisData = newError?.userInfo["NSURLSessionDownloadTaskResumeData"]
-        print("error type == ",newError?.localizedDescription ?? "~")
-        
-        
+        print("error type == ", newError?.localizedDescription ?? "~")
+
         if newError == nil { // 正常下载完成
             DownloadUserDefualt.tool.removeItem(url: downloadUrl!)
         } else {
-            
+
             if newError?.localizedDescription == "cancelled" { // 取消
                 if thisData != nil {
                     DownloadUserDefualt.tool.saveDownloadUrlAndData(url: downloadUrl!, resumeData: thisData as! Data)
@@ -170,12 +169,12 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
             }
         }
     }
-    
-//    private func dataToString(resumeData: Data) -> String? {
-//        let string = NSString(data: resumeData, encoding: String.Encoding.utf8.rawValue)
-//        return string as String?
-//    }
-    
+
+    //    private func dataToString(resumeData: Data) -> String? {
+    //        let string = NSString(data: resumeData, encoding: String.Encoding.utf8.rawValue)
+    //        return string as String?
+    //    }
+
     func convertBytesToUnit(bytes: CGFloat) -> String {
         let remainM = bytes / (1024 * 1024)
         let remainKB = bytes / 1024
@@ -191,5 +190,4 @@ class DownloadToolManage: NSObject, URLSessionDownloadDelegate {
     deinit {
         print("this downloadTool will be deinit and url ==", downloadUrl ?? "")
     }
-    
 }
