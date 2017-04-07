@@ -63,7 +63,7 @@ class TabBarController: UITabBarController {
     let othersArray = [
         [
             "title": "下载的tool",
-            "titleDescription": "自己写的下载的tool，有下载速度，进度，剩余时间，暂不支持，后台下载，断点下载",
+            "titleDescription": "自己写的下载的tool，有下载速度，进度，剩余时间，可以断点下载。暂不支持，后台下载，",
             "status": "待完善",
             "jumpTo": "jumpToNoDownloadVC",
         ],
@@ -72,6 +72,12 @@ class TabBarController: UITabBarController {
             "titleDescription": "TestDemo 没有主键，更新的时候，都不是根据主键来更改的",
             "status": "在写",
             "jumpTo": "jumpToFMDB",
+        ],
+        [
+            "title": "ScrollManyTableViews",
+            "titleDescription": "尝试",
+            "status": "在写",
+            "jumpTo": "jumpToScrollManyTableViewVC",
         ],
     ]
 
