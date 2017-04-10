@@ -14,6 +14,10 @@
 		9A044C271E89066D00C02D90 /* DownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A044C261E89066D00C02D90 /* DownloadModel.swift */; };
 		9A044C291E890E7100C02D90 /* PathAndVideoNameTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A044C281E890E7100C02D90 /* PathAndVideoNameTool.swift */; };
 		9A07F1241E975D8800D8DC42 /* ScrollManyTabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A07F1231E975D8800D8DC42 /* ScrollManyTabsViewController.swift */; };
+		9A07F1741E978BED00D8DC42 /* ScrollTableViewBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A07F1731E978BED00D8DC42 /* ScrollTableViewBaseController.swift */; };
+		9A07F1761E978C1E00D8DC42 /* SubclassTestOneContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A07F1751E978C1E00D8DC42 /* SubclassTestOneContrller.swift */; };
+		9A07F1781E97954100D8DC42 /* SubclassTestSecondContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A07F1771E97954100D8DC42 /* SubclassTestSecondContrller.swift */; };
+		9A07F17A1E97956900D8DC42 /* SubclassTestThirdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A07F1791E97956900D8DC42 /* SubclassTestThirdController.swift */; };
 		9A0FE3351E8CAD1100723FBF /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0FE3341E8CAD1100723FBF /* TestModel.swift */; };
 		9A12F9611E8229FB009EAD85 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12F9601E8229FB009EAD85 /* CircleView.swift */; };
 		9A1F498D1E793E670099C2BB /* TimeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F498C1E793E670099C2BB /* TimeTool.swift */; };
@@ -90,6 +94,10 @@
 		9A044C261E89066D00C02D90 /* DownloadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadModel.swift; sourceTree = "<group>"; };
 		9A044C281E890E7100C02D90 /* PathAndVideoNameTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathAndVideoNameTool.swift; sourceTree = "<group>"; };
 		9A07F1231E975D8800D8DC42 /* ScrollManyTabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollManyTabsViewController.swift; sourceTree = "<group>"; };
+		9A07F1731E978BED00D8DC42 /* ScrollTableViewBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollTableViewBaseController.swift; sourceTree = "<group>"; };
+		9A07F1751E978C1E00D8DC42 /* SubclassTestOneContrller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubclassTestOneContrller.swift; sourceTree = "<group>"; };
+		9A07F1771E97954100D8DC42 /* SubclassTestSecondContrller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubclassTestSecondContrller.swift; sourceTree = "<group>"; };
+		9A07F1791E97956900D8DC42 /* SubclassTestThirdController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubclassTestThirdController.swift; sourceTree = "<group>"; };
 		9A0FE3341E8CAD1100723FBF /* TestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		9A12F9601E8229FB009EAD85 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		9A1F498C1E793E670099C2BB /* TimeTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTool.swift; sourceTree = "<group>"; };
@@ -208,6 +216,10 @@
 			isa = PBXGroup;
 			children = (
 				9A07F1231E975D8800D8DC42 /* ScrollManyTabsViewController.swift */,
+				9A07F1731E978BED00D8DC42 /* ScrollTableViewBaseController.swift */,
+				9A07F1791E97956900D8DC42 /* SubclassTestThirdController.swift */,
+				9A07F1751E978C1E00D8DC42 /* SubclassTestOneContrller.swift */,
+				9A07F1771E97954100D8DC42 /* SubclassTestSecondContrller.swift */,
 			);
 			path = ScrollManyTableViews;
 			sourceTree = "<group>";
@@ -608,6 +620,7 @@
 				9AC256C61E8A6A740089B371 /* TestFMDBManger.swift in Sources */,
 				9A78F0191E76488F008C93E9 /* Constants.swift in Sources */,
 				9A78F02D1E7694AE008C93E9 /* CurveController.swift in Sources */,
+				9A07F1761E978C1E00D8DC42 /* SubclassTestOneContrller.swift in Sources */,
 				9A58F9D31E77DC7B00500AB6 /* DemoVideoController.swift in Sources */,
 				9A78F0181E76488F008C93E9 /* ApiConstant.swift in Sources */,
 				9A78F0331E76A4B7008C93E9 /* TabsSelectController.swift in Sources */,
@@ -623,6 +636,7 @@
 				9ABDE3C41E7BF58C001A1963 /* WaveView.swift in Sources */,
 				9A58F9D91E77DD0400500AB6 /* VideoBottomMenu.swift in Sources */,
 				9A044C251E88FBFB00C02D90 /* DownloadCell.swift in Sources */,
+				9A07F1741E978BED00D8DC42 /* ScrollTableViewBaseController.swift in Sources */,
 				9A044C211E88EEBB00C02D90 /* DownloadController.swift in Sources */,
 				9A78F02A1E7690C2008C93E9 /* TabsSelectView.swift in Sources */,
 				9A044C271E89066D00C02D90 /* DownloadModel.swift in Sources */,
@@ -638,12 +652,14 @@
 				9A78F0141E764834008C93E9 /* AppDelegate.swift in Sources */,
 				9A07F1241E975D8800D8DC42 /* ScrollManyTabsViewController.swift in Sources */,
 				9A58F9CE1E77907700500AB6 /* NoMarginRollingView.swift in Sources */,
+				9A07F1781E97954100D8DC42 /* SubclassTestSecondContrller.swift in Sources */,
 				9A3DE1561E96311A00AE3CE9 /* DownloadUserDefualt.swift in Sources */,
 				9A78F0201E76491F008C93E9 /* MarqueeController.swift in Sources */,
 				9AED02351E94939100F3CB7B /* DownloadFMDBManger.swift in Sources */,
 				9A044C291E890E7100C02D90 /* PathAndVideoNameTool.swift in Sources */,
 				9A78EFE41E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld in Sources */,
 				9AD4F2AF1E7FAE7500458777 /* DialController.swift in Sources */,
+				9A07F17A1E97956900D8DC42 /* SubclassTestThirdController.swift in Sources */,
 				9A3DD98A1E8DFBD300B97864 /* CustomTabBar.swift in Sources */,
 				9A0FE3351E8CAD1100723FBF /* TestModel.swift in Sources */,
 				9AED02371E94D4E900F3CB7B /* DownloadFMDBModel.swift in Sources */,
