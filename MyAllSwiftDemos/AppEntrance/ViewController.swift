@@ -93,6 +93,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(CurveController(), animated: true)
     }
 
+    func jumpToRefreshVC() {
+        self.navigationController?.pushViewController(RefreshController(), animated: true)
+    }
+
     func jumpToScrollManyTableViewVC() {
         self.navigationController?.pushViewController(ScrollManyTabsViewController(), animated: true)
     }
