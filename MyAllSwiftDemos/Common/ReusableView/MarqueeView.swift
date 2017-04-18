@@ -78,9 +78,7 @@ class MarqueeView: UIView {
 
         self.clipsToBounds = true
         self.isUserInteractionEnabled = false
-
         self.frame = frame
-
         self.title = text
         self.titleFont = font
         self.titleColor = color
@@ -97,7 +95,6 @@ class MarqueeView: UIView {
     }
 
     private func setupLabel() -> UILabel {
-
         let label = UILabel.init()
         label.text = title
         label.textColor = titleColor
@@ -107,7 +104,6 @@ class MarqueeView: UIView {
     }
 
     private func beganAnimate() {
-
         // move 20pt/s
         let speed: CGFloat = 20.0
         let animate = CABasicAnimation()
@@ -121,19 +117,14 @@ class MarqueeView: UIView {
     }
 
     private func beReadyToAnimatie(frame: CGRect) {
-
         let attributes: Dictionary<String, AnyObject> = [NSFontAttributeName: self.titleFont]
         let attributedText = NSMutableAttributedString(string: self.title, attributes: attributes)
         let labelRect = attributedText.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: self.frame.size.height), options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
-
         if labelRect.size.width <= frame.size.width {
-
             firstLabel.frame = frame
             secondLabel?.isHidden = true
             containerView.layer.removeAnimation(forKey: animationKey)
-
         } else {
-
             secondLabel?.isHidden = false
             firstLabel.frame = CGRect(x: 0, y: 0, width: labelRect.size.width, height: self.frame.size.height)
             secondLabel?.frame = CGRect(x: labelRect.size.width + labelMargin, y: 0, width: labelRect.size.width, height: self.frame.size.height)

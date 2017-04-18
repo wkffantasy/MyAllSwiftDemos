@@ -9,7 +9,4 @@
 import UIKit
 
 class SubclassTestThirdController: ScrollTableViewBaseController {
-    
-    
-    
 }

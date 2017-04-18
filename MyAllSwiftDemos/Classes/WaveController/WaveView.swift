@@ -11,13 +11,10 @@ import UIKit
 class WaveView: UIView {
 
     let waterWaveWidth: CGFloat = ScreenWidth
-    let waterWaveHeight: CGFloat = 200
+    let waveSpeed: CGFloat = CGFloat(0.05 / M_PI)
 
-    let waveSpeed: CGFloat = CGFloat(0.08 / M_PI)
-    let waveSpeed2: CGFloat = CGFloat(0.3 / M_PI)
     var waveOffsetX: CGFloat = 0
-    //    let wavePointY = waterWaveHeight - 50.0
-    let waveAmplitude: CGFloat = 13
+    var waveAmplitude: CGFloat!
 
     var firstLayer: CAShapeLayer!
     var secondLayer: CAShapeLayer!
@@ -26,7 +23,9 @@ class WaveView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.clipsToBounds = true
         self.backgroundColor = UIColor.colorWithRGB(red: 251, green: 91, blue: 91)
+        waveAmplitude = frame.height / 2
         startWave()
     }
 
@@ -34,15 +33,19 @@ class WaveView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    public func removeThisDisplayLink() {
+        displayLink.invalidate()
+    }
+
     func startWave() {
-        let waveColor = UIColor.colorWithRGBH(red: 251, green: 251, blue: 251, Alpha: 0.1)
+        let waveColor = UIColor.colorWithHexString("ff8900")
 
         firstLayer = CAShapeLayer()
         firstLayer.fillColor = waveColor.cgColor
         self.layer.addSublayer(firstLayer)
 
         secondLayer = CAShapeLayer()
-        secondLayer.fillColor = UIColor.colorWithRGBH(red: 233, green: 233, blue: 233, Alpha: 0.1).cgColor
+        secondLayer.fillColor = UIColor.white.cgColor
         self.layer.addSublayer(secondLayer)
 
         displayLink = CADisplayLink(target: self, selector: #selector(getCurrentWave))
@@ -51,37 +54,27 @@ class WaveView: UIView {
 
     func getCurrentWave() {
         waveOffsetX += waveSpeed
-        setFirstPath()
-        setSecondPath()
+        for index in 0 ... 1 {
+            let waveCycle: CGFloat = CGFloat(1.1 * M_PI) / (waterWaveWidth / 3)
+            let path = CGMutablePath()
+            var waveY: CGFloat = 0
+            path.move(to: CGPoint(x: 0, y: waveY))
+            for x in 0 ... Int(waterWaveWidth) {
+                waveY = waveAmplitude - waveAmplitude * sin((waveCycle * CGFloat(x) + CGFloat(index) * CGFloat(M_PI)) + waveOffsetX)
+                path.addLine(to: CGPoint(x: CGFloat(x), y: waveY))
+            }
+            path.addLine(to: CGPoint(x: waterWaveWidth, y: self.frame.size.height))
+            path.addLine(to: CGPoint(x: 0, y: self.frame.size.height))
+            path.closeSubpath()
+            if index == 0 {
+                secondLayer.path = path
+            } else {
+                firstLayer.path = path
+            }
+        }
     }
 
-    func setSecondPath() {
-        let waveCycle: CGFloat = CGFloat(1.1 * M_PI) / waterWaveWidth
-        let path = CGMutablePath()
-        var waveY: CGFloat = waterWaveHeight - 50
-        path.move(to: CGPoint(x: 0, y: waveY))
-        for x in 0 ... Int(waterWaveWidth) {
-            waveY = (waveAmplitude - 2) * sin(waveCycle * CGFloat(x) + waveOffsetX) + 10 + waterWaveHeight - 50
-            path.addLine(to: CGPoint(x: CGFloat(x), y: waveY))
-        }
-        path.addLine(to: CGPoint(x: waterWaveWidth, y: self.frame.size.height))
-        path.addLine(to: CGPoint(x: 0, y: self.frame.size.height))
-        path.closeSubpath()
-        secondLayer.path = path
-    }
-
-    func setFirstPath() {
-        let waveCycle: CGFloat = CGFloat(1.1 * M_PI) / waterWaveWidth
-        let path = CGMutablePath()
-        var waveY: CGFloat = waterWaveHeight - 50
-        path.move(to: CGPoint(x: 0, y: waveY))
-        for x in 0 ... Int(waterWaveWidth) {
-            waveY = waveAmplitude * sin(waveCycle * CGFloat(x) + waveOffsetX - 10) + 10 + waterWaveHeight - 50
-            path.addLine(to: CGPoint(x: CGFloat(x), y: waveY))
-        }
-        path.addLine(to: CGPoint(x: waterWaveWidth, y: self.frame.size.height))
-        path.addLine(to: CGPoint(x: 0, y: self.frame.size.height))
-        path.closeSubpath()
-        firstLayer.path = path
+    deinit {
+        print("this wave will be deinit")
     }
 }
