@@ -18,7 +18,6 @@ class WaveView: UIView {
 
     var firstLayer: CAShapeLayer!
     var secondLayer: CAShapeLayer!
-    var thirdLayer: CAShapeLayer!
     var displayLink: CADisplayLink!
 
     override init(frame: CGRect) {
