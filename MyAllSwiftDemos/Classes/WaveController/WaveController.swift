@@ -10,7 +10,7 @@ import UIKit
 
 class WaveController: UIViewController {
 
-    var waveView = WaveView(frame: CGRect(x: 0, y: 164, width: ScreenWidth, height: 30))
+    var waveView = WaveView(frame: CGRect(x: 0, y: 164, width: ScreenWidth, height: 25))
 
     override func viewDidLoad() {
         super.viewDidLoad()

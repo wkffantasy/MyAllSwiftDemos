@@ -57,6 +57,54 @@
 		9A78F0351E76A4CF008C93E9 /* TestOneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F0341E76A4CF008C93E9 /* TestOneController.swift */; };
 		9A78F0371E76A4DE008C93E9 /* TestTwoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F0361E76A4DE008C93E9 /* TestTwoController.swift */; };
 		9A78F0391E76A4ED008C93E9 /* TestThreeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78F0381E76A4ED008C93E9 /* TestThreeController.swift */; };
+		9A7D6CD41EB85B6B00D08770 /* DIN-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CA41EB85B6B00D08770 /* DIN-Black.otf */; };
+		9A7D6CD51EB85B6B00D08770 /* DIN-BlackAlternate.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CA51EB85B6B00D08770 /* DIN-BlackAlternate.otf */; };
+		9A7D6CD61EB85B6B00D08770 /* DIN-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CA61EB85B6B00D08770 /* DIN-BlackItalic.otf */; };
+		9A7D6CD71EB85B6B00D08770 /* DIN-BlackItalicAlt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CA71EB85B6B00D08770 /* DIN-BlackItalicAlt.otf */; };
+		9A7D6CD81EB85B6B00D08770 /* DIN-BlackItalicExp.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CA81EB85B6B00D08770 /* DIN-BlackItalicExp.otf */; };
+		9A7D6CD91EB85B6B00D08770 /* DIN-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CA91EB85B6B00D08770 /* DIN-Bold.otf */; };
+		9A7D6CDA1EB85B6B00D08770 /* DIN-BoldAlternate.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CAA1EB85B6B00D08770 /* DIN-BoldAlternate.otf */; };
+		9A7D6CDB1EB85B6B00D08770 /* DIN-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CAB1EB85B6B00D08770 /* DIN-BoldItalic.otf */; };
+		9A7D6CDC1EB85B6B00D08770 /* DIN-BoldItalicAlt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CAC1EB85B6B00D08770 /* DIN-BoldItalicAlt.otf */; };
+		9A7D6CDD1EB85B6B00D08770 /* DIN-BoldItalicExp.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CAD1EB85B6B00D08770 /* DIN-BoldItalicExp.otf */; };
+		9A7D6CDE1EB85B6B00D08770 /* DIN-Euro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CAE1EB85B6B00D08770 /* DIN-Euro.otf */; };
+		9A7D6CDF1EB85B6B00D08770 /* DIN-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CAF1EB85B6B00D08770 /* DIN-Light.otf */; };
+		9A7D6CE01EB85B6B00D08770 /* DIN-LightAlternate.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CB01EB85B6B00D08770 /* DIN-LightAlternate.otf */; };
+		9A7D6CE11EB85B6B00D08770 /* DIN-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CB11EB85B6B00D08770 /* DIN-LightItalic.otf */; };
+		9A7D6CE21EB85B6B00D08770 /* DIN-LightItalicAlt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CB21EB85B6B00D08770 /* DIN-LightItalicAlt.otf */; };
+		9A7D6CE31EB85B6B00D08770 /* DIN-LightItalicExp.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CB31EB85B6B00D08770 /* DIN-LightItalicExp.otf */; };
+		9A7D6CE41EB85B6B00D08770 /* DIN-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CB41EB85B6B00D08770 /* DIN-Medium.otf */; };
+		9A7D6CE51EB85B6B00D08770 /* DIN-MediumAlternate.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CB51EB85B6B00D08770 /* DIN-MediumAlternate.otf */; };
+		9A7D6CE61EB85B6B00D08770 /* DIN-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CB61EB85B6B00D08770 /* DIN-MediumItalic.otf */; };
+		9A7D6CE71EB85B6B00D08770 /* DIN-MediumItalicAlt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CB71EB85B6B00D08770 /* DIN-MediumItalicAlt.otf */; };
+		9A7D6CE81EB85B6B00D08770 /* DIN-MediumItalicExp.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CB81EB85B6B00D08770 /* DIN-MediumItalicExp.otf */; };
+		9A7D6CE91EB85B6B00D08770 /* DIN-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CB91EB85B6B00D08770 /* DIN-Regular.otf */; };
+		9A7D6CEA1EB85B6B00D08770 /* DIN-RegularAlternate.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CBA1EB85B6B00D08770 /* DIN-RegularAlternate.otf */; };
+		9A7D6CEB1EB85B6B00D08770 /* DIN-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CBB1EB85B6B00D08770 /* DIN-RegularItalic.otf */; };
+		9A7D6CEC1EB85B6B00D08770 /* DIN-RegularItalicAlt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CBC1EB85B6B00D08770 /* DIN-RegularItalicAlt.otf */; };
+		9A7D6CED1EB85B6B00D08770 /* DIN-RegularItalicExp.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CBD1EB85B6B00D08770 /* DIN-RegularItalicExp.otf */; };
+		9A7D6CEE1EB85B6B00D08770 /* DINCond-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CBE1EB85B6B00D08770 /* DINCond-Black.otf */; };
+		9A7D6CEF1EB85B6B00D08770 /* DINCond-BlackAlternate.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CBF1EB85B6B00D08770 /* DINCond-BlackAlternate.otf */; };
+		9A7D6CF01EB85B6B00D08770 /* DINCond-BlackExpert.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CC01EB85B6B00D08770 /* DINCond-BlackExpert.otf */; };
+		9A7D6CF11EB85B6B00D08770 /* DINCond-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CC11EB85B6B00D08770 /* DINCond-Bold.otf */; };
+		9A7D6CF21EB85B6B00D08770 /* DINCond-BoldAlternate.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CC21EB85B6B00D08770 /* DINCond-BoldAlternate.otf */; };
+		9A7D6CF31EB85B6B00D08770 /* DINCond-BoldExpert.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CC31EB85B6B00D08770 /* DINCond-BoldExpert.otf */; };
+		9A7D6CF41EB85B6B00D08770 /* DINCond-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CC41EB85B6B00D08770 /* DINCond-Light.otf */; };
+		9A7D6CF51EB85B6B00D08770 /* DINCond-LightAlternate.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CC51EB85B6B00D08770 /* DINCond-LightAlternate.otf */; };
+		9A7D6CF61EB85B6B00D08770 /* DINCond-LightExpert.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CC61EB85B6B00D08770 /* DINCond-LightExpert.otf */; };
+		9A7D6CF71EB85B6B00D08770 /* DINCond-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CC71EB85B6B00D08770 /* DINCond-Medium.otf */; };
+		9A7D6CF81EB85B6B00D08770 /* DINCond-MediumAlternate.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CC81EB85B6B00D08770 /* DINCond-MediumAlternate.otf */; };
+		9A7D6CF91EB85B6B00D08770 /* DINCond-MediumExpert.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CC91EB85B6B00D08770 /* DINCond-MediumExpert.otf */; };
+		9A7D6CFA1EB85B6B00D08770 /* DINCond-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CCA1EB85B6B00D08770 /* DINCond-Regular.otf */; };
+		9A7D6CFB1EB85B6B00D08770 /* DINCond-RegularAlternate.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CCB1EB85B6B00D08770 /* DINCond-RegularAlternate.otf */; };
+		9A7D6CFC1EB85B6B00D08770 /* DINCond-RegularExpert.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CCC1EB85B6B00D08770 /* DINCond-RegularExpert.otf */; };
+		9A7D6CFD1EB85B6B00D08770 /* DINEngschrift-Alternate.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CCD1EB85B6B00D08770 /* DINEngschrift-Alternate.otf */; };
+		9A7D6CFE1EB85B6B00D08770 /* DINEngschrift.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CCE1EB85B6B00D08770 /* DINEngschrift.otf */; };
+		9A7D6CFF1EB85B6B00D08770 /* DINPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CCF1EB85B6B00D08770 /* DINPro-Black.otf */; };
+		9A7D6D001EB85B6B00D08770 /* DINPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CD01EB85B6B00D08770 /* DINPro-Bold.otf */; };
+		9A7D6D011EB85B6B00D08770 /* DINPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CD11EB85B6B00D08770 /* DINPro-Light.otf */; };
+		9A7D6D021EB85B6B00D08770 /* DINPro-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CD21EB85B6B00D08770 /* DINPro-Medium.otf */; };
+		9A7D6D031EB85B6B00D08770 /* DINPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CD31EB85B6B00D08770 /* DINPro-Regular.otf */; };
 		9A8A3D6D1E8D075F006A32DC /* snow.ico in Resources */ = {isa = PBXBuildFile; fileRef = 9A8A3D6C1E8D075F006A32DC /* snow.ico */; };
 		9ABDE3C21E7BF46A001A1963 /* WaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C11E7BF46A001A1963 /* WaveController.swift */; };
 		9ABDE3C41E7BF58C001A1963 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C31E7BF58C001A1963 /* WaveView.swift */; };
@@ -143,6 +191,54 @@
 		9A78F0341E76A4CF008C93E9 /* TestOneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestOneController.swift; sourceTree = "<group>"; };
 		9A78F0361E76A4DE008C93E9 /* TestTwoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTwoController.swift; sourceTree = "<group>"; };
 		9A78F0381E76A4ED008C93E9 /* TestThreeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestThreeController.swift; sourceTree = "<group>"; };
+		9A7D6CA41EB85B6B00D08770 /* DIN-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Black.otf"; sourceTree = "<group>"; };
+		9A7D6CA51EB85B6B00D08770 /* DIN-BlackAlternate.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-BlackAlternate.otf"; sourceTree = "<group>"; };
+		9A7D6CA61EB85B6B00D08770 /* DIN-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-BlackItalic.otf"; sourceTree = "<group>"; };
+		9A7D6CA71EB85B6B00D08770 /* DIN-BlackItalicAlt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-BlackItalicAlt.otf"; sourceTree = "<group>"; };
+		9A7D6CA81EB85B6B00D08770 /* DIN-BlackItalicExp.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-BlackItalicExp.otf"; sourceTree = "<group>"; };
+		9A7D6CA91EB85B6B00D08770 /* DIN-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Bold.otf"; sourceTree = "<group>"; };
+		9A7D6CAA1EB85B6B00D08770 /* DIN-BoldAlternate.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-BoldAlternate.otf"; sourceTree = "<group>"; };
+		9A7D6CAB1EB85B6B00D08770 /* DIN-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-BoldItalic.otf"; sourceTree = "<group>"; };
+		9A7D6CAC1EB85B6B00D08770 /* DIN-BoldItalicAlt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-BoldItalicAlt.otf"; sourceTree = "<group>"; };
+		9A7D6CAD1EB85B6B00D08770 /* DIN-BoldItalicExp.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-BoldItalicExp.otf"; sourceTree = "<group>"; };
+		9A7D6CAE1EB85B6B00D08770 /* DIN-Euro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Euro.otf"; sourceTree = "<group>"; };
+		9A7D6CAF1EB85B6B00D08770 /* DIN-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Light.otf"; sourceTree = "<group>"; };
+		9A7D6CB01EB85B6B00D08770 /* DIN-LightAlternate.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-LightAlternate.otf"; sourceTree = "<group>"; };
+		9A7D6CB11EB85B6B00D08770 /* DIN-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-LightItalic.otf"; sourceTree = "<group>"; };
+		9A7D6CB21EB85B6B00D08770 /* DIN-LightItalicAlt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-LightItalicAlt.otf"; sourceTree = "<group>"; };
+		9A7D6CB31EB85B6B00D08770 /* DIN-LightItalicExp.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-LightItalicExp.otf"; sourceTree = "<group>"; };
+		9A7D6CB41EB85B6B00D08770 /* DIN-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Medium.otf"; sourceTree = "<group>"; };
+		9A7D6CB51EB85B6B00D08770 /* DIN-MediumAlternate.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-MediumAlternate.otf"; sourceTree = "<group>"; };
+		9A7D6CB61EB85B6B00D08770 /* DIN-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-MediumItalic.otf"; sourceTree = "<group>"; };
+		9A7D6CB71EB85B6B00D08770 /* DIN-MediumItalicAlt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-MediumItalicAlt.otf"; sourceTree = "<group>"; };
+		9A7D6CB81EB85B6B00D08770 /* DIN-MediumItalicExp.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-MediumItalicExp.otf"; sourceTree = "<group>"; };
+		9A7D6CB91EB85B6B00D08770 /* DIN-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Regular.otf"; sourceTree = "<group>"; };
+		9A7D6CBA1EB85B6B00D08770 /* DIN-RegularAlternate.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-RegularAlternate.otf"; sourceTree = "<group>"; };
+		9A7D6CBB1EB85B6B00D08770 /* DIN-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-RegularItalic.otf"; sourceTree = "<group>"; };
+		9A7D6CBC1EB85B6B00D08770 /* DIN-RegularItalicAlt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-RegularItalicAlt.otf"; sourceTree = "<group>"; };
+		9A7D6CBD1EB85B6B00D08770 /* DIN-RegularItalicExp.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-RegularItalicExp.otf"; sourceTree = "<group>"; };
+		9A7D6CBE1EB85B6B00D08770 /* DINCond-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-Black.otf"; sourceTree = "<group>"; };
+		9A7D6CBF1EB85B6B00D08770 /* DINCond-BlackAlternate.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-BlackAlternate.otf"; sourceTree = "<group>"; };
+		9A7D6CC01EB85B6B00D08770 /* DINCond-BlackExpert.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-BlackExpert.otf"; sourceTree = "<group>"; };
+		9A7D6CC11EB85B6B00D08770 /* DINCond-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-Bold.otf"; sourceTree = "<group>"; };
+		9A7D6CC21EB85B6B00D08770 /* DINCond-BoldAlternate.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-BoldAlternate.otf"; sourceTree = "<group>"; };
+		9A7D6CC31EB85B6B00D08770 /* DINCond-BoldExpert.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-BoldExpert.otf"; sourceTree = "<group>"; };
+		9A7D6CC41EB85B6B00D08770 /* DINCond-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-Light.otf"; sourceTree = "<group>"; };
+		9A7D6CC51EB85B6B00D08770 /* DINCond-LightAlternate.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-LightAlternate.otf"; sourceTree = "<group>"; };
+		9A7D6CC61EB85B6B00D08770 /* DINCond-LightExpert.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-LightExpert.otf"; sourceTree = "<group>"; };
+		9A7D6CC71EB85B6B00D08770 /* DINCond-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-Medium.otf"; sourceTree = "<group>"; };
+		9A7D6CC81EB85B6B00D08770 /* DINCond-MediumAlternate.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-MediumAlternate.otf"; sourceTree = "<group>"; };
+		9A7D6CC91EB85B6B00D08770 /* DINCond-MediumExpert.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-MediumExpert.otf"; sourceTree = "<group>"; };
+		9A7D6CCA1EB85B6B00D08770 /* DINCond-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-Regular.otf"; sourceTree = "<group>"; };
+		9A7D6CCB1EB85B6B00D08770 /* DINCond-RegularAlternate.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-RegularAlternate.otf"; sourceTree = "<group>"; };
+		9A7D6CCC1EB85B6B00D08770 /* DINCond-RegularExpert.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-RegularExpert.otf"; sourceTree = "<group>"; };
+		9A7D6CCD1EB85B6B00D08770 /* DINEngschrift-Alternate.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINEngschrift-Alternate.otf"; sourceTree = "<group>"; };
+		9A7D6CCE1EB85B6B00D08770 /* DINEngschrift.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DINEngschrift.otf; sourceTree = "<group>"; };
+		9A7D6CCF1EB85B6B00D08770 /* DINPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Black.otf"; sourceTree = "<group>"; };
+		9A7D6CD01EB85B6B00D08770 /* DINPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Bold.otf"; sourceTree = "<group>"; };
+		9A7D6CD11EB85B6B00D08770 /* DINPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Light.otf"; sourceTree = "<group>"; };
+		9A7D6CD21EB85B6B00D08770 /* DINPro-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Medium.otf"; sourceTree = "<group>"; };
+		9A7D6CD31EB85B6B00D08770 /* DINPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Regular.otf"; sourceTree = "<group>"; };
 		9A8A3D6C1E8D075F006A32DC /* snow.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = snow.ico; sourceTree = "<group>"; };
 		9ABDE3C11E7BF46A001A1963 /* WaveController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveController.swift; sourceTree = "<group>"; };
 		9ABDE3C31E7BF58C001A1963 /* WaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
@@ -269,6 +365,7 @@
 		9A78EFDA1E764443008C93E9 /* MyAllSwiftDemos */ = {
 			isa = PBXGroup;
 			children = (
+				9A7D6CA21EB85B5200D08770 /* Fonts */,
 				9A78F0101E7647F7008C93E9 /* AppEntrance */,
 				9A78F00D1E7645B1008C93E9 /* Common */,
 				9A78F00C1E76458F008C93E9 /* Classes */,
@@ -391,6 +488,69 @@
 				9A78F0381E76A4ED008C93E9 /* TestThreeController.swift */,
 			);
 			path = TabsSelectController;
+			sourceTree = "<group>";
+		};
+		9A7D6CA21EB85B5200D08770 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9A7D6CA31EB85B6B00D08770 /* en_Din */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9A7D6CA31EB85B6B00D08770 /* en_Din */ = {
+			isa = PBXGroup;
+			children = (
+				9A7D6CA41EB85B6B00D08770 /* DIN-Black.otf */,
+				9A7D6CA51EB85B6B00D08770 /* DIN-BlackAlternate.otf */,
+				9A7D6CA61EB85B6B00D08770 /* DIN-BlackItalic.otf */,
+				9A7D6CA71EB85B6B00D08770 /* DIN-BlackItalicAlt.otf */,
+				9A7D6CA81EB85B6B00D08770 /* DIN-BlackItalicExp.otf */,
+				9A7D6CA91EB85B6B00D08770 /* DIN-Bold.otf */,
+				9A7D6CAA1EB85B6B00D08770 /* DIN-BoldAlternate.otf */,
+				9A7D6CAB1EB85B6B00D08770 /* DIN-BoldItalic.otf */,
+				9A7D6CAC1EB85B6B00D08770 /* DIN-BoldItalicAlt.otf */,
+				9A7D6CAD1EB85B6B00D08770 /* DIN-BoldItalicExp.otf */,
+				9A7D6CAE1EB85B6B00D08770 /* DIN-Euro.otf */,
+				9A7D6CAF1EB85B6B00D08770 /* DIN-Light.otf */,
+				9A7D6CB01EB85B6B00D08770 /* DIN-LightAlternate.otf */,
+				9A7D6CB11EB85B6B00D08770 /* DIN-LightItalic.otf */,
+				9A7D6CB21EB85B6B00D08770 /* DIN-LightItalicAlt.otf */,
+				9A7D6CB31EB85B6B00D08770 /* DIN-LightItalicExp.otf */,
+				9A7D6CB41EB85B6B00D08770 /* DIN-Medium.otf */,
+				9A7D6CB51EB85B6B00D08770 /* DIN-MediumAlternate.otf */,
+				9A7D6CB61EB85B6B00D08770 /* DIN-MediumItalic.otf */,
+				9A7D6CB71EB85B6B00D08770 /* DIN-MediumItalicAlt.otf */,
+				9A7D6CB81EB85B6B00D08770 /* DIN-MediumItalicExp.otf */,
+				9A7D6CB91EB85B6B00D08770 /* DIN-Regular.otf */,
+				9A7D6CBA1EB85B6B00D08770 /* DIN-RegularAlternate.otf */,
+				9A7D6CBB1EB85B6B00D08770 /* DIN-RegularItalic.otf */,
+				9A7D6CBC1EB85B6B00D08770 /* DIN-RegularItalicAlt.otf */,
+				9A7D6CBD1EB85B6B00D08770 /* DIN-RegularItalicExp.otf */,
+				9A7D6CBE1EB85B6B00D08770 /* DINCond-Black.otf */,
+				9A7D6CBF1EB85B6B00D08770 /* DINCond-BlackAlternate.otf */,
+				9A7D6CC01EB85B6B00D08770 /* DINCond-BlackExpert.otf */,
+				9A7D6CC11EB85B6B00D08770 /* DINCond-Bold.otf */,
+				9A7D6CC21EB85B6B00D08770 /* DINCond-BoldAlternate.otf */,
+				9A7D6CC31EB85B6B00D08770 /* DINCond-BoldExpert.otf */,
+				9A7D6CC41EB85B6B00D08770 /* DINCond-Light.otf */,
+				9A7D6CC51EB85B6B00D08770 /* DINCond-LightAlternate.otf */,
+				9A7D6CC61EB85B6B00D08770 /* DINCond-LightExpert.otf */,
+				9A7D6CC71EB85B6B00D08770 /* DINCond-Medium.otf */,
+				9A7D6CC81EB85B6B00D08770 /* DINCond-MediumAlternate.otf */,
+				9A7D6CC91EB85B6B00D08770 /* DINCond-MediumExpert.otf */,
+				9A7D6CCA1EB85B6B00D08770 /* DINCond-Regular.otf */,
+				9A7D6CCB1EB85B6B00D08770 /* DINCond-RegularAlternate.otf */,
+				9A7D6CCC1EB85B6B00D08770 /* DINCond-RegularExpert.otf */,
+				9A7D6CCD1EB85B6B00D08770 /* DINEngschrift-Alternate.otf */,
+				9A7D6CCE1EB85B6B00D08770 /* DINEngschrift.otf */,
+				9A7D6CCF1EB85B6B00D08770 /* DINPro-Black.otf */,
+				9A7D6CD01EB85B6B00D08770 /* DINPro-Bold.otf */,
+				9A7D6CD11EB85B6B00D08770 /* DINPro-Light.otf */,
+				9A7D6CD21EB85B6B00D08770 /* DINPro-Medium.otf */,
+				9A7D6CD31EB85B6B00D08770 /* DINPro-Regular.otf */,
+			);
+			path = en_Din;
 			sourceTree = "<group>";
 		};
 		9ABDE3C01E7BF443001A1963 /* WaveController */ = {
@@ -538,9 +698,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A7D6D031EB85B6B00D08770 /* DINPro-Regular.otf in Resources */,
+				9A7D6CEE1EB85B6B00D08770 /* DINCond-Black.otf in Resources */,
+				9A7D6CD41EB85B6B00D08770 /* DIN-Black.otf in Resources */,
+				9A7D6D011EB85B6B00D08770 /* DINPro-Light.otf in Resources */,
+				9A7D6CE41EB85B6B00D08770 /* DIN-Medium.otf in Resources */,
+				9A7D6CDC1EB85B6B00D08770 /* DIN-BoldItalicAlt.otf in Resources */,
+				9A7D6CD71EB85B6B00D08770 /* DIN-BlackItalicAlt.otf in Resources */,
+				9A7D6CF41EB85B6B00D08770 /* DINCond-Light.otf in Resources */,
+				9A7D6D021EB85B6B00D08770 /* DINPro-Medium.otf in Resources */,
+				9A7D6CFE1EB85B6B00D08770 /* DINEngschrift.otf in Resources */,
+				9A7D6CD91EB85B6B00D08770 /* DIN-Bold.otf in Resources */,
+				9A7D6CF61EB85B6B00D08770 /* DINCond-LightExpert.otf in Resources */,
+				9A7D6CF91EB85B6B00D08770 /* DINCond-MediumExpert.otf in Resources */,
+				9A7D6CDF1EB85B6B00D08770 /* DIN-Light.otf in Resources */,
+				9A7D6CE91EB85B6B00D08770 /* DIN-Regular.otf in Resources */,
+				9A7D6CFD1EB85B6B00D08770 /* DINEngschrift-Alternate.otf in Resources */,
+				9A7D6CFA1EB85B6B00D08770 /* DINCond-Regular.otf in Resources */,
+				9A7D6CDA1EB85B6B00D08770 /* DIN-BoldAlternate.otf in Resources */,
+				9A7D6CEB1EB85B6B00D08770 /* DIN-RegularItalic.otf in Resources */,
+				9A7D6CDB1EB85B6B00D08770 /* DIN-BoldItalic.otf in Resources */,
+				9A7D6CE21EB85B6B00D08770 /* DIN-LightItalicAlt.otf in Resources */,
+				9A7D6D001EB85B6B00D08770 /* DINPro-Bold.otf in Resources */,
+				9A7D6CE31EB85B6B00D08770 /* DIN-LightItalicExp.otf in Resources */,
+				9A7D6CED1EB85B6B00D08770 /* DIN-RegularItalicExp.otf in Resources */,
+				9A7D6CF11EB85B6B00D08770 /* DINCond-Bold.otf in Resources */,
+				9A7D6CD81EB85B6B00D08770 /* DIN-BlackItalicExp.otf in Resources */,
+				9A7D6CFC1EB85B6B00D08770 /* DINCond-RegularExpert.otf in Resources */,
+				9A7D6CE81EB85B6B00D08770 /* DIN-MediumItalicExp.otf in Resources */,
+				9A7D6CF81EB85B6B00D08770 /* DINCond-MediumAlternate.otf in Resources */,
+				9A7D6CE61EB85B6B00D08770 /* DIN-MediumItalic.otf in Resources */,
 				9AC256C41E8A5F110089B371 /* FMDBontroller.xib in Resources */,
+				9A7D6CEC1EB85B6B00D08770 /* DIN-RegularItalicAlt.otf in Resources */,
+				9A7D6CD51EB85B6B00D08770 /* DIN-BlackAlternate.otf in Resources */,
+				9A7D6CFF1EB85B6B00D08770 /* DINPro-Black.otf in Resources */,
+				9A7D6CF21EB85B6B00D08770 /* DINCond-BoldAlternate.otf in Resources */,
+				9A7D6CE51EB85B6B00D08770 /* DIN-MediumAlternate.otf in Resources */,
+				9A7D6CD61EB85B6B00D08770 /* DIN-BlackItalic.otf in Resources */,
+				9A7D6CF51EB85B6B00D08770 /* DINCond-LightAlternate.otf in Resources */,
+				9A7D6CF01EB85B6B00D08770 /* DINCond-BlackExpert.otf in Resources */,
+				9A7D6CDD1EB85B6B00D08770 /* DIN-BoldItalicExp.otf in Resources */,
+				9A7D6CDE1EB85B6B00D08770 /* DIN-Euro.otf in Resources */,
+				9A7D6CF71EB85B6B00D08770 /* DINCond-Medium.otf in Resources */,
+				9A7D6CE01EB85B6B00D08770 /* DIN-LightAlternate.otf in Resources */,
 				9A78EFE91E764443008C93E9 /* LaunchScreen.storyboard in Resources */,
+				9A7D6CEF1EB85B6B00D08770 /* DINCond-BlackAlternate.otf in Resources */,
+				9A7D6CFB1EB85B6B00D08770 /* DINCond-RegularAlternate.otf in Resources */,
 				9A8A3D6D1E8D075F006A32DC /* snow.ico in Resources */,
+				9A7D6CE11EB85B6B00D08770 /* DIN-LightItalic.otf in Resources */,
+				9A7D6CEA1EB85B6B00D08770 /* DIN-RegularAlternate.otf in Resources */,
+				9A7D6CE71EB85B6B00D08770 /* DIN-MediumItalicAlt.otf in Resources */,
+				9A7D6CF31EB85B6B00D08770 /* DINCond-BoldExpert.otf in Resources */,
 				9A78EFE61E764443008C93E9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
