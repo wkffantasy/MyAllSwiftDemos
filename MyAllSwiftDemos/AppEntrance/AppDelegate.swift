@@ -19,9 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        for fontName in UIFont.familyNames {
-            print("this fonts ==",fontName)
-        }
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = .white
         self.window?.makeKey()
@@ -34,11 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func add3DTouchItems() {
-
-        // system image
-        //                let itemIcon1 = UIApplicationShortcutIcon.init(type: .play)
-        //                let itemIcon2 = UIApplicationShortcutIcon.init(type: .captureVideo)
-        //                let itemIcon3 = UIApplicationShortcutIcon.init(type: .add)
 
         // custom image
         let itemIcon1 = UIApplicationShortcutIcon.init(templateImageName: "snow.ico")

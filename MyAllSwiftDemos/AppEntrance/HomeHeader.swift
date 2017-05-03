@@ -40,8 +40,8 @@ class HomeHeader: UITableViewHeaderFooterView {
 
         titleLabel = UILabel.init()
         titleLabel.textColor = UIColor.blue
-        titleLabel.font = UIFont.systemFont(ofSize: 17)
         titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont.init(name: "DINCond-Light", size: 17)
         self.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
 
