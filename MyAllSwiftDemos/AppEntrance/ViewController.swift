@@ -26,6 +26,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.paramArray = paramArray
         self.index = index
         super.init(nibName: nil, bundle: nil)
+        setTitle()
     }
 
     required init?(coder _: NSCoder) {
@@ -37,6 +38,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         thisDataSource()
         setupUI()
         addOberser()
+    }
+    func setTitle() {
+        print("self.index ==",self.index)
+        switch self.index {
+        case 0:
+            self.title = "Views"
+        case 1:
+            self.title = "Funny"
+        case 2:
+            self.title = "Others"
+        default:
+            self.title = "I donot know"
+        }
     }
 
     func addOberser() {
@@ -96,7 +110,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func jumpToScrollManyTableViewVC() {
         self.navigationController?.pushViewController(ScrollManyTabsViewController(), animated: true)
     }
-
+    func  jumpToPlayTextVC() {
+        self.navigationController?.pushViewController(PlayTextController(), animated: true)
+    }
     func jumpToFMDB() {
         self.navigationController?.pushViewController(FMDBontroller(), animated: true)
     }

@@ -55,9 +55,15 @@ class TabBarController: UITabBarController {
         [
             "title": "一个waveView",
             "titleDescription": "网上看到好多这个wave的。找了一个 自己用swift写了一下，只有写一点，才能学一点。",
-            "status": "正在写",
+            "status": "带完善",
             "jumpTo": "jumpToWaveVC",
         ],
+        [
+            "title": "播放输入的文字",
+            "titleDescription": "看到一个oc版的，这个比较新颖，不常见，比较感兴趣",
+            "status": "正在写",
+            "jumpTo": "jumpToPlayTextVC",
+            ],
     ]
 
     let othersArray = [
@@ -88,12 +94,14 @@ class TabBarController: UITabBarController {
     }
 
     private func setupTabBarView() {
-        tabBar.backgroundColor = .clear
-        customTabBar = CustomTabBar(frame: tabBar.bounds)
+        
+        customTabBar = CustomTabBar(frame: tabBar.frame)
         customTabBar.clickTabs = { [weak self] tag in
             self?.selectedIndex = tag
         }
-        tabBar.addSubview(customTabBar)
+        tabBar.removeFromSuperview()
+        self.view.addSubview(customTabBar)
+        
     }
 
     private func setupControllers() {

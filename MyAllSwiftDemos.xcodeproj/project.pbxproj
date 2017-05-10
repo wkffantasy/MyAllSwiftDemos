@@ -106,6 +106,7 @@
 		9A7D6D021EB85B6B00D08770 /* DINPro-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CD21EB85B6B00D08770 /* DINPro-Medium.otf */; };
 		9A7D6D031EB85B6B00D08770 /* DINPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CD31EB85B6B00D08770 /* DINPro-Regular.otf */; };
 		9A8A3D6D1E8D075F006A32DC /* snow.ico in Resources */ = {isa = PBXBuildFile; fileRef = 9A8A3D6C1E8D075F006A32DC /* snow.ico */; };
+		9A96DBDD1EB9846800102957 /* PlayTextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96DBDC1EB9846800102957 /* PlayTextController.swift */; };
 		9ABDE3C21E7BF46A001A1963 /* WaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C11E7BF46A001A1963 /* WaveController.swift */; };
 		9ABDE3C41E7BF58C001A1963 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C31E7BF58C001A1963 /* WaveView.swift */; };
 		9AC256C31E8A5F110089B371 /* FMDBontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC256C11E8A5F110089B371 /* FMDBontroller.swift */; };
@@ -240,6 +241,7 @@
 		9A7D6CD21EB85B6B00D08770 /* DINPro-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Medium.otf"; sourceTree = "<group>"; };
 		9A7D6CD31EB85B6B00D08770 /* DINPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Regular.otf"; sourceTree = "<group>"; };
 		9A8A3D6C1E8D075F006A32DC /* snow.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = snow.ico; sourceTree = "<group>"; };
+		9A96DBDC1EB9846800102957 /* PlayTextController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayTextController.swift; sourceTree = "<group>"; };
 		9ABDE3C11E7BF46A001A1963 /* WaveController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveController.swift; sourceTree = "<group>"; };
 		9ABDE3C31E7BF58C001A1963 /* WaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		9AC256C11E8A5F110089B371 /* FMDBontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBontroller.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 		9A78F00C1E76458F008C93E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9A96DBDB1EB9843500102957 /* PlayText */,
 				9A07F1221E97434D00D8DC42 /* ScrollManyTableViews */,
 				9AC256BE1E8A51D30089B371 /* FMDBController */,
 				9A044C1F1E88EE9200C02D90 /* DownloadController */,
@@ -551,6 +554,14 @@
 				9A7D6CD31EB85B6B00D08770 /* DINPro-Regular.otf */,
 			);
 			path = en_Din;
+			sourceTree = "<group>";
+		};
+		9A96DBDB1EB9843500102957 /* PlayText */ = {
+			isa = PBXGroup;
+			children = (
+				9A96DBDC1EB9846800102957 /* PlayTextController.swift */,
+			);
+			path = PlayText;
 			sourceTree = "<group>";
 		};
 		9ABDE3C01E7BF443001A1963 /* WaveController */ = {
@@ -828,6 +839,7 @@
 				9AC256C61E8A6A740089B371 /* TestFMDBManger.swift in Sources */,
 				9A78F0191E76488F008C93E9 /* Constants.swift in Sources */,
 				9A78F02D1E7694AE008C93E9 /* CurveController.swift in Sources */,
+				9A96DBDD1EB9846800102957 /* PlayTextController.swift in Sources */,
 				9A07F1761E978C1E00D8DC42 /* SubclassTestOneContrller.swift in Sources */,
 				9A58F9D31E77DC7B00500AB6 /* DemoVideoController.swift in Sources */,
 				9A78F0181E76488F008C93E9 /* ApiConstant.swift in Sources */,
