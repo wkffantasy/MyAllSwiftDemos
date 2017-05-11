@@ -34,6 +34,8 @@
 		9A58F9D71E77DCF200500AB6 /* VideoTopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58F9D61E77DCF200500AB6 /* VideoTopMenu.swift */; };
 		9A58F9D91E77DD0400500AB6 /* VideoBottomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58F9D81E77DD0400500AB6 /* VideoBottomMenu.swift */; };
 		9A58F9DB1E77E7D500500AB6 /* WKFPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58F9DA1E77E7D500500AB6 /* WKFPlayer.swift */; };
+		9A5D0B051E9B574C00C1D82A /* RefreshController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D0B041E9B574C00C1D82A /* RefreshController.swift */; };
+		9A5D0B071E9B5B4F00C1D82A /* RefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D0B061E9B5B4F00C1D82A /* RefreshHeader.swift */; };
 		9A78EFE41E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A78EFE21E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld */; };
 		9A78EFE61E764443008C93E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A78EFE51E764443008C93E9 /* Assets.xcassets */; };
 		9A78EFE91E764443008C93E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A78EFE71E764443008C93E9 /* LaunchScreen.storyboard */; };
@@ -163,6 +165,8 @@
 		9A58F9D61E77DCF200500AB6 /* VideoTopMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTopMenu.swift; sourceTree = "<group>"; };
 		9A58F9D81E77DD0400500AB6 /* VideoBottomMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoBottomMenu.swift; sourceTree = "<group>"; };
 		9A58F9DA1E77E7D500500AB6 /* WKFPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKFPlayer.swift; sourceTree = "<group>"; };
+		9A5D0B041E9B574C00C1D82A /* RefreshController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshController.swift; sourceTree = "<group>"; };
+		9A5D0B061E9B5B4F00C1D82A /* RefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshHeader.swift; sourceTree = "<group>"; };
 		9A78EFD81E764443008C93E9 /* MyAllSwiftDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAllSwiftDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A78EFE31E764443008C93E9 /* MyAllSwiftDemos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyAllSwiftDemos.xcdatamodel; sourceTree = "<group>"; };
 		9A78EFE51E764443008C93E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -342,6 +346,14 @@
 			path = DemoVideoController;
 			sourceTree = "<group>";
 		};
+		9A5D0B031E9B572100C1D82A /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				9A5D0B041E9B574C00C1D82A /* RefreshController.swift */,
+			);
+			path = Refresh;
+			sourceTree = "<group>";
+		};
 		9A78EFCF1E764443008C93E9 = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				9A96DBDB1EB9843500102957 /* PlayText */,
+				9A5D0B031E9B572100C1D82A /* Refresh */,
 				9A07F1221E97434D00D8DC42 /* ScrollManyTableViews */,
 				9AC256BE1E8A51D30089B371 /* FMDBController */,
 				9A044C1F1E88EE9200C02D90 /* DownloadController */,
@@ -433,6 +446,7 @@
 				9A78F0281E7690C2008C93E9 /* TabsSelectView.swift */,
 				9A78F0251E767658008C93E9 /* MarqueeView.swift */,
 				9A58F9CD1E77907700500AB6 /* NoMarginRollingView.swift */,
+				9A5D0B061E9B5B4F00C1D82A /* RefreshHeader.swift */,
 			);
 			path = ReusableView;
 			sourceTree = "<group>";
@@ -834,6 +848,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A3DD98C1E8DFEA900B97864 /* BaseNaviController.swift in Sources */,
+				9A5D0B051E9B574C00C1D82A /* RefreshController.swift in Sources */,
 				9A58F9D51E77DC9B00500AB6 /* WKFVideoPlayerView.swift in Sources */,
 				9A58F9DB1E77E7D500500AB6 /* WKFPlayer.swift in Sources */,
 				9AC256C61E8A6A740089B371 /* TestFMDBManger.swift in Sources */,
@@ -863,6 +878,7 @@
 				9A78F0291E7690C2008C93E9 /* CurveView.swift in Sources */,
 				9A370DC31E8129AC00827D1B /* SliderItem.swift in Sources */,
 				9A044C231E88F37300C02D90 /* DownloadToolManage.swift in Sources */,
+				9A5D0B071E9B5B4F00C1D82A /* RefreshHeader.swift in Sources */,
 				9A78F0351E76A4CF008C93E9 /* TestOneController.swift in Sources */,
 				9A370DC11E81220900827D1B /* SliderCircleView.swift in Sources */,
 				9A78F01C1E7648A7008C93E9 /* NSString+extension.swift in Sources */,

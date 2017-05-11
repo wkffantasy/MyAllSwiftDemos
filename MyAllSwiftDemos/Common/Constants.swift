@@ -46,7 +46,16 @@ public enum DownloadState: Int {
     case Failed
 }
 
+// refresh state
+enum RefreshState: Int {
+    case notStart // 静止状态
+    case pulling // 拉动还没刷新的状态
+    case refreshing // 刷新的状态
+    case refreshed // 刷新完成的状态
+}
+
 // All Blocks in here
+typealias NoParamBlock = () -> Void
 typealias IntParamBlock = (Int) -> Void
 typealias FloatParamBlock = (Float) -> Void
 typealias CGFloatParamBlock = (CGFloat) -> Void

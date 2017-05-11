@@ -43,6 +43,12 @@ class TabBarController: UITabBarController {
             "status": "待完善吧",
             "jumpTo": "jumpToNoDialVC",
         ],
+        [
+            "title": "上拉下拉刷新",
+            "titleDescription": "在写",
+            "status": "待完善吧",
+            "jumpTo": "jumpToRefreshVC",
+        ],
     ]
 
     let funnyArray = [
