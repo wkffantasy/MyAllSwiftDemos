@@ -27,7 +27,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         settingUpLog()
         add3DTouchItems()
+//        makeFiles()
         return true
+    }
+    func makeFiles() {
+        //创建 图片 和 视频的文件
+        makeFilesWithName(fileName: "AllLocalIcons")
+        makeFilesWithName(fileName: "AllLocalVedios")
+    }
+    func makeFilesWithName(fileName:String)  {
+        var filePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last! as NSString
+        filePath = filePath.appendingPathComponent(fileName) as NSString
+        let exist = FileManager.default.fileExists(atPath: filePath as String)
+        print("exist ==",exist)
+        print("filePath ==",filePath)
+        if (exist == false) {
+            do {
+                try FileManager.default.createDirectory(atPath: filePath as String, withIntermediateDirectories: false, attributes: nil)
+            } catch {
+                log.error("创建\(fileName)失败")
+            }
+        }
+        
     }
 
     func add3DTouchItems() {

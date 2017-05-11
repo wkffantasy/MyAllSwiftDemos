@@ -20,6 +20,9 @@
 		9A07F17A1E97956900D8DC42 /* SubclassTestThirdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A07F1791E97956900D8DC42 /* SubclassTestThirdController.swift */; };
 		9A0FE3351E8CAD1100723FBF /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0FE3341E8CAD1100723FBF /* TestModel.swift */; };
 		9A12F9611E8229FB009EAD85 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12F9601E8229FB009EAD85 /* CircleView.swift */; };
+		9A16654C1EC43C78001384E9 /* FileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16654B1EC43C78001384E9 /* FileController.swift */; };
+		9A16654E1EC449E9001384E9 /* FileVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16654D1EC449E9001384E9 /* FileVideoCell.swift */; };
+		9A1665501EC44C64001384E9 /* PlayLocalVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16654F1EC44C64001384E9 /* PlayLocalVideoController.swift */; };
 		9A1F498D1E793E670099C2BB /* TimeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F498C1E793E670099C2BB /* TimeTool.swift */; };
 		9A370DC11E81220900827D1B /* SliderCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A370DC01E81220900827D1B /* SliderCircleView.swift */; };
 		9A370DC31E8129AC00827D1B /* SliderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A370DC21E8129AC00827D1B /* SliderItem.swift */; };
@@ -151,6 +154,9 @@
 		9A07F1791E97956900D8DC42 /* SubclassTestThirdController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubclassTestThirdController.swift; sourceTree = "<group>"; };
 		9A0FE3341E8CAD1100723FBF /* TestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		9A12F9601E8229FB009EAD85 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		9A16654B1EC43C78001384E9 /* FileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileController.swift; sourceTree = "<group>"; };
+		9A16654D1EC449E9001384E9 /* FileVideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileVideoCell.swift; sourceTree = "<group>"; };
+		9A16654F1EC44C64001384E9 /* PlayLocalVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayLocalVideoController.swift; sourceTree = "<group>"; };
 		9A1F498C1E793E670099C2BB /* TimeTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTool.swift; sourceTree = "<group>"; };
 		9A370DC01E81220900827D1B /* SliderCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCircleView.swift; sourceTree = "<group>"; };
 		9A370DC21E8129AC00827D1B /* SliderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderItem.swift; sourceTree = "<group>"; };
@@ -326,6 +332,16 @@
 			path = ScrollManyTableViews;
 			sourceTree = "<group>";
 		};
+		9A16654A1EC43C55001384E9 /* FileManagerVC */ = {
+			isa = PBXGroup;
+			children = (
+				9A16654B1EC43C78001384E9 /* FileController.swift */,
+				9A16654D1EC449E9001384E9 /* FileVideoCell.swift */,
+				9A16654F1EC44C64001384E9 /* PlayLocalVideoController.swift */,
+			);
+			path = FileManagerVC;
+			sourceTree = "<group>";
+		};
 		9A58F9CA1E778B2800500AB6 /* NoMarginScrollController */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +428,7 @@
 		9A78F00C1E76458F008C93E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9A16654A1EC43C55001384E9 /* FileManagerVC */,
 				9A96DBDB1EB9843500102957 /* PlayText */,
 				9A5D0B031E9B572100C1D82A /* Refresh */,
 				9A07F1221E97434D00D8DC42 /* ScrollManyTableViews */,
@@ -850,6 +867,7 @@
 				9A3DD98C1E8DFEA900B97864 /* BaseNaviController.swift in Sources */,
 				9A5D0B051E9B574C00C1D82A /* RefreshController.swift in Sources */,
 				9A58F9D51E77DC9B00500AB6 /* WKFVideoPlayerView.swift in Sources */,
+				9A16654C1EC43C78001384E9 /* FileController.swift in Sources */,
 				9A58F9DB1E77E7D500500AB6 /* WKFPlayer.swift in Sources */,
 				9AC256C61E8A6A740089B371 /* TestFMDBManger.swift in Sources */,
 				9A78F0191E76488F008C93E9 /* Constants.swift in Sources */,
@@ -876,6 +894,7 @@
 				9A78F02A1E7690C2008C93E9 /* TabsSelectView.swift in Sources */,
 				9A044C271E89066D00C02D90 /* DownloadModel.swift in Sources */,
 				9A78F0291E7690C2008C93E9 /* CurveView.swift in Sources */,
+				9A16654E1EC449E9001384E9 /* FileVideoCell.swift in Sources */,
 				9A370DC31E8129AC00827D1B /* SliderItem.swift in Sources */,
 				9A044C231E88F37300C02D90 /* DownloadToolManage.swift in Sources */,
 				9A5D0B071E9B5B4F00C1D82A /* RefreshHeader.swift in Sources */,
@@ -886,6 +905,7 @@
 				9A58F9CC1E778ED200500AB6 /* NoMarginScrollController.swift in Sources */,
 				9A12F9611E8229FB009EAD85 /* CircleView.swift in Sources */,
 				9A78F0141E764834008C93E9 /* AppDelegate.swift in Sources */,
+				9A1665501EC44C64001384E9 /* PlayLocalVideoController.swift in Sources */,
 				9A07F1241E975D8800D8DC42 /* ScrollManyTabsViewController.swift in Sources */,
 				9A58F9CE1E77907700500AB6 /* NoMarginRollingView.swift in Sources */,
 				9A07F1781E97954100D8DC42 /* SubclassTestSecondContrller.swift in Sources */,

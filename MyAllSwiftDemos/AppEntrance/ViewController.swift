@@ -40,7 +40,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         addOberser()
     }
     func setTitle() {
-        print("self.index ==",self.index)
         switch self.index {
         case 0:
             self.title = "Views"

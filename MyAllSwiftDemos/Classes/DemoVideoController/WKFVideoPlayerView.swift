@@ -231,6 +231,12 @@ class WKFVideoPlayerView: UIView {
                 thisCurrentTime = panCurrentTime
                 panCurrentTime = 0
             }
+            if !playUrl.hasPrefix("http") {
+                //播放本地的 快进快退后 要播放
+                player.updatePlayerPauseAndPlay(isPlaying: true)
+                bottomMenu.updatePauseAndPlayStatus(isPlaying: true)
+            }
+            
         default:
             break
         }

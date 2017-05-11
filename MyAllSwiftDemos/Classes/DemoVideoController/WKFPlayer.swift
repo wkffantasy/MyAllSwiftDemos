@@ -68,6 +68,7 @@ class WKFPlayer: UIView {
         self.frame = frame
         playerLayer.frame = frame
     }
+    
 
     public func seekToTime(seconds: Float) {
         player.seek(to: CMTimeMakeWithSeconds(Float64(seconds), Int32(NSEC_PER_SEC)))
@@ -96,6 +97,7 @@ class WKFPlayer: UIView {
         fileExistsAtPath(url: playUrl)
 
         videoURLAsset = AVURLAsset.init(url: filePath as URL)
+        
         playerItem = AVPlayerItem.init(asset: videoURLAsset)
         if player != nil && player.currentItem != nil {
             player.replaceCurrentItem(with: playerItem)
@@ -218,8 +220,11 @@ class WKFPlayer: UIView {
     // 判断是否存在已下载好的文件
     private func fileExistsAtPath(url: String) {
 
-        // TODO:
-        filePath = NSURL.init(string: url)
+        if url.hasPrefix("http") {
+            filePath = NSURL.init(string: url)
+        } else {
+            filePath = NSURL.init(fileURLWithPath: url)
+        }
     }
 
     private func removeObservers() {
