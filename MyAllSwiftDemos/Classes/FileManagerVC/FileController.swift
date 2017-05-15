@@ -12,6 +12,7 @@ class FileController: UIViewController,UITableViewDataSource, UITableViewDelegat
 
     var dataArray :Array<String>!
     var tableView: UITableView!
+    let fileManager = FileManager.default
     
     let allPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last! as NSString
     
@@ -38,11 +39,12 @@ class FileController: UIViewController,UITableViewDataSource, UITableViewDelegat
     func getLocalData() {
         
         var files = [String]()
-        let fileManager = FileManager.default
+        
         let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: allPath as String)!
         while let element = enumerator.nextObject() as? String {
             files.append(element)
         }
+        print("allPath ==",allPath)
         print("files ==",files)
         
         dataArray = files
@@ -50,6 +52,28 @@ class FileController: UIViewController,UITableViewDataSource, UITableViewDelegat
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return dataArray.count
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        print("click to delete")
+        if editingStyle == .delete {
+            
+            let path = (allPath as String) + "/" +  dataArray[indexPath.row]
+            if fileManager.fileExists(atPath: path) {
+                do {
+                    try fileManager.removeItem(atPath: path)
+                } catch {
+                    log.error("failed : \(error.localizedDescription)")
+                }
+                
+            }
+            
+            dataArray.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "删除"
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
