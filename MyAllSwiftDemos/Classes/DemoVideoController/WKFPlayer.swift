@@ -68,7 +68,6 @@ class WKFPlayer: UIView {
         self.frame = frame
         playerLayer.frame = frame
     }
-    
 
     public func seekToTime(seconds: Float) {
         player.seek(to: CMTimeMakeWithSeconds(Float64(seconds), Int32(NSEC_PER_SEC)))
@@ -97,7 +96,7 @@ class WKFPlayer: UIView {
         fileExistsAtPath(url: playUrl)
 
         videoURLAsset = AVURLAsset.init(url: filePath as URL)
-        
+
         playerItem = AVPlayerItem.init(asset: videoURLAsset)
         if player != nil && player.currentItem != nil {
             player.replaceCurrentItem(with: playerItem)

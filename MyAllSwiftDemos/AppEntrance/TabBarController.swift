@@ -69,7 +69,13 @@ class TabBarController: UITabBarController {
             "titleDescription": "看到一个oc版的，这个比较新颖，不常见，比较感兴趣",
             "status": "正在写",
             "jumpTo": "jumpToPlayTextVC",
-            ],
+        ],
+        [
+            "title": "读取iTunes拖拽的文件",
+            "titleDescription": "突然想到的,可以连接电脑，在iTunes里面看到app的某些文件，可以拖文件到app",
+            "status": "完成",
+            "jumpTo": "jumpToFileItunesVC",
+        ],
     ]
 
     let othersArray = [
@@ -100,27 +106,25 @@ class TabBarController: UITabBarController {
     }
 
     private func setupTabBarView() {
-        
-//        customTabBar = CustomTabBar(frame: tabBar.frame)
-//        customTabBar.clickTabs = { [weak self] tag in
-//            self?.selectedIndex = tag
-//        }
-//        tabBar.removeFromSuperview()
-//        self.view.addSubview(customTabBar)
+
+        //        customTabBar = CustomTabBar(frame: tabBar.frame)
+        //        customTabBar.clickTabs = { [weak self] tag in
+        //            self?.selectedIndex = tag
+        //        }
+        //        tabBar.removeFromSuperview()
+        //        self.view.addSubview(customTabBar)
         let view = UIView()
         tabBar.addSubview(view)
         view.backgroundColor = .white
-        view.snp.makeConstraints { (make) in
+        view.snp.makeConstraints { make in
             make.top.left.right.bottom.equalTo(0)
         }
-        
+
         customTabBar = CustomTabBar(frame: tabBar.bounds)
         customTabBar.clickTabs = { [weak self] tag in
             self?.selectedIndex = tag
         }
         tabBar.addSubview(customTabBar)
-        
-        
     }
 
     private func setupControllers() {

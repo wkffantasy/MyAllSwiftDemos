@@ -6,7 +6,6 @@
 //  Copyright © 2017年 fantasy. All rights reserved.
 //
 
-
 import UIKit
 
 private var headerKey: Void?
@@ -80,8 +79,8 @@ class RefreshHeader: UIView {
                 self.refreshingBlock!()
             }
             tipLabel.text = "正在刷新"
-            UIView.animate(withDuration: 0.3, animations: { 
-                
+            UIView.animate(withDuration: 0.3, animations: {
+
                 self.scrollView?.contentInset.top = self.refreshingHeight
             })
         }
@@ -133,14 +132,14 @@ class RefreshHeader: UIView {
         } else if keyPath == "contentOffset" {
             let offsetY = scrollView?.contentOffset.y
             if (scrollView?.isDragging)! {
-//                if 0 >= refreshingHeight + offsetY! - 15 {
-//                    if state != .refreshing {
-//                        state = .refreshing
-//                    }
-//                } else {
-//                    state = .pulling
-                
-//                }
+                //                if 0 >= refreshingHeight + offsetY! - 15 {
+                //                    if state != .refreshing {
+                //                        state = .refreshing
+                //                    }
+                //                } else {
+                //                    state = .pulling
+
+                //                }
             } else {
                 if 0 >= refreshingHeight + offsetY! {
                     if state != .refreshing {

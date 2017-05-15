@@ -39,6 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setupUI()
         addOberser()
     }
+
     func setTitle() {
         switch self.index {
         case 0:
@@ -113,9 +114,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func jumpToScrollManyTableViewVC() {
         self.navigationController?.pushViewController(ScrollManyTabsViewController(), animated: true)
     }
-    func  jumpToPlayTextVC() {
+
+    func jumpToPlayTextVC() {
         self.navigationController?.pushViewController(PlayTextController(), animated: true)
     }
+
     func jumpToFMDB() {
         self.navigationController?.pushViewController(FMDBontroller(), animated: true)
     }
@@ -144,6 +147,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func jumpToNoDownloadVC() {
         self.navigationController?.pushViewController(DownloadController(), animated: true)
+    }
+
+    func jumpToFileItunesVC() {
+        self.navigationController?.pushViewController(FileController(), animated: true)
     }
 
     func setupUI() {
