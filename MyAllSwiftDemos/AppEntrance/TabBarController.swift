@@ -76,6 +76,12 @@ class TabBarController: UITabBarController {
             "status": "完成",
             "jumpTo": "jumpToFileItunesVC",
         ],
+        [
+            "title": "天女散花",
+            "titleDescription": "看到oc的一个demo，感觉不错，可能将来以后可能遇到",
+            "status": "完成",
+            "jumpTo": "jumpToEmitterAlertVC",
+        ],
     ]
 
     let othersArray = [

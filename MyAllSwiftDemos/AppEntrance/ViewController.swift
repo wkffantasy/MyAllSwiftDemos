@@ -149,6 +149,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(DownloadController(), animated: true)
     }
 
+    func jumpToEmitterAlertVC() {
+        self.navigationController?.pushViewController(EmitterAlertController(), animated: true)
+    }
+
     func jumpToFileItunesVC() {
         self.navigationController?.pushViewController(FileController(), animated: true)
     }

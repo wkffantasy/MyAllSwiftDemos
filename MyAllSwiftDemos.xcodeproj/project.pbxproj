@@ -112,11 +112,14 @@
 		9A7D6D031EB85B6B00D08770 /* DINPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CD31EB85B6B00D08770 /* DINPro-Regular.otf */; };
 		9A8A3D6D1E8D075F006A32DC /* snow.ico in Resources */ = {isa = PBXBuildFile; fileRef = 9A8A3D6C1E8D075F006A32DC /* snow.ico */; };
 		9A96DBDD1EB9846800102957 /* PlayTextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96DBDC1EB9846800102957 /* PlayTextController.swift */; };
+		9AB74C401ECBFBB900BE9920 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB74C3F1ECBFBB900BE9920 /* SuccessView.swift */; };
 		9ABDE3C21E7BF46A001A1963 /* WaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C11E7BF46A001A1963 /* WaveController.swift */; };
 		9ABDE3C41E7BF58C001A1963 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C31E7BF58C001A1963 /* WaveView.swift */; };
 		9AC256C31E8A5F110089B371 /* FMDBontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC256C11E8A5F110089B371 /* FMDBontroller.swift */; };
 		9AC256C41E8A5F110089B371 /* FMDBontroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC256C21E8A5F110089B371 /* FMDBontroller.xib */; };
 		9AC256C61E8A6A740089B371 /* TestFMDBManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC256C51E8A6A740089B371 /* TestFMDBManger.swift */; };
+		9AD1DFA11ECAFBFE00D3767A /* EmitterAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1DFA01ECAFBFE00D3767A /* EmitterAlertController.swift */; };
+		9AD1DFA31ECAFCF200D3767A /* GetSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1DFA21ECAFCF200D3767A /* GetSuccessView.swift */; };
 		9AD4F2AF1E7FAE7500458777 /* DialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4F2AE1E7FAE7500458777 /* DialController.swift */; };
 		9AED02351E94939100F3CB7B /* DownloadFMDBManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AED02341E94939100F3CB7B /* DownloadFMDBManger.swift */; };
 		9AED02371E94D4E900F3CB7B /* DownloadFMDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AED02361E94D4E900F3CB7B /* DownloadFMDBModel.swift */; };
@@ -252,11 +255,14 @@
 		9A7D6CD31EB85B6B00D08770 /* DINPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Regular.otf"; sourceTree = "<group>"; };
 		9A8A3D6C1E8D075F006A32DC /* snow.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = snow.ico; sourceTree = "<group>"; };
 		9A96DBDC1EB9846800102957 /* PlayTextController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayTextController.swift; sourceTree = "<group>"; };
+		9AB74C3F1ECBFBB900BE9920 /* SuccessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		9ABDE3C11E7BF46A001A1963 /* WaveController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveController.swift; sourceTree = "<group>"; };
 		9ABDE3C31E7BF58C001A1963 /* WaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		9AC256C11E8A5F110089B371 /* FMDBontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBontroller.swift; sourceTree = "<group>"; };
 		9AC256C21E8A5F110089B371 /* FMDBontroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMDBontroller.xib; sourceTree = "<group>"; };
 		9AC256C51E8A6A740089B371 /* TestFMDBManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFMDBManger.swift; sourceTree = "<group>"; };
+		9AD1DFA01ECAFBFE00D3767A /* EmitterAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmitterAlertController.swift; sourceTree = "<group>"; };
+		9AD1DFA21ECAFCF200D3767A /* GetSuccessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetSuccessView.swift; sourceTree = "<group>"; };
 		9AD4F2AE1E7FAE7500458777 /* DialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialController.swift; sourceTree = "<group>"; };
 		9ADAF9401E8B836200D72E2D /* MyAllSwiftDemos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyAllSwiftDemos-Bridging-Header.h"; sourceTree = "<group>"; };
 		9AED02341E94939100F3CB7B /* DownloadFMDBManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFMDBManger.swift; sourceTree = "<group>"; };
@@ -428,6 +434,7 @@
 		9A78F00C1E76458F008C93E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9AD1DF9F1ECAFBAF00D3767A /* EmitterAlertVC */,
 				9A16654A1EC43C55001384E9 /* FileManagerVC */,
 				9A96DBDB1EB9843500102957 /* PlayText */,
 				9A5D0B031E9B572100C1D82A /* Refresh */,
@@ -613,6 +620,16 @@
 				9A0FE3341E8CAD1100723FBF /* TestModel.swift */,
 			);
 			path = FMDBController;
+			sourceTree = "<group>";
+		};
+		9AD1DF9F1ECAFBAF00D3767A /* EmitterAlertVC */ = {
+			isa = PBXGroup;
+			children = (
+				9AD1DFA01ECAFBFE00D3767A /* EmitterAlertController.swift */,
+				9AD1DFA21ECAFCF200D3767A /* GetSuccessView.swift */,
+				9AB74C3F1ECBFBB900BE9920 /* SuccessView.swift */,
+			);
+			path = EmitterAlertVC;
 			sourceTree = "<group>";
 		};
 		9AD4F2AD1E7FAE5800458777 /* DialController */ = {
@@ -903,17 +920,20 @@
 				9A78F01C1E7648A7008C93E9 /* NSString+extension.swift in Sources */,
 				9A78F0261E767658008C93E9 /* MarqueeView.swift in Sources */,
 				9A58F9CC1E778ED200500AB6 /* NoMarginScrollController.swift in Sources */,
+				9AD1DFA31ECAFCF200D3767A /* GetSuccessView.swift in Sources */,
 				9A12F9611E8229FB009EAD85 /* CircleView.swift in Sources */,
 				9A78F0141E764834008C93E9 /* AppDelegate.swift in Sources */,
 				9A1665501EC44C64001384E9 /* PlayLocalVideoController.swift in Sources */,
 				9A07F1241E975D8800D8DC42 /* ScrollManyTabsViewController.swift in Sources */,
 				9A58F9CE1E77907700500AB6 /* NoMarginRollingView.swift in Sources */,
+				9AB74C401ECBFBB900BE9920 /* SuccessView.swift in Sources */,
 				9A07F1781E97954100D8DC42 /* SubclassTestSecondContrller.swift in Sources */,
 				9A3DE1561E96311A00AE3CE9 /* DownloadUserDefualt.swift in Sources */,
 				9A78F0201E76491F008C93E9 /* MarqueeController.swift in Sources */,
 				9AED02351E94939100F3CB7B /* DownloadFMDBManger.swift in Sources */,
 				9A044C291E890E7100C02D90 /* PathAndVideoNameTool.swift in Sources */,
 				9A78EFE41E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld in Sources */,
+				9AD1DFA11ECAFBFE00D3767A /* EmitterAlertController.swift in Sources */,
 				9AD4F2AF1E7FAE7500458777 /* DialController.swift in Sources */,
 				9A07F17A1E97956900D8DC42 /* SubclassTestThirdController.swift in Sources */,
 				9A3DD98A1E8DFBD300B97864 /* CustomTabBar.swift in Sources */,
