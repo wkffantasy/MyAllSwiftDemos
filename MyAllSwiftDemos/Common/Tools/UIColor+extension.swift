@@ -2,11 +2,16 @@
 //  UIColor+extension.swift
 //  BaseProjectSwift3.0
 //
-//  Created by 雅昌－一粒 on 16/10/12.
+//  Created by fantasy on 16/10/12.
 //  Copyright © 2016年 artron. All rights reserved.
 //
 
 import UIKit
+
+let RandomColor = UIColor.randomColor
+let HexColorAlpha = UIColor.colorWithHexString
+let RGBColorAlpha = UIColor.colorWithRGBH
+let RGBColor = UIColor.colorWithRGB
 
 extension UIColor {
     /**
@@ -20,25 +25,6 @@ extension UIColor {
         let saturation: CGFloat = (CGFloat(arc4random() % 128) / 256.0) + 0.5 //  0.5 to 1.0, away from white
         let brightness: CGFloat = (CGFloat(arc4random() % 128) / 256.0) + 0.5 //  0.5 to 1.0, away from black
         return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
-    }
-
-    /**
-     *  color 转 image
-     *
-     *  @param color
-     *
-     *  @return image
-     */
-    class func createImageWithColor(_ color: UIColor) -> UIImage {
-
-        let rect: CGRect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
-        UIGraphicsBeginImageContext(rect.size)
-        let context: CGContext = UIGraphicsGetCurrentContext()!
-        context.setFillColor(color.cgColor)
-        context.fill(rect)
-        let theImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return theImage
     }
 
     /**

@@ -23,7 +23,8 @@ class WaveView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.clipsToBounds = true
-        self.backgroundColor = UIColor.colorWithRGB(red: 251, green: 91, blue: 91)
+//        self.backgroundColor = UIColor.colorWithRGB(red: 251, green: 91, blue: 91)
+        self.backgroundColor = RGBColor(251,91,91)
         waveAmplitude = frame.height / 2
         startWave()
     }

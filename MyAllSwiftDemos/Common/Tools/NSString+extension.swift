@@ -2,7 +2,7 @@
 //  NSString+extension.swift
 //  BaseProjectSwift3.0
 //
-//  Created by 雅昌－一粒 on 16/10/10.
+//  Created by fantasy on 16/10/10.
 //  Copyright © 2016年 artron. All rights reserved.
 //
 
