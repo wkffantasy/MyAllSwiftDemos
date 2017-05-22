@@ -157,6 +157,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(FileController(), animated: true)
     }
 
+    func jumpToRealmVC() {
+        self.navigationController?.pushViewController(RealmController(), animated: true)
+    }
+
     func setupUI() {
 
         tableView = UITableView.init(frame: CGRect.zero, style: .plain)

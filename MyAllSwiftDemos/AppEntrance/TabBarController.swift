@@ -103,6 +103,12 @@ class TabBarController: UITabBarController {
             "status": "在写",
             "jumpTo": "jumpToScrollManyTableViewVC",
         ],
+        [
+            "title": "ReamlStudy",
+            "titleDescription": "学习中",
+            "status": "在写",
+            "jumpTo": "jumpToRealmVC",
+        ],
     ]
 
     override func viewDidLoad() {

@@ -39,6 +39,7 @@
 		9A58F9DB1E77E7D500500AB6 /* WKFPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58F9DA1E77E7D500500AB6 /* WKFPlayer.swift */; };
 		9A5D0B051E9B574C00C1D82A /* RefreshController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D0B041E9B574C00C1D82A /* RefreshController.swift */; };
 		9A5D0B071E9B5B4F00C1D82A /* RefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D0B061E9B5B4F00C1D82A /* RefreshHeader.swift */; };
+		9A6793111ED2BA50007A272F /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6793101ED2BA50007A272F /* RealmController.swift */; };
 		9A78EFE41E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A78EFE21E764443008C93E9 /* MyAllSwiftDemos.xcdatamodeld */; };
 		9A78EFE61E764443008C93E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A78EFE51E764443008C93E9 /* Assets.xcassets */; };
 		9A78EFE91E764443008C93E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A78EFE71E764443008C93E9 /* LaunchScreen.storyboard */; };
@@ -176,6 +177,7 @@
 		9A58F9DA1E77E7D500500AB6 /* WKFPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKFPlayer.swift; sourceTree = "<group>"; };
 		9A5D0B041E9B574C00C1D82A /* RefreshController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshController.swift; sourceTree = "<group>"; };
 		9A5D0B061E9B5B4F00C1D82A /* RefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshHeader.swift; sourceTree = "<group>"; };
+		9A6793101ED2BA50007A272F /* RealmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
 		9A78EFD81E764443008C93E9 /* MyAllSwiftDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAllSwiftDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A78EFE31E764443008C93E9 /* MyAllSwiftDemos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyAllSwiftDemos.xcdatamodel; sourceTree = "<group>"; };
 		9A78EFE51E764443008C93E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -376,6 +378,14 @@
 			path = Refresh;
 			sourceTree = "<group>";
 		};
+		9A67930F1ED2B9ED007A272F /* RealmController */ = {
+			isa = PBXGroup;
+			children = (
+				9A6793101ED2BA50007A272F /* RealmController.swift */,
+			);
+			path = RealmController;
+			sourceTree = "<group>";
+		};
 		9A78EFCF1E764443008C93E9 = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +444,7 @@
 		9A78F00C1E76458F008C93E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9A67930F1ED2B9ED007A272F /* RealmController */,
 				9AD1DF9F1ECAFBAF00D3767A /* EmitterAlertVC */,
 				9A16654A1EC43C55001384E9 /* FileManagerVC */,
 				9A96DBDB1EB9843500102957 /* PlayText */,
@@ -856,7 +867,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EDE5E61B79A54115B5434B4B /* [CP] Copy Pods Resources */ = {
@@ -916,6 +927,7 @@
 				9A044C231E88F37300C02D90 /* DownloadToolManage.swift in Sources */,
 				9A5D0B071E9B5B4F00C1D82A /* RefreshHeader.swift in Sources */,
 				9A78F0351E76A4CF008C93E9 /* TestOneController.swift in Sources */,
+				9A6793111ED2BA50007A272F /* RealmController.swift in Sources */,
 				9A370DC11E81220900827D1B /* SliderCircleView.swift in Sources */,
 				9A78F01C1E7648A7008C93E9 /* NSString+extension.swift in Sources */,
 				9A78F0261E767658008C93E9 /* MarqueeView.swift in Sources */,
