@@ -95,19 +95,28 @@ class CustomTabBar: UIView {
         }
         let imageView1 = selectedItem?.viewWithTag(100) as! UIImageView
         let label1 = selectedItem?.viewWithTag(101) as! UILabel
-        label1.textColor = UIColor.colorWithRGB(red: 142, green: 142, blue: 147)
+        label1.textColor = RGBColor(142,142,147)
         imageView1.image = UIImage(named: imageNormalArray[(selectedItem?.tag)!])
 
         selectedItem = thisItem
 
         let imageView2 = thisItem?.viewWithTag(100) as! UIImageView
         let label2 = thisItem?.viewWithTag(101) as! UILabel
-        label2.textColor = UIColor.colorWithRGB(red: 248, green: 150, blue: 1)
+        label2.textColor = RGBColor(248,150,1)
         imageView2.image = UIImage(named: imageSelectArray[(selectedItem?.tag)!])
+        
+        animateIt(imageView: imageView2)
 
         if self.clickTabs != nil {
             self.clickTabs!((thisItem?.tag)!)
         }
+    }
+    func animateIt(imageView:UIImageView) {
+        let animation = CAKeyframeAnimation(keyPath: "transform.scale")
+        animation.values = [1.0,1.1,0.9,1.0]
+        animation.duration = 0.3
+        animation.calculationMode = kCAAnimationCubic
+        imageView.layer.add(animation, forKey: "")
     }
 
     required init?(coder _: NSCoder) {
