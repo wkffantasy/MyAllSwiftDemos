@@ -39,7 +39,7 @@ class DemoVideoController: UIViewController {
             self?.setNeedsStatusBarAppearanceUpdate()
         }
         playerView.playTitle = "七里香"
-        playerView.playUrl = url6
+        playerView.playUrl = url1
         self.view.addSubview(playerView)
     }
 

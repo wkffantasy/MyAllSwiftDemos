@@ -116,10 +116,19 @@ class WKFPlayer: UIView {
         playerItem.addObserver(self, forKeyPath: "status", options: .new, context: nil)
         playerItem.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(playerFinished), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(appEnterBackground), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(appEnterForeground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+    }
+    @objc private func appEnterBackground(){
+        
+    }
+    @objc private func appEnterForeground(){
+        
     }
 
     override func observeValue(forKeyPath keyPath: String?, of sth: Any?, change thisChange: [NSKeyValueChangeKey: Any]?, context thisContext: UnsafeMutableRawPointer?) {
-
+        
         if keyPath == "status" {
             observeForStatus()
         } else if keyPath == "loadedTimeRanges" {
@@ -148,17 +157,13 @@ class WKFPlayer: UIView {
     private func observeForStatus() {
 
         if playerItem.status == .readyToPlay {
-
             callBackTotalTime()
-
             if self.PlayStartSuccessBlock != nil {
                 self.PlayStartSuccessBlock!()
             }
-
             if self.PlayingCurrentTimeBlock != nil {
                 self.PlayingCurrentTimeBlock!(getCurrentTime())
             }
-
             let timeInterval: CMTime = CMTimeMakeWithSeconds(1.0, 10)
             timeObserver = player.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main, using: { [weak self] _ in
 
@@ -168,11 +173,20 @@ class WKFPlayer: UIView {
 
             }) as AnyObject!
 
-        } else { // failed and unknown
+        } else if playerItem.status == .failed { // failed and unknown
+            log.error("ouch, an error did occur!,playerItem.status == .failed")
             if self.PlayFailedBlock != nil {
                 self.PlayFailedBlock!()
             }
+        } else if playerItem.status == .unknown {
+            log.error("ouch, an error did occur!,playerItem.status == .unknown")
+            if self.PlayFailedBlock != nil {
+                self.PlayFailedBlock!()
+            }
+        } else {
+            assert(false,"can not be this condition")
         }
+        
     }
 
     private func observeForLoadedTimeRanges() {

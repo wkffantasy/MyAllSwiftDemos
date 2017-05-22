@@ -54,6 +54,8 @@ class WKFVideoPlayerView: UIView {
         self.clipsToBounds = true
         firstFrame = frame
         setupViews()
+        
+        
     }
 
     private func setupViews() {
@@ -159,6 +161,7 @@ class WKFVideoPlayerView: UIView {
         addGesturesAction()
         addTimer()
     }
+ 
 
     private func addGesturesAction() {
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(tapGestureTaped(tap:)))
