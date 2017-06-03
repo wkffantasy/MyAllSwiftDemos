@@ -23,6 +23,7 @@
 		9A16654C1EC43C78001384E9 /* FileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16654B1EC43C78001384E9 /* FileController.swift */; };
 		9A16654E1EC449E9001384E9 /* FileVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16654D1EC449E9001384E9 /* FileVideoCell.swift */; };
 		9A1665501EC44C64001384E9 /* PlayLocalVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16654F1EC44C64001384E9 /* PlayLocalVideoController.swift */; };
+		9A1C37E31ED6F056007C884B /* AnimateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1C37E21ED6F056007C884B /* AnimateView.swift */; };
 		9A1F498D1E793E670099C2BB /* TimeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F498C1E793E670099C2BB /* TimeTool.swift */; };
 		9A370DC11E81220900827D1B /* SliderCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A370DC01E81220900827D1B /* SliderCircleView.swift */; };
 		9A370DC31E8129AC00827D1B /* SliderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A370DC21E8129AC00827D1B /* SliderItem.swift */; };
@@ -161,6 +162,7 @@
 		9A16654B1EC43C78001384E9 /* FileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileController.swift; sourceTree = "<group>"; };
 		9A16654D1EC449E9001384E9 /* FileVideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileVideoCell.swift; sourceTree = "<group>"; };
 		9A16654F1EC44C64001384E9 /* PlayLocalVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayLocalVideoController.swift; sourceTree = "<group>"; };
+		9A1C37E21ED6F056007C884B /* AnimateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimateView.swift; sourceTree = "<group>"; };
 		9A1F498C1E793E670099C2BB /* TimeTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTool.swift; sourceTree = "<group>"; };
 		9A370DC01E81220900827D1B /* SliderCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCircleView.swift; sourceTree = "<group>"; };
 		9A370DC21E8129AC00827D1B /* SliderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderItem.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				9A6793101ED2BA50007A272F /* RealmController.swift */,
+				9A1C37E21ED6F056007C884B /* AnimateView.swift */,
 			);
 			path = RealmController;
 			sourceTree = "<group>";
@@ -931,6 +934,7 @@
 				9A370DC11E81220900827D1B /* SliderCircleView.swift in Sources */,
 				9A78F01C1E7648A7008C93E9 /* NSString+extension.swift in Sources */,
 				9A78F0261E767658008C93E9 /* MarqueeView.swift in Sources */,
+				9A1C37E31ED6F056007C884B /* AnimateView.swift in Sources */,
 				9A58F9CC1E778ED200500AB6 /* NoMarginScrollController.swift in Sources */,
 				9AD1DFA31ECAFCF200D3767A /* GetSuccessView.swift in Sources */,
 				9A12F9611E8229FB009EAD85 /* CircleView.swift in Sources */,
