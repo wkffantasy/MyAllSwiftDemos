@@ -160,6 +160,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func jumpToRealmVC() {
         self.navigationController?.pushViewController(RealmController(), animated: true)
     }
+    func jumpToAnimateInRN() {
+        self.navigationController?.pushViewController(CompanyAnimateController(), animated: true)
+    }
 
     func setupUI() {
 

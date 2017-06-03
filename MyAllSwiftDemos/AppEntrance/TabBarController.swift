@@ -109,6 +109,12 @@ class TabBarController: UITabBarController {
             "status": "在写",
             "jumpTo": "jumpToRealmVC",
         ],
+        [
+            "title": "some aniamtions in project",
+            "titleDescription": "公司的一个RN的项目，用swift写的动画",
+            "status": "完成",
+            "jumpTo": "jumpToAnimateInRN",
+            ],
     ]
 
     override func viewDidLoad() {
