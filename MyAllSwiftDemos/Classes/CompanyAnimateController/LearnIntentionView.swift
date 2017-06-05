@@ -34,13 +34,15 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
     private var haveButton:LearnIntentionButton?
     private var noButton:LearnIntentionButton?
   
+  private var startButton:UIButton?
+  
     private let headerH: CGFloat = 270
     private let titleViewH: CGFloat = 110
 
     private let gradeAnimateTime = TimeInterval(1)
 
     private var coverButton: UIButton?
-    private var tipLabel: UILabel?
+    private var tipView: UIView?
 
     // 回调rn 四个参数
     private var callBackGrade: String?
@@ -77,7 +79,7 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
 
     func addObsverOfKeyBoard() {
         NotificationCenter.default.addObserver(self, selector: #selector(keybordWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keybordDidHide(noti:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keybordDidHide(noti:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
     }
 
     func setupHeaderView() {
@@ -175,22 +177,29 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             item.removeFromSuperview()
         }
         self.titleView.updateTitle(title: "是否考过托福")
-      
-      haveButton = LearnIntentionButton.init(frame: .zero, buttonH: 60, title: haveExamArray[0], selectColor: nil, callBack: { [weak self](title, tag) in
+      let examViewButtonH:CGFloat = 44
+      haveButton = LearnIntentionButton.init(frame: .zero, buttonH: examViewButtonH, title: haveExamArray[0], selectColor: nil, callBack: { [weak self](title, tag) in
         
         self?.haveExamAnimation(imageName: "LearnIntent_haveExamed")
+        
         
         // 考过的，输入自己曾经的分数
         self?.signInYourScore()
       })
       
-      noButton = LearnIntentionButton.init(frame: .zero, buttonH: 60, title: haveExamArray[1], selectColor: UIColor.colorWithHexString("5798ef"), callBack: { [weak self](title, tag) in
+      noButton = LearnIntentionButton.init(frame: .zero, buttonH: examViewButtonH, title: haveExamArray[1], selectColor: UIColor.colorWithHexString("5798ef"), callBack: { [weak self](title, tag) in
         
         self?.callBackExam = title
         self?.haveExamAnimation(imageName: "LearnIntent_noExamed")
-        self?.haveButton?.isHidden = true
         // 开启我的托福
         self?.addStartButton()
+        self?.noButton?.isUserInteractionEnabled = false
+        self?.haveButton?.isHidden = true
+        
+        self?.noButton?.layer.borderWidth = 1
+        self?.noButton?.backgroundColor = .white
+        self?.noButton?.setTitleColor(UIColor.colorWithHexString("5798ef"), for: .normal)
+        self?.noButton?.layer.borderColor = UIColor.colorWithHexString("5798ef").cgColor
       })
       functionView.addSubview(haveButton!)
       functionView.addSubview(noButton!)
@@ -198,28 +207,42 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
         make.top.equalTo(0)
         make.left.equalTo(60)
         make.right.equalTo(-60)
-        make.height.equalTo(60)
+        make.height.equalTo(examViewButtonH)
       })
       noButton?.snp.makeConstraints({ (make) in
         make.top.equalTo((haveButton?.snp.bottom)!).offset(20)
         make.left.equalTo(60)
         make.right.equalTo(-60)
-        make.height.equalTo(60)
+        make.height.equalTo(examViewButtonH)
       })
       
   }
 
     func addStartButton() {
-        let startButton = UIButton(type: .custom)
-        startButton.setTitle("开启我的托福", for: .normal)
-        startButton.setTitleColor(UIColor.colorWithHexString("048cff"), for: .normal)
-        startButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        startButton.addTarget(self, action: #selector(clickStartButton), for: .touchUpInside)
-        functionView.addSubview(startButton)
-        startButton.snp.makeConstraints { make in
-            make.centerX.equalTo(functionView.snp.centerX)
-            make.bottom.equalTo(functionView.snp.bottom).offset(-45)
-        }
+      if startButton != nil {
+        return
+      }
+         startButton = UIButton(type: .custom)
+      startButton?.layer.masksToBounds = true
+      startButton?.layer.opacity = 0
+      
+        startButton?.setTitle("开启我的托福", for: .normal)
+        startButton?.setTitleColor(UIColor.colorWithHexString("048cff"), for: .normal)
+        startButton?.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        startButton?.addTarget(self, action: #selector(clickStartButton), for: .touchUpInside)
+        functionView.addSubview(startButton!)
+        startButton?.frame = CGRect(x: (ScreenWidth-200)/2, y: functionView.frame.size.height, width: 200, height: 30)
+      
+      UIView.animate(withDuration: gradeAnimateTime) {
+
+        self.startButton?.layer.opacity = 1
+        self.startButton?.frame.origin.y = (self.startButton?.frame.origin.y)! - (30+45)
+
+      }
+ 
+      
+
+      
     }
 
     func signInYourScore() {
@@ -252,7 +275,7 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
     func textChange() {
       let scoreInt = Int((scoreTextField?.text)!)
       if scoreInt! > 120 {
-        tipIt(tipText: "分数不能超过120")
+        tipIt(tipText: "亲，分数不能超过120")
         scoreTextField?.text = "120"
         
       }
@@ -308,17 +331,20 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
     // MARK: - keybord show and hide
     func keybordWillShow(noti: Notification) {
       
-      self.haveButton?.isHidden = true
-      self.noButton?.isHidden = true
+      haveButton?.isHidden = true
+      noButton?.isHidden = true
         let aValue = noti.userInfo![UIKeyboardFrameEndUserInfoKey]
         let keybordFrame = (aValue as AnyObject).cgRectValue as CGRect
         addCoverButton(keyboardSize: keybordFrame.size)
     }
-//  func keybordDidHide(noti: Notification) {
-//    self.noButton?.isHidden = false
-//    self.haveButton?.isHidden = (scoreTextField?.text?.length)! > 0
+  func keybordDidHide(noti:Notification) {
     
-//  }
+    if scoreTextField != nil {
+      // 开启我的托福
+      self.addStartButton()
+    }
+    
+  }
 
     func addCoverButton(keyboardSize: CGSize) {
         coverButton?.removeFromSuperview()
@@ -338,17 +364,19 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
         scoreTextField?.resignFirstResponder()
         coverButton?.removeFromSuperview()
         coverButton = nil
-      noButton?.isHidden = false
+      
       
       if scoreTextField?.text?.length == 0 {
         scoreTextField?.removeFromSuperview()
         scoreTextField = nil
+        noButton?.isHidden = false
         haveButton?.isHidden = false
         return
       }
-      
-      // 开启我的托福
-      addStartButton()
+      scoreTextField?.isUserInteractionEnabled = false
+      haveButton?.isUserInteractionEnabled = false
+      noButton?.isHidden = true
+    
       let scoreInt = Int((scoreTextField?.text)!)
         scoreTextField?.text = "\(scoreInt!)分"
         callBackExam = scoreTextField?.text
@@ -356,24 +384,42 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
 
     // MARK: - tipLabel
     func tipIt(tipText: String) {
-        tipLabel?.removeFromSuperview()
-        tipLabel = nil
-        tipLabel = UILabel()
-        tipLabel?.text = tipText
-        tipLabel?.backgroundColor = UIColor.colorWithHexString("8e9da6")
-        tipLabel?.textColor = .white
-        tipLabel?.textAlignment = .center
-        tipLabel?.layer.masksToBounds = true
-        tipLabel?.layer.cornerRadius = 10
-        addSubview(tipLabel!)
-        tipLabel?.snp.makeConstraints({ make in
-            make.center.equalTo(self.snp.center)
-            make.height.equalTo(50)
-            make.width.equalTo(200)
-        })
-      DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2) { 
-        self.tipLabel?.removeFromSuperview()
+      if tipView != nil {
+        return
       }
+      let tipViewH:CGFloat = 32
+      tipView = UIView()
+      tipView?.backgroundColor = RGBColorAlpha(53,61,72,0.9)
+      tipView?.layer.masksToBounds = true
+      tipView?.layer.cornerRadius = tipViewH / 2
+      addSubview(tipView!)
+      tipView?.snp.makeConstraints({ (make) in
+        make.center.equalTo(self.snp.center)
+        make.height.equalTo(tipViewH)
+      })
+      
+      let imageView = UIImageView()
+      imageView.image = UIImage.init(named: "tipRed")
+      tipView?.addSubview(imageView)
+      imageView.snp.makeConstraints { (make) in
+        make.centerY.equalTo((tipView?.snp.centerY)!)
+        make.left.equalTo(14)
+      }
+      
+        let tipLabel = UILabel()
+        tipLabel.text = tipText
+        tipLabel.textColor = .white
+      tipLabel.font = UIFont.systemFont(ofSize: 12)
+        tipView?.addSubview(tipLabel)
+        tipLabel.snp.makeConstraints({ make in
+            make.centerY.equalTo((tipView?.snp.centerY)!)
+            make.left.equalTo(imageView.snp.right).offset(10)
+            make.right.equalTo((tipView?.snp.right)!).offset(-10)
+        })
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2) {
+          self.tipView?.removeFromSuperview()
+          self.tipView = nil
+        }
     }
 
     // MARK: - 考过没考过的动画

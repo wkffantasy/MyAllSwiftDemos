@@ -121,10 +121,11 @@
 		9A373C351EE293A1002B6227 /* GradeChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A373C2B1EE293A1002B6227 /* GradeChoiceView.swift */; };
 		9A373C361EE293A1002B6227 /* LearnIntentionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A373C2C1EE293A1002B6227 /* LearnIntentionButton.swift */; };
 		9A373C371EE293A1002B6227 /* LearnIntentionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A373C2E1EE293A1002B6227 /* LearnIntentionManager.m */; };
-		9A373C381EE293A1002B6227 /* LearnIntentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A373C2F1EE293A1002B6227 /* LearnIntentionView.swift */; };
 		9A373C391EE293A1002B6227 /* ScoreChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A373C301EE293A1002B6227 /* ScoreChoiceView.swift */; };
-		9A373C3A1EE293A1002B6227 /* TimeChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A373C311EE293A1002B6227 /* TimeChoiceView.swift */; };
 		9A373C3B1EE293A1002B6227 /* TitleAndSubtileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A373C321EE293A1002B6227 /* TitleAndSubtileView.swift */; };
+		9A373C3E1EE29F7E002B6227 /* CloudController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A373C3D1EE29F7E002B6227 /* CloudController.swift */; };
+		9A373C401EE29FBC002B6227 /* AnimateMoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A373C3F1EE29FBC002B6227 /* AnimateMoveView.swift */; };
+		9A373C421EE2A36F002B6227 /* SinglMoveingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A373C411EE2A36F002B6227 /* SinglMoveingView.swift */; };
 		9A3DD9881E8DFA7500B97864 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DD9871E8DFA7500B97864 /* TabBarController.swift */; };
 		9A3DD98A1E8DFBD300B97864 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DD9891E8DFBD300B97864 /* CustomTabBar.swift */; };
 		9A3DD98C1E8DFEA900B97864 /* BaseNaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3DD98B1E8DFEA900B97864 /* BaseNaviController.swift */; };
@@ -211,6 +212,10 @@
 		9A7D6D021EB85B6B00D08770 /* DINPro-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CD21EB85B6B00D08770 /* DINPro-Medium.otf */; };
 		9A7D6D031EB85B6B00D08770 /* DINPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D6CD31EB85B6B00D08770 /* DINPro-Regular.otf */; };
 		9A8A3D6D1E8D075F006A32DC /* snow.ico in Resources */ = {isa = PBXBuildFile; fileRef = 9A8A3D6C1E8D075F006A32DC /* snow.ico */; };
+		9A93C21D1EE504E50049850F /* tipRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A93C21B1EE504E50049850F /* tipRed@2x.png */; };
+		9A93C21E1EE504E50049850F /* tipRed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A93C21C1EE504E50049850F /* tipRed@3x.png */; };
+		9A93C2201EE505340049850F /* LearnIntentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A93C21F1EE505340049850F /* LearnIntentionView.swift */; };
+		9A93C2221EE505390049850F /* TimeChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A93C2211EE505390049850F /* TimeChoiceView.swift */; };
 		9A96DBDD1EB9846800102957 /* PlayTextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A96DBDC1EB9846800102957 /* PlayTextController.swift */; };
 		9AB74C401ECBFBB900BE9920 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB74C3F1ECBFBB900BE9920 /* SuccessView.swift */; };
 		9ABDE3C21E7BF46A001A1963 /* WaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABDE3C11E7BF46A001A1963 /* WaveController.swift */; };
@@ -359,10 +364,11 @@
 		9A373C2C1EE293A1002B6227 /* LearnIntentionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnIntentionButton.swift; sourceTree = "<group>"; };
 		9A373C2D1EE293A1002B6227 /* LearnIntentionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnIntentionManager.h; sourceTree = "<group>"; };
 		9A373C2E1EE293A1002B6227 /* LearnIntentionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LearnIntentionManager.m; sourceTree = "<group>"; };
-		9A373C2F1EE293A1002B6227 /* LearnIntentionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnIntentionView.swift; sourceTree = "<group>"; };
 		9A373C301EE293A1002B6227 /* ScoreChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreChoiceView.swift; sourceTree = "<group>"; };
-		9A373C311EE293A1002B6227 /* TimeChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeChoiceView.swift; sourceTree = "<group>"; };
 		9A373C321EE293A1002B6227 /* TitleAndSubtileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleAndSubtileView.swift; sourceTree = "<group>"; };
+		9A373C3D1EE29F7E002B6227 /* CloudController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudController.swift; sourceTree = "<group>"; };
+		9A373C3F1EE29FBC002B6227 /* AnimateMoveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimateMoveView.swift; sourceTree = "<group>"; };
+		9A373C411EE2A36F002B6227 /* SinglMoveingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglMoveingView.swift; sourceTree = "<group>"; };
 		9A3DD9871E8DFA7500B97864 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9A3DD9891E8DFBD300B97864 /* CustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		9A3DD98B1E8DFEA900B97864 /* BaseNaviController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNaviController.swift; sourceTree = "<group>"; };
@@ -455,6 +461,10 @@
 		9A7D6CD21EB85B6B00D08770 /* DINPro-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Medium.otf"; sourceTree = "<group>"; };
 		9A7D6CD31EB85B6B00D08770 /* DINPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Regular.otf"; sourceTree = "<group>"; };
 		9A8A3D6C1E8D075F006A32DC /* snow.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = snow.ico; sourceTree = "<group>"; };
+		9A93C21B1EE504E50049850F /* tipRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tipRed@2x.png"; sourceTree = "<group>"; };
+		9A93C21C1EE504E50049850F /* tipRed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tipRed@3x.png"; sourceTree = "<group>"; };
+		9A93C21F1EE505340049850F /* LearnIntentionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnIntentionView.swift; sourceTree = "<group>"; };
+		9A93C2211EE505390049850F /* TimeChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeChoiceView.swift; sourceTree = "<group>"; };
 		9A96DBDC1EB9846800102957 /* PlayTextController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayTextController.swift; sourceTree = "<group>"; };
 		9AB74C3F1ECBFBB900BE9920 /* SuccessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		9ABDE3C11E7BF46A001A1963 /* WaveController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveController.swift; sourceTree = "<group>"; };
@@ -558,10 +568,10 @@
 				9A373C2B1EE293A1002B6227 /* GradeChoiceView.swift */,
 				9A373C2C1EE293A1002B6227 /* LearnIntentionButton.swift */,
 				9A373C2D1EE293A1002B6227 /* LearnIntentionManager.h */,
+				9A93C2211EE505390049850F /* TimeChoiceView.swift */,
 				9A373C2E1EE293A1002B6227 /* LearnIntentionManager.m */,
-				9A373C2F1EE293A1002B6227 /* LearnIntentionView.swift */,
+				9A93C21F1EE505340049850F /* LearnIntentionView.swift */,
 				9A373C301EE293A1002B6227 /* ScoreChoiceView.swift */,
-				9A373C311EE293A1002B6227 /* TimeChoiceView.swift */,
 				9A373C321EE293A1002B6227 /* TitleAndSubtileView.swift */,
 			);
 			path = CompanyAnimateController;
@@ -570,6 +580,8 @@
 		9A373B4E1EE29079002B6227 /* AnimateImages */ = {
 			isa = PBXGroup;
 			children = (
+				9A93C21B1EE504E50049850F /* tipRed@2x.png */,
+				9A93C21C1EE504E50049850F /* tipRed@3x.png */,
 				9A373B4F1EE29079002B6227 /* LearnIntent_CircleBlue@1x.png */,
 				9A373B501EE29079002B6227 /* LearnIntent_CircleBlue@2x.png */,
 				9A373B511EE29079002B6227 /* LearnIntent_CircleBlue@3x.png */,
@@ -662,6 +674,16 @@
 				9A373BA81EE29079002B6227 /* LearnIntent_timeCard@3x.png */,
 			);
 			path = AnimateImages;
+			sourceTree = "<group>";
+		};
+		9A373C3C1EE29EF2002B6227 /* CloudMoveControlerr */ = {
+			isa = PBXGroup;
+			children = (
+				9A373C3D1EE29F7E002B6227 /* CloudController.swift */,
+				9A373C3F1EE29FBC002B6227 /* AnimateMoveView.swift */,
+				9A373C411EE2A36F002B6227 /* SinglMoveingView.swift */,
+			);
+			path = CloudMoveControlerr;
 			sourceTree = "<group>";
 		};
 		9A58F9CA1E778B2800500AB6 /* NoMarginScrollController */ = {
@@ -758,6 +780,7 @@
 		9A78F00C1E76458F008C93E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9A373C3C1EE29EF2002B6227 /* CloudMoveControlerr */,
 				9A373B4B1EE29039002B6227 /* CompanyAnimateController */,
 				9A67930F1ED2B9ED007A272F /* RealmController */,
 				9AD1DF9F1ECAFBAF00D3767A /* EmitterAlertVC */,
@@ -1105,6 +1128,7 @@
 				9A373BD81EE29079002B6227 /* LearnIntent_grade1_time@2x.png in Resources */,
 				9A7D6CD71EB85B6B00D08770 /* DIN-BlackItalicAlt.otf in Resources */,
 				9A373BCC1EE29079002B6227 /* LearnIntent_grade0_plane@2x.png in Resources */,
+				9A93C21D1EE504E50049850F /* tipRed@2x.png in Resources */,
 				9A373BF31EE29079002B6227 /* LearnIntent_grade4_body@2x.png in Resources */,
 				9A373BD01EE29079002B6227 /* LearnIntent_grade1_body@3x.png in Resources */,
 				9A373BEA1EE29079002B6227 /* LearnIntent_grade3_hat@2x.png in Resources */,
@@ -1197,6 +1221,7 @@
 				9A78EFE91E764443008C93E9 /* LaunchScreen.storyboard in Resources */,
 				9A373BCD1EE29079002B6227 /* LearnIntent_grade0_plane@3x.png in Resources */,
 				9A7D6CEF1EB85B6B00D08770 /* DINCond-BlackAlternate.otf in Resources */,
+				9A93C21E1EE504E50049850F /* tipRed@3x.png in Resources */,
 				9A373BFC1EE29079002B6227 /* LearnIntent_haveExamed@2x.png in Resources */,
 				9A7D6CFB1EB85B6B00D08770 /* DINCond-RegularAlternate.otf in Resources */,
 				9A373BC31EE29079002B6227 /* LearnIntent_Cloud3@2x.png in Resources */,
@@ -1301,11 +1326,13 @@
 				9A5D0B051E9B574C00C1D82A /* RefreshController.swift in Sources */,
 				9A58F9D51E77DC9B00500AB6 /* WKFVideoPlayerView.swift in Sources */,
 				9A16654C1EC43C78001384E9 /* FileController.swift in Sources */,
+				9A373C421EE2A36F002B6227 /* SinglMoveingView.swift in Sources */,
 				9A58F9DB1E77E7D500500AB6 /* WKFPlayer.swift in Sources */,
 				9AC256C61E8A6A740089B371 /* TestFMDBManger.swift in Sources */,
 				9A373B4D1EE2905C002B6227 /* CompanyAnimateController.swift in Sources */,
 				9A78F0191E76488F008C93E9 /* Constants.swift in Sources */,
 				9A78F02D1E7694AE008C93E9 /* CurveController.swift in Sources */,
+				9A93C2221EE505390049850F /* TimeChoiceView.swift in Sources */,
 				9A96DBDD1EB9846800102957 /* PlayTextController.swift in Sources */,
 				9A07F1761E978C1E00D8DC42 /* SubclassTestOneContrller.swift in Sources */,
 				9A58F9D31E77DC7B00500AB6 /* DemoVideoController.swift in Sources */,
@@ -1313,13 +1340,11 @@
 				9A78F0331E76A4B7008C93E9 /* TabsSelectController.swift in Sources */,
 				9A78F0221E764BD1008C93E9 /* HomeModel.swift in Sources */,
 				9A78F0151E764834008C93E9 /* ViewController.swift in Sources */,
-				9A373C381EE293A1002B6227 /* LearnIntentionView.swift in Sources */,
 				9AC256C31E8A5F110089B371 /* FMDBontroller.swift in Sources */,
 				9A78F0371E76A4DE008C93E9 /* TestTwoController.swift in Sources */,
 				9ABDE3C21E7BF46A001A1963 /* WaveController.swift in Sources */,
 				9A78F0241E766CEB008C93E9 /* HomeCell.swift in Sources */,
 				9A78F01D1E7648A7008C93E9 /* UIColor+extension.swift in Sources */,
-				9A373C3A1EE293A1002B6227 /* TimeChoiceView.swift in Sources */,
 				9A78F0391E76A4ED008C93E9 /* TestThreeController.swift in Sources */,
 				9A58F9D71E77DCF200500AB6 /* VideoTopMenu.swift in Sources */,
 				9ABDE3C41E7BF58C001A1963 /* WaveView.swift in Sources */,
@@ -1340,7 +1365,10 @@
 				9A6793111ED2BA50007A272F /* RealmController.swift in Sources */,
 				9A370DC11E81220900827D1B /* SliderCircleView.swift in Sources */,
 				9A78F01C1E7648A7008C93E9 /* NSString+extension.swift in Sources */,
+				9A373C3E1EE29F7E002B6227 /* CloudController.swift in Sources */,
+				9A373C401EE29FBC002B6227 /* AnimateMoveView.swift in Sources */,
 				9A78F0261E767658008C93E9 /* MarqueeView.swift in Sources */,
+				9A93C2201EE505340049850F /* LearnIntentionView.swift in Sources */,
 				9A58F9CC1E778ED200500AB6 /* NoMarginScrollController.swift in Sources */,
 				9AD1DFA31ECAFCF200D3767A /* GetSuccessView.swift in Sources */,
 				9A373C351EE293A1002B6227 /* GradeChoiceView.swift in Sources */,

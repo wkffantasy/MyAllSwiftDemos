@@ -83,10 +83,10 @@ class CircleAndCloudAnimateView: UIView {
         animation.autoreverses = false
         animation.duration = 4
         animation.repeatCount = MAXFLOAT
-        // 不知道为啥，延迟0.1秒后才能有这个动画
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+//        // 不知道为啥，延迟0.1秒后才能有这个动画 RN中
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             imageView.layer.add(animation, forKey: "circle move")
-        }
+//        }
     }
 
     // MARK: - 三个云彩的动画
