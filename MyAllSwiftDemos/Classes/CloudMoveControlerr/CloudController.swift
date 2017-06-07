@@ -13,10 +13,13 @@ class CloudController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        automaticallyAdjustsScrollViewInsets = false
+        
         let animateView = AnimateMoveView()
         self.view.addSubview(animateView)
         animateView.snp.makeConstraints { (make) in
-            make.top.left.right.bottom.equalTo(0)
+            make.left.right.bottom.equalTo(0)
+            make.top.equalTo(64)
         }
     }
 

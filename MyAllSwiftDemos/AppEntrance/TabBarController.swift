@@ -43,12 +43,12 @@ class TabBarController: UITabBarController {
             "status": "待完善吧",
             "jumpTo": "jumpToNoDialVC",
         ],
-        [
-            "title": "上拉下拉刷新",
-            "titleDescription": "在写",
-            "status": "待完善吧",
-            "jumpTo": "jumpToRefreshVC",
-        ],
+//        [
+//            "title": "上拉下拉刷新",
+//            "titleDescription": "在写",
+//            "status": "待完善吧",
+//            "jumpTo": "jumpToRefreshVC",
+//        ],
     ]
 
     let funnyArray = [
@@ -64,12 +64,12 @@ class TabBarController: UITabBarController {
             "status": "带完善",
             "jumpTo": "jumpToWaveVC",
         ],
-        [
-            "title": "播放输入的文字",
-            "titleDescription": "看到一个oc版的，这个比较新颖，不常见，比较感兴趣",
-            "status": "正在写",
-            "jumpTo": "jumpToPlayTextVC",
-        ],
+//        [
+//            "title": "播放输入的文字",
+//            "titleDescription": "看到一个oc版的，这个比较新颖，不常见，比较感兴趣",
+//            "status": "正在写",
+//            "jumpTo": "jumpToPlayTextVC",
+//        ],
         [
             "title": "读取iTunes拖拽的文件",
             "titleDescription": "突然想到的,可以连接电脑，在iTunes里面看到app的某些文件，可以拖文件到app",
@@ -97,24 +97,30 @@ class TabBarController: UITabBarController {
             "status": "在写",
             "jumpTo": "jumpToFMDB",
         ],
+//        [
+//            "title": "ScrollManyTableViews",
+//            "titleDescription": "尝试",
+//            "status": "在写",
+//            "jumpTo": "jumpToScrollManyTableViewVC",
+//        ],
+//        [
+//            "title": "ReamlStudy",
+//            "titleDescription": "学习中",
+//            "status": "在写",
+//            "jumpTo": "jumpToRealmVC",
+//        ],
         [
-            "title": "ScrollManyTableViews",
-            "titleDescription": "尝试",
-            "status": "在写",
-            "jumpTo": "jumpToScrollManyTableViewVC",
-        ],
-        [
-            "title": "ReamlStudy",
-            "titleDescription": "学习中",
-            "status": "在写",
-            "jumpTo": "jumpToRealmVC",
-        ],
-        [
-            "title": "some aniamtions in project",
-            "titleDescription": "公司的一个RN的项目，用swift写的动画",
+            "title": "some aniamtions in RN project",
+            "titleDescription": "公司的一个RN的项目，桥接的swift写的动画",
             "status": "完成",
             "jumpTo": "jumpToAnimateInRN",
-            ],
+        ],
+        [
+            "title": "云彩的动画",
+            "titleDescription": "一个云彩移动的动画",
+            "status": "完成",
+            "jumpTo": "jumpToCloudAnimateVC",
+        ],
     ]
 
     override func viewDidLoad() {

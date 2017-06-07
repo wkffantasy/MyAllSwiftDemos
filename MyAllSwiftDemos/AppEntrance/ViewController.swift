@@ -163,6 +163,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func jumpToAnimateInRN() {
         self.navigationController?.pushViewController(CompanyAnimateController(), animated: true)
     }
+    func jumpToCloudAnimateVC() {
+        self.navigationController?.pushViewController(CloudController(), animated: true)
+    }
 
     func setupUI() {
 
