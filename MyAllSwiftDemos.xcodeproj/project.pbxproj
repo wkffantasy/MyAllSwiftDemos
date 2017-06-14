@@ -460,6 +460,7 @@
 		9A7D6CD11EB85B6B00D08770 /* DINPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Light.otf"; sourceTree = "<group>"; };
 		9A7D6CD21EB85B6B00D08770 /* DINPro-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Medium.otf"; sourceTree = "<group>"; };
 		9A7D6CD31EB85B6B00D08770 /* DINPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Regular.otf"; sourceTree = "<group>"; };
+		9A873D461EF0DF71007B0B1D /* StudyInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyInfo.h; sourceTree = "<group>"; };
 		9A8A3D6C1E8D075F006A32DC /* snow.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = snow.ico; sourceTree = "<group>"; };
 		9A93C21B1EE504E50049850F /* tipRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tipRed@2x.png"; sourceTree = "<group>"; };
 		9A93C21C1EE504E50049850F /* tipRed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tipRed@3x.png"; sourceTree = "<group>"; };
@@ -808,6 +809,7 @@
 				9A78F0171E76488F008C93E9 /* Constants.swift */,
 				9A78F00F1E7645D7008C93E9 /* Tools */,
 				9A78F00E1E7645C4008C93E9 /* ReusableView */,
+				9A873D461EF0DF71007B0B1D /* StudyInfo.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";

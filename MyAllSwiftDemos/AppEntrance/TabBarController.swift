@@ -70,18 +70,25 @@ class TabBarController: UITabBarController {
 //            "status": "正在写",
 //            "jumpTo": "jumpToPlayTextVC",
 //        ],
-        [
-            "title": "读取iTunes拖拽的文件",
-            "titleDescription": "突然想到的,可以连接电脑，在iTunes里面看到app的某些文件，可以拖文件到app",
-            "status": "完成",
-            "jumpTo": "jumpToFileItunesVC",
-        ],
+        
         [
             "title": "天女散花",
             "titleDescription": "看到oc的一个demo，感觉不错，可能将来以后可能遇到",
             "status": "完成",
             "jumpTo": "jumpToEmitterAlertVC",
         ],
+        [
+            "title": "some aniamtions in RN project",
+            "titleDescription": "公司的一个RN的项目，桥接的swift写的动画",
+            "status": "完成",
+            "jumpTo": "jumpToAnimateInRN",
+            ],
+        [
+            "title": "云彩的动画",
+            "titleDescription": "一个云彩移动的动画",
+            "status": "完成",
+            "jumpTo": "jumpToCloudAnimateVC",
+            ],
     ]
 
     let othersArray = [
@@ -97,6 +104,12 @@ class TabBarController: UITabBarController {
             "status": "在写",
             "jumpTo": "jumpToFMDB",
         ],
+        [
+            "title": "读取iTunes拖拽的文件",
+            "titleDescription": "突然想到的,可以连接电脑，在iTunes里面看到app的某些文件，可以拖文件到app",
+            "status": "完成",
+            "jumpTo": "jumpToFileItunesVC",
+            ],
 //        [
 //            "title": "ScrollManyTableViews",
 //            "titleDescription": "尝试",
@@ -109,18 +122,7 @@ class TabBarController: UITabBarController {
 //            "status": "在写",
 //            "jumpTo": "jumpToRealmVC",
 //        ],
-        [
-            "title": "some aniamtions in RN project",
-            "titleDescription": "公司的一个RN的项目，桥接的swift写的动画",
-            "status": "完成",
-            "jumpTo": "jumpToAnimateInRN",
-        ],
-        [
-            "title": "云彩的动画",
-            "titleDescription": "一个云彩移动的动画",
-            "status": "完成",
-            "jumpTo": "jumpToCloudAnimateVC",
-        ],
+        
     ]
 
     override func viewDidLoad() {
