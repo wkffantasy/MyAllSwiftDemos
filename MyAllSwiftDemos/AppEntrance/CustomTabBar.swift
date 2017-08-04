@@ -27,8 +27,9 @@ class CustomTabBar: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.colorWithRGB(red: 240, green: 240, blue: 240)
+        backgroundColor = UIColor.colorWithRGB(red: 245, green: 245, blue: 245)
         self.isUserInteractionEnabled = true
+//        backgroundColor = .red
         setupViews()
 
         let line = UIView()
@@ -36,7 +37,7 @@ class CustomTabBar: UIView {
         addSubview(line)
         line.snp.makeConstraints { make in
             make.left.right.top.equalTo(0)
-            make.height.equalTo(1)
+            make.height.equalTo(0.5)
         }
     }
 
