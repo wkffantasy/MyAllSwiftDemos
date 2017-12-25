@@ -39,7 +39,7 @@ class DownloadFMDBManger: NSObject {
         do {
             try database.executeUpdate("create table if not exists DOWNLOAD(url text not null,resumeData text)", values: nil)
         } catch {
-            log.error("failed : \(error.localizedDescription)")
+//            log.error("failed : \(error.localizedDescription)")
         }
     }
 
@@ -60,7 +60,7 @@ class DownloadFMDBManger: NSObject {
             do {
                 try database.executeUpdate("insert into DOWNLOAD(url,resumeData) values(?,?)", values: [downloadUrl, dataToString(resumeData: resumeData)])
             } catch {
-                log.error("insert failed : \(error.localizedDescription)")
+//                log.error("insert failed : \(error.localizedDescription)")
             }
 
         } else { // 如果有 update
@@ -77,7 +77,7 @@ class DownloadFMDBManger: NSObject {
         do {
             try database.executeUpdate(executeString, values: nil)
         } catch {
-            log.error("failed : \(error.localizedDescription)")
+//            log.error("failed : \(error.localizedDescription)")
         }
     }
 
@@ -88,7 +88,7 @@ class DownloadFMDBManger: NSObject {
         do {
             try database.executeUpdate(executeString, values: nil)
         } catch {
-            log.error("failed : \(error.localizedDescription)")
+//            log.error("failed : \(error.localizedDescription)")
         }
     }
 
@@ -111,7 +111,7 @@ class DownloadFMDBManger: NSObject {
             return nil
 
         } catch {
-            log.error("failed : \(error.localizedDescription)")
+//            log.error("failed : \(error.localizedDescription)")
             return nil
         }
 
@@ -135,7 +135,7 @@ class DownloadFMDBManger: NSObject {
             return thisArray
 
         } catch {
-            log.error("failed : \(error.localizedDescription)")
+//            log.error("failed : \(error.localizedDescription)")
             return nil
         }
     }

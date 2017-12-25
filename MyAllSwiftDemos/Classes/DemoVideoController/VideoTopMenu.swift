@@ -16,7 +16,7 @@ class VideoTopMenu: UIView {
 
         didSet {
             assert(playTitle.length > 0, "")
-            log.verbose("give top view title \(playTitle)")
+//            log.verbose("give top view title \(playTitle)")
             titleLabel.text = playTitle
         }
     }

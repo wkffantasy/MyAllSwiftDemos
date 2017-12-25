@@ -1,4 +1,4 @@
-//
+
 //  NoMarginScrollController.swift
 //  MyAllSwiftDemos
 //
@@ -34,7 +34,7 @@ class NoMarginScrollController: UIViewController {
         rollView1 = NoMarginRollingView.init(frame: rollRect, imageArray: imageArray, time: 3)
 
         rollView1.clickButtonBlock = { [weak self] tag in
-            log.debug("click this image tag == \(tag)")
+//            log.debug("click this image tag == \(tag)")
             self?.tipLabel.text = "点击了第\(tag)张图片"
         }
         rollView1.currentIndexBlock = { [weak self] tag in

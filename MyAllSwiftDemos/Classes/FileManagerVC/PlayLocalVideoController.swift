@@ -58,6 +58,6 @@ class PlayLocalVideoController: UIViewController {
     deinit {
         // add this to avoid player deinit in a delay
         playerView.removeThisView()
-        log.warning("this video controller will be deinit")
+//        log.warning("this video controller will be deinit")
     }
 }

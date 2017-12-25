@@ -9,8 +9,8 @@
 import UIKit
 import CoreData
 
-import SwiftyBeaver
-let log = SwiftyBeaver.self
+//import SwiftyBeaver
+//let log = SwiftyBeaver.self
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             do {
                 try FileManager.default.createDirectory(atPath: filePath as String, withIntermediateDirectories: false, attributes: nil)
             } catch {
-                log.error("创建\(fileName)失败")
+//                log.error("创建\(fileName)失败")
             }
         }
     }
@@ -71,8 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func settingUpLog() {
-        let console = ConsoleDestination()
-        log.addDestination(console)
+//        let console = ConsoleDestination()
+//        log.addDestination(console)
 
         //        log.verbose("not so important")
         //        log.debug("something to debug")

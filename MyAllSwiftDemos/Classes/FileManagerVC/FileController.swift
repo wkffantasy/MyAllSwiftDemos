@@ -63,7 +63,7 @@ class FileController: UIViewController, UITableViewDataSource, UITableViewDelega
                 do {
                     try fileManager.removeItem(atPath: path)
                 } catch {
-                    log.error("failed : \(error.localizedDescription)")
+//                    log.error("failed : \(error.localizedDescription)")
                 }
             }
 

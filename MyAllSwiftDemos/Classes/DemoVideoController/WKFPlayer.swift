@@ -1,4 +1,4 @@
-//
+
 //  WKFPlayer.swift
 //  MyAllSwiftDemos
 //
@@ -59,7 +59,7 @@ class WKFPlayer: UIView {
     var playUrl: String! {
 
         didSet {
-            log.verbose("give player url \(playUrl)")
+//            log.verbose("give player url \(playUrl)")
             initPlayer()
         }
     }
@@ -237,7 +237,7 @@ class WKFPlayer: UIView {
     deinit {
 
         removeObservers()
-        log.warning("this player will be deinit")
+//        log.warning("this player will be deinit")
     }
 
     required init?(coder _: NSCoder) {

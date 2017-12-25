@@ -38,6 +38,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         thisDataSource()
         setupUI()
         addOberser()
+        print("tabbar height ",tabBarController?.tabBar.frame)
+        print("navi height",navigationController?.navigationBar.frame)
+        print("screen.bounds",UIScreen.main.bounds)
+        print("screen statusBar",UIApplication.shared.statusBarFrame)
+        
     }
 
     func setTitle() {

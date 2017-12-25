@@ -8,7 +8,7 @@
 
 import UIKit
 
-import Realm
+//import Realm
 
 class Dog: NSObject {
     dynamic var name = ""

@@ -66,6 +66,6 @@ class DownloadController: UIViewController, UITableViewDelegate, UITableViewData
 
     deinit {
         DownloadFMDBManger.tool.closeThis()
-        log.error("this download controller will be deinit")
+//        log.error("this download controller will be deinit")
     }
 }

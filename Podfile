@@ -6,8 +6,6 @@ use_frameworks!
 target ‘MyAllSwiftDemos’ do
 
   pod 'SnapKit'
-  pod 'SwiftyBeaver'
   pod 'FMDB'
-  pod 'RealmSwift'
  
 end

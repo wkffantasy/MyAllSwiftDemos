@@ -52,6 +52,6 @@ class FMDBontroller: UIViewController {
 
     deinit {
         TestFMDBManger.tool.closeThis()
-        log.warning("this FMDB controller will be deinit")
+//        log.warning("this FMDB controller will be deinit")
     }
 }

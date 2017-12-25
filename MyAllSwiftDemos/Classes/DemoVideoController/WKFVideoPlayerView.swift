@@ -32,7 +32,7 @@ class WKFVideoPlayerView: UIView {
     var playUrl: String! {
         didSet {
             assert(playUrl.length > 0, "")
-            log.verbose("give view url \(playUrl)")
+//            log.verbose("give view url \(playUrl)")
             player.playUrl = playUrl
         }
     }
@@ -44,7 +44,7 @@ class WKFVideoPlayerView: UIView {
     var playTitle: String! {
         didSet {
             assert(playTitle.length > 0, "")
-            log.verbose("give view title \(playTitle)")
+//            log.verbose("give view title \(playTitle)")
             topMenu.playTitle = playTitle
         }
     }
@@ -124,7 +124,7 @@ class WKFVideoPlayerView: UIView {
             self?.bottomMenu.updateTotalTime(thisTime: totalTime)
         }
         player.PlayStartSuccessBlock = { [weak self] in
-            log.verbose("==================开始播放")
+//            log.verbose("==================开始播放")
             self?.loadingView.stopAnimating()
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: true)
         }
@@ -134,13 +134,13 @@ class WKFVideoPlayerView: UIView {
             self?.bottomMenu.updateCurrentTime(thisTime: playCurrentTime)
         }
         player.PlayFailedBlock = {
-            log.error("==================播放失败")
+//            log.error("==================播放失败")
         }
         player.PlayLoadedTimeBlock = { [weak self] loadedTime in
             self?.bottomMenu.updateLoadedTime(thisTime: loadedTime)
         }
         player.PlayFinishedBlock = { [weak self] in
-            log.verbose("================ 播放完成")
+//            log.verbose("================ 播放完成")
             self?.bottomMenu.updatePauseAndPlayStatus(isPlaying: false)
         }
         player.BufferEmptyBlock = { [weak self] in
@@ -247,7 +247,7 @@ class WKFVideoPlayerView: UIView {
     }
 
     @objc private func tapGestureTaped(tap _: UITapGestureRecognizer) {
-        log.warning("tapGestureTaped ==\(nowIsShowMenuView)")
+//        log.warning("tapGestureTaped ==\(nowIsShowMenuView)")
         if !nowIsShowMenuView {
             addTimer()
         }
@@ -287,6 +287,6 @@ class WKFVideoPlayerView: UIView {
 
     deinit {
         removeTimer(timer: timer!)
-        log.warning("this video player view will be deinit")
+//        log.warning("this video player view will be deinit")
     }
 }

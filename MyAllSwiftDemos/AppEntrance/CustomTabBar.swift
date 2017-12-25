@@ -28,6 +28,7 @@ class CustomTabBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.colorWithRGB(red: 240, green: 240, blue: 240)
+        backgroundColor = .white
         self.isUserInteractionEnabled = true
         setupViews()
 

@@ -37,7 +37,7 @@ class TestFMDBManger: NSObject {
         do {
             try database.executeUpdate("create table if not exists test(progress text,totalCount integer,currentCount integer)", values: nil)
         } catch {
-            log.error("failed : \(error.localizedDescription)")
+//            log.error("failed : \(error.localizedDescription)")
         }
     }
 
@@ -48,7 +48,7 @@ class TestFMDBManger: NSObject {
         do {
             try database.executeUpdate("insert into test(progress,totalCount,currentCount) values(?,?,?)", values: [progress, totalCount, currentCount])
         } catch {
-            log.error("failed : \(error.localizedDescription)")
+//            log.error("failed : \(error.localizedDescription)")
         }
     }
 
@@ -58,7 +58,7 @@ class TestFMDBManger: NSObject {
         do {
             try database.executeUpdate(executeString, values: nil)
         } catch {
-            log.error("failed : \(error.localizedDescription)")
+//            log.error("failed : \(error.localizedDescription)")
         }
     }
 
@@ -69,7 +69,7 @@ class TestFMDBManger: NSObject {
         do {
             try database.executeUpdate(executeString, values: nil)
         } catch {
-            log.error("failed : \(error.localizedDescription)")
+//            log.error("failed : \(error.localizedDescription)")
         }
     }
 
@@ -90,7 +90,7 @@ class TestFMDBManger: NSObject {
             return thisArray
 
         } catch {
-            log.error("failed : \(error.localizedDescription)")
+//            log.error("failed : \(error.localizedDescription)")
             return nil
         }
     }
