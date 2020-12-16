@@ -130,13 +130,6 @@ class TabBarController: UITabBarController {
     }
 
     private func setupTabBarView() {
-
-        //        customTabBar = CustomTabBar(frame: tabBar.frame)
-        //        customTabBar.clickTabs = { [weak self] tag in
-        //            self?.selectedIndex = tag
-        //        }
-        //        tabBar.removeFromSuperview()
-        //        self.view.addSubview(customTabBar)
         let view = UIView()
         tabBar.addSubview(view)
         view.backgroundColor = .white

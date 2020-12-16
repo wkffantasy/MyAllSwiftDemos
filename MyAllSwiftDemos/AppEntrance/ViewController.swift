@@ -129,7 +129,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     @objc func jumpToTabSelectVC() {
-        //        let tabsVC = TabsSelectController.init(isTitle: true)
         let tabsVC = TabsSelectController.init(isTitle: false)
         self.navigationController?.pushViewController(tabsVC, animated: true)
     }

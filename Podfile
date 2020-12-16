@@ -5,7 +5,8 @@ use_frameworks!
 
 target ‘MyAllSwiftDemos’ do
 
-  pod 'SnapKit'
-  pod 'FMDB'
+  pod 'SnapKit', '5.0.1'
+  pod 'FMDB', '2.7.5'
+  pod 'SwiftyJSON', '4.3'
  
 end
