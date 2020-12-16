@@ -100,75 +100,75 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let thisModel = dataArray[indexPath.row]
-        let selector = Selector.init(thisModel.jumpTo)
+        let selector: Selector! = Selector.init(thisModel.jumpTo)
         self.perform(selector)
     }
 
-    func jumpToMarqueeVC() {
+    @objc func jumpToMarqueeVC() {
         self.navigationController?.pushViewController(MarqueeController(), animated: true)
     }
 
-    func jumpToCurveVC() {
+    @objc func jumpToCurveVC() {
         self.navigationController?.pushViewController(CurveController(), animated: true)
     }
 
-    func jumpToRefreshVC() {
+    @objc func jumpToRefreshVC() {
         self.navigationController?.pushViewController(RefreshController(), animated: true)
     }
 
-    func jumpToScrollManyTableViewVC() {
+    @objc func jumpToScrollManyTableViewVC() {
         self.navigationController?.pushViewController(ScrollManyTabsViewController(), animated: true)
     }
 
-    func jumpToPlayTextVC() {
+    @objc func jumpToPlayTextVC() {
         self.navigationController?.pushViewController(PlayTextController(), animated: true)
     }
 
-    func jumpToFMDB() {
+    @objc func jumpToFMDB() {
         self.navigationController?.pushViewController(FMDBontroller(), animated: true)
     }
 
-    func jumpToTabSelectVC() {
+    @objc func jumpToTabSelectVC() {
         //        let tabsVC = TabsSelectController.init(isTitle: true)
         let tabsVC = TabsSelectController.init(isTitle: false)
         self.navigationController?.pushViewController(tabsVC, animated: true)
     }
 
-    func jumpToVideoVC() {
+    @objc func jumpToVideoVC() {
         self.navigationController?.pushViewController(DemoVideoController(), animated: true)
     }
 
-    func jumpToWaveVC() {
+    @objc func jumpToWaveVC() {
         self.navigationController?.pushViewController(WaveController(), animated: true)
     }
 
-    func jumpToNoMarginScrollVC() {
+    @objc func jumpToNoMarginScrollVC() {
         self.navigationController?.pushViewController(NoMarginScrollController(), animated: true)
     }
 
-    func jumpToNoDialVC() {
+    @objc func jumpToNoDialVC() {
         self.navigationController?.pushViewController(DialController(), animated: true)
     }
 
-    func jumpToNoDownloadVC() {
+    @objc func jumpToNoDownloadVC() {
         self.navigationController?.pushViewController(DownloadController(), animated: true)
     }
 
-    func jumpToEmitterAlertVC() {
+    @objc func jumpToEmitterAlertVC() {
         self.navigationController?.pushViewController(EmitterAlertController(), animated: true)
     }
 
-    func jumpToFileItunesVC() {
+    @objc func jumpToFileItunesVC() {
         self.navigationController?.pushViewController(FileController(), animated: true)
     }
 
-    func jumpToRealmVC() {
+    @objc func jumpToRealmVC() {
         self.navigationController?.pushViewController(RealmController(), animated: true)
     }
-    func jumpToAnimateInRN() {
+    @objc func jumpToAnimateInRN() {
         self.navigationController?.pushViewController(CompanyAnimateController(), animated: true)
     }
-    func jumpToCloudAnimateVC() {
+    @objc func jumpToCloudAnimateVC() {
         self.navigationController?.pushViewController(CloudController(), animated: true)
     }
 

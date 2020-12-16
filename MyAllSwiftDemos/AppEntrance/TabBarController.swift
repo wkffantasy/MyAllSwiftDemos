@@ -161,7 +161,6 @@ class TabBarController: UITabBarController {
         var controllers: Array<BaseNaviController> = []
 
         for index in 0 ..< allDataArray.count {
-
             let thisVC = ViewController.init(index: index, paramArray: allDataArray[index])
             let navi = BaseNaviController(rootViewController: thisVC)
             controllers.append(navi)
