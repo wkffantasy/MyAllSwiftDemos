@@ -1004,7 +1004,6 @@
 				9A78EFD51E764443008C93E9 /* Frameworks */,
 				9A78EFD61E764443008C93E9 /* Resources */,
 				5CA23B6F7163571808C7B091 /* [CP] Embed Pods Frameworks */,
-				EDE5E61B79A54115B5434B4B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1086,6 +1085,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1276,7 +1276,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MyAllSwiftDemos/Pods-MyAllSwiftDemos-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MyAllSwiftDemos/Pods-MyAllSwiftDemos-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
@@ -1287,7 +1287,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyAllSwiftDemos/Pods-MyAllSwiftDemos-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyAllSwiftDemos/Pods-MyAllSwiftDemos-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C9BD2AA2A8709CB78113F125 /* [CP] Check Pods Manifest.lock */ = {
@@ -1306,21 +1306,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EDE5E61B79A54115B5434B4B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyAllSwiftDemos/Pods-MyAllSwiftDemos-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1555,7 +1540,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyAllSwiftDemos/AppEntrance/MyAllSwiftDemos-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1572,7 +1557,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "--fantasy--.MyAllSwiftDemos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyAllSwiftDemos/AppEntrance/MyAllSwiftDemos-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
