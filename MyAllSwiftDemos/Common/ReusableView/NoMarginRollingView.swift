@@ -115,7 +115,7 @@ class NoMarginRollingView: UIView, UIScrollViewDelegate {
     private func addTimer() {
 
         self.timer = Timer.init(timeInterval: TimeInterval(self.scrollTime), target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
-        RunLoop.current.add(self.timer!, forMode: .RunLoop.Mode.common)
+        RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.common)
     }
 
     @objc private func runTimer() {

@@ -116,7 +116,7 @@ class CustomTabBar: UIView {
         let animation = CAKeyframeAnimation(keyPath: "transform.scale")
         animation.values = [1.0,1.1,0.9,1.0]
         animation.duration = 0.3
-        animation.calculationMCAAnimationCalculationMode.cubicnCubic
+        animation.calculationMode = .cubic
         imageView.layer.add(animation, forKey: "")
     }
 

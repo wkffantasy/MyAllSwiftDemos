@@ -117,7 +117,7 @@ class MarqueeView: UIView {
     }
 
     private func beReadyToAnimatie(frame: CGRect) {
-        let attributes: Dictionary<String, AnyObject> = [NSFontAttributeName: self.titleFont]
+        let attributes: Dictionary<NSAttributedString.Key, AnyObject> = [.font: self.titleFont]
         let attributedText = NSMutableAttributedString(string: self.title, attributes: attributes)
         let labelRect = attributedText.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: self.frame.size.height), options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
         if labelRect.size.width <= frame.size.width {

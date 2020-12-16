@@ -126,7 +126,7 @@ class DownloadCell: UITableViewCell {
         downloadTool.pauseDownload()
     }
 
-    func clickToGoon(button _: UIButton) {
+    @objc func clickToGoon(button _: UIButton) {
         print("clickToGoon")
         self.downloadTool.goonDownload()
     }

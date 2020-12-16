@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     var length: Int {
-        return self.characters.count
+        return self.count
     }
 
     var OCString: NSString {
@@ -67,8 +67,7 @@ extension String {
 
         let startIndex = self.index(self.startIndex, offsetBy: start)
         let endIndex = self.index(self.endIndex, offsetBy: end > 0 ? end - self.length : end)
-        let range = Range<String.Index>(startIndex ..< endIndex)
-
+        let range: Range = startIndex ..< endIndex
         return self.substring(with: range)
     }
 
@@ -82,12 +81,12 @@ extension String {
         if start > 0 {
             let startIndex = self.index(self.startIndex, offsetBy: start)
             let endIndex = self.index(self.startIndex, offsetBy: length + start)
-            let range = Range<String.Index>(startIndex ..< endIndex)
+            let range: Range = startIndex ..< endIndex
             return self.substring(with: range)
         } else {
             let startIndex = self.index(self.endIndex, offsetBy: start)
             let endIndex = self.index(self.endIndex, offsetBy: -length + start)
-            let range = Range<String.Index>(endIndex ..< startIndex)
+            let range: Range = endIndex ..< startIndex
             return self.substring(with: range)
         }
     }
@@ -119,7 +118,7 @@ extension String {
      */
 
     func isBlankString() -> Bool {
-        if self == "" || self.characters.count == 0 {
+        if self == "" || self.count == 0 {
             return true
         }
         if self.trimmingCharacters(in: NSCharacterSet.whitespaces).length == 0 {

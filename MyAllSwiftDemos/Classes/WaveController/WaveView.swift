@@ -49,7 +49,7 @@ class WaveView: UIView {
         self.layer.addSublayer(secondLayer)
 
         displayLink = CADisplayLink(target: self, selector: #selector(getCurrentWave))
-        displayLink.add(to: .main, forMode: .RunLoop.Mode.common)
+        displayLink.add(to: .main, forMode: RunLoop.Mode.common)
     }
 
     @objc func getCurrentWave() {

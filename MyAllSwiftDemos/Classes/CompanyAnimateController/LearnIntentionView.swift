@@ -78,8 +78,9 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
     }
     
     func addObsverOfKeyBoard() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keybordWillShow), name: NSNotification.Name.UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keybordDidHide(noti:)), name: NSNotification.Name.UIResponder.keyboardDidHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keybordWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keybordDidHide(noti:)), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
     func setupHeaderView() {
@@ -269,10 +270,10 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
         }
         
         scoreTextField?.becomeFirstResponder()
-        NotificationCenter.default.addObserver(self, selector: #selector(textChange), name: NSNotification.Name.UITextField.textDidChangeNotification, object: scoreTextField)
+        NotificationCenter.default.addObserver(self, selector: #selector(textChange), name: UITextField.textDidChangeNotification, object: scoreTextField)
     }
     
-    func textChange() {
+    @objc func textChange() {
         let scoreInt = Int((scoreTextField?.text)!)
         if scoreInt! > 120 {
             tipIt(tipText: "亲，分数不能超过120")
