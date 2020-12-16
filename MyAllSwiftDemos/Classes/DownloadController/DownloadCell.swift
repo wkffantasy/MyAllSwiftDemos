@@ -39,7 +39,7 @@ class DownloadCell: UITableViewCell {
         self.model = model
     }
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         backgroundColor = .white
@@ -86,8 +86,8 @@ class DownloadCell: UITableViewCell {
         pauseButton.backgroundColor = .green
         pauseButton.setTitle("暂停", for: .normal)
         pauseButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        pauseButton.setTitleColor(UIColor.colorWithRGB(red: 33, green: 33, blue: 33), for: UIControlState.normal)
-        pauseButton.addTarget(self, action: #selector(clickToPause(button:)), for: UIControlEvents.touchUpInside)
+        pauseButton.setTitleColor(UIColor.colorWithRGB(red: 33, green: 33, blue: 33), for: UIControl.State.normal)
+        pauseButton.addTarget(self, action: #selector(clickToPause(button:)), for: UIControl.Event.touchUpInside)
         addSubview(pauseButton)
         pauseButton.snp.makeConstraints { make in
             make.top.equalTo(startDownloadButton.snp.bottom).offset(10)
@@ -100,8 +100,8 @@ class DownloadCell: UITableViewCell {
         goonButton.backgroundColor = .green
         goonButton.setTitle("继续下载", for: .normal)
         goonButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        goonButton.setTitleColor(UIColor.colorWithRGB(red: 33, green: 33, blue: 33), for: UIControlState.normal)
-        goonButton.addTarget(self, action: #selector(clickToGoon(button:)), for: UIControlEvents.touchUpInside)
+        goonButton.setTitleColor(UIColor.colorWithRGB(red: 33, green: 33, blue: 33), for: UIControl.State.normal)
+        goonButton.addTarget(self, action: #selector(clickToGoon(button:)), for: UIControl.Event.touchUpInside)
         addSubview(goonButton)
         goonButton.snp.makeConstraints { make in
             make.top.equalTo(pauseButton.snp.bottom).offset(10)
@@ -121,7 +121,7 @@ class DownloadCell: UITableViewCell {
         }
     }
 
-    func clickToPause(button _: UIButton) {
+    @objc func clickToPause(button _: UIButton) {
         print("clickToPause")
         downloadTool.pauseDownload()
     }

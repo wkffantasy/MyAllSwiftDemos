@@ -62,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         NotificationCenter.default.addObserver(self, selector: #selector(receiveNotification(noti:)), name: NSNotification.Name(rawValue: touchNameOf3D), object: nil)
     }
 
-    func receiveNotification(noti: Notification) {
+    @objc func receiveNotification(noti: Notification) {
         let userInfo = noti.userInfo
         let name = String(format: "%@", userInfo?["name"] as! CVarArg)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.8) {
@@ -178,9 +178,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 60
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 60
-        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { make in

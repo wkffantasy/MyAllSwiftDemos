@@ -60,7 +60,7 @@ class WKFVideoPlayerView: UIView {
         setupPlayer()
         setupTopMenu()
         setupBottomMenu()
-        loadingView = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+        loadingView = UIActivityIndicatorView.init(style: .whiteLarge)
         loadingView.hidesWhenStopped = true
         loadingView.startAnimating()
         self.addSubview(loadingView)

@@ -49,10 +49,10 @@ class WaveView: UIView {
         self.layer.addSublayer(secondLayer)
 
         displayLink = CADisplayLink(target: self, selector: #selector(getCurrentWave))
-        displayLink.add(to: .main, forMode: .commonModes)
+        displayLink.add(to: .main, forMode: .RunLoop.Mode.common)
     }
 
-    func getCurrentWave() {
+    @objc func getCurrentWave() {
         waveOffsetX += waveSpeed
         for index in 0 ... 1 {
             let waveCycle: CGFloat = CGFloat(1.1 * M_PI) / (waterWaveWidth / 3)

@@ -66,7 +66,7 @@ class TabsSelectView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func clickButtonWithoutImage(button: UIButton) {
+    @objc public func clickButtonWithoutImage(button: UIButton) {
 
         self.changeButtonState(button: button)
         if self.clickButtonBlock != nil {
@@ -81,15 +81,15 @@ class TabsSelectView: UIView {
         if self.haveImages == true {
             let thisNormalImage = UIImage.init(named: (self.imageNormalArray?[self.selectButton.tag])!)
             let thisSeletImage = UIImage.init(named: (self.imageSelectArray?[button.tag])!)
-            self.selectButton.setImage(thisNormalImage, for: UIControlState.normal)
+            self.selectButton.setImage(thisNormalImage, for: UIControl.State.normal)
             self.selectButton = button
-            self.selectButton.setImage(thisSeletImage, for: UIControlState.normal)
+            self.selectButton.setImage(thisSeletImage, for: UIControl.State.normal)
 
         } else {
 
-            self.selectButton.setTitleColor(self.normalColor, for: UIControlState.normal)
+            self.selectButton.setTitleColor(self.normalColor, for: UIControl.State.normal)
             self.selectButton = button
-            self.selectButton.setTitleColor(self.selectColor, for: UIControlState.normal)
+            self.selectButton.setTitleColor(self.selectColor, for: UIControl.State.normal)
         }
 
         self.addLineViews()
@@ -104,9 +104,9 @@ class TabsSelectView: UIView {
 
             let thisImage = UIImage.init(named: imageName)
             let button = UIButton(type: .custom)
-            button.setImage(thisImage, for: UIControlState.normal)
+            button.setImage(thisImage, for: UIControl.State.normal)
             button.tag = tag
-            button.addTarget(self, action: #selector(clickButtonWithoutImage(button:)), for: UIControlEvents.touchUpInside)
+            button.addTarget(self, action: #selector(clickButtonWithoutImage(button:)), for: UIControl.Event.touchUpInside)
             self.addSubview(button)
             buttonsArray.append(button)
             button.snp.makeConstraints({ make in
@@ -124,7 +124,7 @@ class TabsSelectView: UIView {
             if tag == 0 {
                 selectButton = button
                 let selectImage = self.imageSelectArray?[tag]
-                selectButton.setImage(UIImage.init(named: selectImage!), for: UIControlState.normal)
+                selectButton.setImage(UIImage.init(named: selectImage!), for: UIControl.State.normal)
             }
             tag += 1
             lastOne = button
@@ -138,11 +138,11 @@ class TabsSelectView: UIView {
         for title in self.titleArray! {
 
             let button = UIButton(type: .custom)
-            button.setTitle(title, for: UIControlState.normal)
-            button.setTitleColor(self.normalColor, for: UIControlState.normal)
+            button.setTitle(title, for: UIControl.State.normal)
+            button.setTitleColor(self.normalColor, for: UIControl.State.normal)
             button.tag = tag
             button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-            button.addTarget(self, action: #selector(clickButtonWithoutImage(button:)), for: UIControlEvents.touchUpInside)
+            button.addTarget(self, action: #selector(clickButtonWithoutImage(button:)), for: UIControl.Event.touchUpInside)
             self.addSubview(button)
             buttonsArray.append(button)
             button.snp.makeConstraints({ make in
@@ -159,7 +159,7 @@ class TabsSelectView: UIView {
             })
             if tag == 0 {
                 selectButton = button
-                selectButton.setTitleColor(self.selectColor, for: UIControlState.normal)
+                selectButton.setTitleColor(self.selectColor, for: UIControl.State.normal)
             }
             tag += 1
             lastOne = button

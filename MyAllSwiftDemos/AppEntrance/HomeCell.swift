@@ -33,7 +33,7 @@ class HomeCell: UITableViewCell {
         descriptionLabel.text = model.titleDescription
     }
 
-    private override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    private override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
         self.backgroundColor = UIColor.white

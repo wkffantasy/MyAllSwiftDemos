@@ -34,7 +34,7 @@ class WaveController: UIViewController {
         }
     }
 
-    func clickButton() {
+    @objc func clickButton() {
         self.navigationController?.pushViewController(FileController(), animated: true)
     }
 

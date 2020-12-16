@@ -27,7 +27,7 @@ class FileController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView = UITableView.init()
         tableView.delegate = self
         tableView.estimatedRowHeight = 60
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
 
         self.view.addSubview(tableView)
@@ -54,7 +54,7 @@ class FileController: UIViewController, UITableViewDataSource, UITableViewDelega
         return dataArray.count
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         print("click to delete")
         if editingStyle == .delete {
 

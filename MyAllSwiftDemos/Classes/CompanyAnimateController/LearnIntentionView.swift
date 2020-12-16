@@ -10,18 +10,18 @@ import UIKit
 
 
 class LearnIntentionView: UIView, UITextFieldDelegate {
-
+    
     typealias CallBackBlock = (Dictionary<String, String>,LearnIntentionView) -> Void
-
+    
     public var callBackToRN: CallBackBlock?
-
+    
     private var headerView: UIView!
     private var functionView: UIView!
     private var titleView: TitleAndSubtileView!
-
+    
     private var personHeader: UIImageView!
     private var personBody: UIImageView!
-
+    
     private var gradeLeftImageView: UIImageView?
     private var gradeRightImageView: UIImageView?
     private var gradeBodyImageView: UIImageView?
@@ -29,102 +29,102 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
     private var timeCardView: UIImageView?
     private var scoreCardView: UIImageView?
     private var examCardView: UIImageView?
-  //有没有考过托福
+    //有没有考过托福
     private var scoreTextField: UITextField?
     private var haveButton:LearnIntentionButton?
     private var noButton:LearnIntentionButton?
-  
-  private var startButton:UIButton?
-  
+    
+    private var startButton:UIButton?
+    
     private let headerH: CGFloat = 270
     private let titleViewH: CGFloat = 110
-
+    
     private let gradeAnimateTime = TimeInterval(1)
-
+    
     private var coverButton: UIButton?
     private var tipView: UIView?
-
+    
     // 回调rn 四个参数
     private var callBackGrade: String?
     private var callBackTime: String?
     private var callBackScore: String?
     private var callBackExam: String?
-
+    
     let scoresArray = [
         "80-89",
         "90-99",
         "100以上",
     ]
-
+    
     let haveExamArray = [
         "考过",
         "还没有",
     ]
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         print("init LearnIntentionView")
         backgroundColor = UIColor.white
-
+        
         setupHeaderView()
         setupTitleView()
         setupFuctionView()
         addObsverOfKeyBoard()
     }
-
+    
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func addObsverOfKeyBoard() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keybordWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keybordDidHide(noti:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keybordWillShow), name: NSNotification.Name.UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keybordDidHide(noti:)), name: NSNotification.Name.UIResponder.keyboardDidHideNotification, object: nil)
     }
-
+    
     func setupHeaderView() {
         headerView = UIView()
         headerView.clipsToBounds = true
         headerView.backgroundColor = RGBColor(248, 250, 255)
         headerView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: headerH)
         addSubview(headerView)
-
+        
         // 添加云彩和圆圈的动画
         let cloudAndCirleView = CircleAndCloudAnimateView(frame: headerView.bounds)
         headerView.addSubview(cloudAndCirleView)
-
+        
         // 添加人物的图片
         addNormalPerson()
     }
-
+    
     func setupTitleView() {
-
+        
         titleView = TitleAndSubtileView(frame: CGRect(x: 0, y: headerH, width: ScreenWidth, height: titleViewH))
         addSubview(titleView)
         titleView.updateTitle(title: "选择我所在的年级")
     }
-
+    
     func setupFuctionView() {
         functionView = UIView()
         functionView.backgroundColor = UIColor.white
         addSubview(functionView)
         functionView.frame = CGRect(x: 0, y: headerH + titleViewH, width: ScreenWidth, height: ScreenHeight - headerH - titleViewH)
-
+        
         // 添加选择年级的view
         let gradeView = GradeChoiceView.init(frame: functionView.bounds) { [weak self] title, tag in
-
+            
             self?.callBackGrade = title
             // 开始选择年级的动画
             self?.animationOfGrade(tag: tag)
-
+            
             // 移除年级选择view，出现timeView
             self?.setupTimeView()
         }
         functionView.addSubview(gradeView)
     }
-
+    
     func setupTimeView() {
-
+        
         // 移除年级的view
         for item in self.functionView.subviews {
             item.removeFromSuperview()
@@ -132,35 +132,35 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
         self.titleView.updateTitle(title: "选择我的考试时间")
         // 出现时间的选择
         let timeView = TimeChoiceView.init(frame: self.functionView.bounds, callBack: { [weak self] timeString in
-
+            
             self?.callBackTime = timeString
-
+            
             // 开始动画
             self?.animationOfTime()
-
+            
             // 创建分数的view
             self?.setupScoreChoiceView()
-
+            
         })
         self.functionView.addSubview(timeView)
     }
-
+    
     func setupScoreChoiceView() {
-
+        
         // 移除时间的view
         for item in self.functionView.subviews {
             item.removeFromSuperview()
         }
         self.titleView.updateTitle(title: "选择我的目标分数")
-
+        
         // 创建view
         let scoreView = ScoreChoiceView.init(frame: .zero, dataArray: self.scoresArray, callBack: { [weak self] title, _ in
-
+            
             self?.callBackScore = title
-
+            
             // 开始动画
             self?.animationOfScore()
-
+            
             // 创建是否考过托福的按钮
             self?.setupExamView()
         })
@@ -169,85 +169,85 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             make.left.top.right.equalTo(0)
         })
     }
-
+    
     func setupExamView() {
-
+        
         // 移除分数的view
         for item in self.functionView.subviews {
             item.removeFromSuperview()
         }
         self.titleView.updateTitle(title: "是否考过托福")
-      let examViewButtonH:CGFloat = 44
-      haveButton = LearnIntentionButton.init(frame: .zero, buttonH: examViewButtonH, title: haveExamArray[0], selectColor: nil, callBack: { [weak self](title, tag) in
+        let examViewButtonH:CGFloat = 44
+        haveButton = LearnIntentionButton.init(frame: .zero, buttonH: examViewButtonH, title: haveExamArray[0], selectColor: nil, callBack: { [weak self](title, tag) in
+            
+            self?.haveExamAnimation(imageName: "LearnIntent_haveExamed")
+            
+            
+            // 考过的，输入自己曾经的分数
+            self?.signInYourScore()
+        })
         
-        self?.haveExamAnimation(imageName: "LearnIntent_haveExamed")
+        noButton = LearnIntentionButton.init(frame: .zero, buttonH: examViewButtonH, title: haveExamArray[1], selectColor: UIColor.colorWithHexString("5798ef"), callBack: { [weak self](title, tag) in
+            
+            self?.callBackExam = title
+            self?.haveExamAnimation(imageName: "LearnIntent_noExamed")
+            // 开启我的托福
+            self?.addStartButton()
+            self?.noButton?.isUserInteractionEnabled = false
+            self?.haveButton?.isHidden = true
+            
+            self?.noButton?.layer.borderWidth = 1
+            self?.noButton?.backgroundColor = .white
+            self?.noButton?.setTitleColor(UIColor.colorWithHexString("5798ef"), for: .normal)
+            self?.noButton?.layer.borderColor = UIColor.colorWithHexString("5798ef").cgColor
+        })
+        functionView.addSubview(haveButton!)
+        functionView.addSubview(noButton!)
+        haveButton?.snp.makeConstraints({ (make) in
+            make.top.equalTo(0)
+            make.left.equalTo(60)
+            make.right.equalTo(-60)
+            make.height.equalTo(examViewButtonH)
+        })
+        noButton?.snp.makeConstraints({ (make) in
+            make.top.equalTo((haveButton?.snp.bottom)!).offset(20)
+            make.left.equalTo(60)
+            make.right.equalTo(-60)
+            make.height.equalTo(examViewButtonH)
+        })
         
-        
-        // 考过的，输入自己曾经的分数
-        self?.signInYourScore()
-      })
-      
-      noButton = LearnIntentionButton.init(frame: .zero, buttonH: examViewButtonH, title: haveExamArray[1], selectColor: UIColor.colorWithHexString("5798ef"), callBack: { [weak self](title, tag) in
-        
-        self?.callBackExam = title
-        self?.haveExamAnimation(imageName: "LearnIntent_noExamed")
-        // 开启我的托福
-        self?.addStartButton()
-        self?.noButton?.isUserInteractionEnabled = false
-        self?.haveButton?.isHidden = true
-        
-        self?.noButton?.layer.borderWidth = 1
-        self?.noButton?.backgroundColor = .white
-        self?.noButton?.setTitleColor(UIColor.colorWithHexString("5798ef"), for: .normal)
-        self?.noButton?.layer.borderColor = UIColor.colorWithHexString("5798ef").cgColor
-      })
-      functionView.addSubview(haveButton!)
-      functionView.addSubview(noButton!)
-      haveButton?.snp.makeConstraints({ (make) in
-        make.top.equalTo(0)
-        make.left.equalTo(60)
-        make.right.equalTo(-60)
-        make.height.equalTo(examViewButtonH)
-      })
-      noButton?.snp.makeConstraints({ (make) in
-        make.top.equalTo((haveButton?.snp.bottom)!).offset(20)
-        make.left.equalTo(60)
-        make.right.equalTo(-60)
-        make.height.equalTo(examViewButtonH)
-      })
-      
-  }
-
+    }
+    
     func addStartButton() {
-      if startButton != nil {
-        return
-      }
-         startButton = UIButton(type: .custom)
-      startButton?.layer.masksToBounds = true
-      startButton?.layer.opacity = 0
-      
+        if startButton != nil {
+            return
+        }
+        startButton = UIButton(type: .custom)
+        startButton?.layer.masksToBounds = true
+        startButton?.layer.opacity = 0
+        
         startButton?.setTitle("开启我的托福", for: .normal)
         startButton?.setTitleColor(UIColor.colorWithHexString("048cff"), for: .normal)
         startButton?.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         startButton?.addTarget(self, action: #selector(clickStartButton), for: .touchUpInside)
         functionView.addSubview(startButton!)
         startButton?.frame = CGRect(x: (ScreenWidth-200)/2, y: functionView.frame.size.height, width: 200, height: 30)
-      
-      UIView.animate(withDuration: gradeAnimateTime) {
-
-        self.startButton?.layer.opacity = 1
-        self.startButton?.frame.origin.y = (self.startButton?.frame.origin.y)! - (30+45)
-
-      }
- 
-      
-
-      
+        
+        UIView.animate(withDuration: gradeAnimateTime) {
+            
+            self.startButton?.layer.opacity = 1
+            self.startButton?.frame.origin.y = (self.startButton?.frame.origin.y)! - (30+45)
+            
+        }
+        
+        
+        
+        
     }
-
+    
     func signInYourScore() {
-      scoreTextField?.removeFromSuperview()
-      scoreTextField = nil
+        scoreTextField?.removeFromSuperview()
+        scoreTextField = nil
         scoreTextField = UITextField()
         scoreTextField?.layer.masksToBounds = true
         scoreTextField?.layer.cornerRadius = 2
@@ -267,22 +267,22 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             make.left.equalTo(70)
             make.right.equalTo(functionView.snp.right).offset(-70)
         }
-
-        scoreTextField?.becomeFirstResponder()
-        NotificationCenter.default.addObserver(self, selector: #selector(textChange), name: NSNotification.Name.UITextFieldTextDidChange, object: scoreTextField)
-    }
-
-    func textChange() {
-      let scoreInt = Int((scoreTextField?.text)!)
-      if scoreInt! > 120 {
-        tipIt(tipText: "亲，分数不能超过120")
-        scoreTextField?.text = "120"
         
-      }
-
+        scoreTextField?.becomeFirstResponder()
+        NotificationCenter.default.addObserver(self, selector: #selector(textChange), name: NSNotification.Name.UITextField.textDidChangeNotification, object: scoreTextField)
     }
-
-    func clickStartButton() {
+    
+    func textChange() {
+        let scoreInt = Int((scoreTextField?.text)!)
+        if scoreInt! > 120 {
+            tipIt(tipText: "亲，分数不能超过120")
+            scoreTextField?.text = "120"
+            
+        }
+        
+    }
+    
+    @objc func clickStartButton() {
         if self.callBackExam == nil {
             tipIt(tipText: "请输入分数")
             return
@@ -292,27 +292,27 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
         print("self.callBackTime ==", self.callBackTime ?? "")
         print("self.callBackScore ==", self.callBackScore ?? "")
         print("self.callBackExam ==", self.callBackExam ?? "")
-  
-      if callBackToRN != nil {
-        callBackToRN!([
-          "grade":self.callBackGrade!,
-          "time":self.callBackTime!,
-          "score":self.callBackScore!,
-          "examed":self.callBackExam!,
-          ],self)
-      }
+        
+        if callBackToRN != nil {
+            callBackToRN!([
+                "grade":self.callBackGrade!,
+                "time":self.callBackTime!,
+                "score":self.callBackScore!,
+                "examed":self.callBackExam!,
+            ],self)
+        }
     }
-
+    
     func addNormalPerson() {
-
+        
         personBody = UIImageView()
         personBody.image = UIImage.init(named: "LearnIntent_normal_body")
         headerView.addSubview(personBody)
-
+        
         personHeader = UIImageView()
         personHeader.image = UIImage.init(named: "LearnIntent_normal_header")
         headerView.addSubview(personHeader)
-
+        
         personBody.snp.makeConstraints { make in
             make.centerX.equalTo(headerView.snp.centerX)
             make.bottom.equalTo(headerView.snp.bottom)
@@ -322,30 +322,30 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             make.bottom.equalTo(personBody.snp.top).offset(13)
         }
     }
-
+    
     // MARK: - UITextFieldDelegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
     }
-
+    
     // MARK: - keybord show and hide
-    func keybordWillShow(noti: Notification) {
-      
-      haveButton?.isHidden = true
-      noButton?.isHidden = true
-        let aValue = noti.userInfo![UIKeyboardFrameEndUserInfoKey]
+    @objc func keybordWillShow(noti: Notification) {
+        
+        haveButton?.isHidden = true
+        noButton?.isHidden = true
+        let aValue = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey]
         let keybordFrame = (aValue as AnyObject).cgRectValue as CGRect
         addCoverButton(keyboardSize: keybordFrame.size)
     }
-  func keybordDidHide(noti:Notification) {
-    
-    if scoreTextField != nil {
-      // 开启我的托福
-      self.addStartButton()
+    @objc func keybordDidHide(noti:Notification) {
+        
+        if scoreTextField != nil {
+            // 开启我的托福
+            self.addStartButton()
+        }
+        
     }
     
-  }
-
     func addCoverButton(keyboardSize: CGSize) {
         coverButton?.removeFromSuperview()
         coverButton = nil
@@ -358,58 +358,58 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             make.height.equalTo(ScreenHeight - keyboardSize.height)
         })
     }
-
-    func clickCoverButton() {
-      
+    
+    @objc func clickCoverButton() {
+        
         scoreTextField?.resignFirstResponder()
         coverButton?.removeFromSuperview()
         coverButton = nil
-      
-      
-      if scoreTextField?.text?.length == 0 {
-        scoreTextField?.removeFromSuperview()
-        scoreTextField = nil
-        noButton?.isHidden = false
-        haveButton?.isHidden = false
-        return
-      }
-      scoreTextField?.isUserInteractionEnabled = false
-      haveButton?.isUserInteractionEnabled = false
-      noButton?.isHidden = true
-    
-      let scoreInt = Int((scoreTextField?.text)!)
+        
+        
+        if scoreTextField?.text?.length == 0 {
+            scoreTextField?.removeFromSuperview()
+            scoreTextField = nil
+            noButton?.isHidden = false
+            haveButton?.isHidden = false
+            return
+        }
+        scoreTextField?.isUserInteractionEnabled = false
+        haveButton?.isUserInteractionEnabled = false
+        noButton?.isHidden = true
+        
+        let scoreInt = Int((scoreTextField?.text)!)
         scoreTextField?.text = "\(scoreInt!)分"
         callBackExam = scoreTextField?.text
     }
-
+    
     // MARK: - tipLabel
     func tipIt(tipText: String) {
-      if tipView != nil {
-        return
-      }
-      let tipViewH:CGFloat = 32
-      tipView = UIView()
-      tipView?.backgroundColor = RGBColorAlpha(53,61,72,0.9)
-      tipView?.layer.masksToBounds = true
-      tipView?.layer.cornerRadius = tipViewH / 2
-      addSubview(tipView!)
-      tipView?.snp.makeConstraints({ (make) in
-        make.center.equalTo(self.snp.center)
-        make.height.equalTo(tipViewH)
-      })
-      
-      let imageView = UIImageView()
-      imageView.image = UIImage.init(named: "tipRed")
-      tipView?.addSubview(imageView)
-      imageView.snp.makeConstraints { (make) in
-        make.centerY.equalTo((tipView?.snp.centerY)!)
-        make.left.equalTo(14)
-      }
-      
+        if tipView != nil {
+            return
+        }
+        let tipViewH:CGFloat = 32
+        tipView = UIView()
+        tipView?.backgroundColor = RGBColorAlpha(53,61,72,0.9)
+        tipView?.layer.masksToBounds = true
+        tipView?.layer.cornerRadius = tipViewH / 2
+        addSubview(tipView!)
+        tipView?.snp.makeConstraints({ (make) in
+            make.center.equalTo(self.snp.center)
+            make.height.equalTo(tipViewH)
+        })
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage.init(named: "tipRed")
+        tipView?.addSubview(imageView)
+        imageView.snp.makeConstraints { (make) in
+            make.centerY.equalTo((tipView?.snp.centerY)!)
+            make.left.equalTo(14)
+        }
+        
         let tipLabel = UILabel()
         tipLabel.text = tipText
         tipLabel.textColor = .white
-      tipLabel.font = UIFont.systemFont(ofSize: 12)
+        tipLabel.font = UIFont.systemFont(ofSize: 12)
         tipView?.addSubview(tipLabel)
         tipLabel.snp.makeConstraints({ make in
             make.centerY.equalTo((tipView?.snp.centerY)!)
@@ -417,16 +417,16 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             make.right.equalTo((tipView?.snp.right)!).offset(-10)
         })
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2) {
-          self.tipView?.removeFromSuperview()
-          self.tipView = nil
+            self.tipView?.removeFromSuperview()
+            self.tipView = nil
         }
     }
-
+    
     // MARK: - 考过没考过的动画
     func haveExamAnimation(imageName: String) {
         examCardView?.removeFromSuperview()
         examCardView = nil
-
+        
         examCardView = UIImageView.init()
         examCardView?.image = UIImage.init(named: imageName)
         examCardView?.layer.opacity = 0
@@ -436,15 +436,15 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             make.right.equalTo(personBody.snp.left).offset(12)
             make.top.equalTo(headerView.snp.bottom)
         }
-
-        let imageSize = examCardView?.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-
+        
+        let imageSize = examCardView?.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        
         UIView.animate(withDuration: gradeAnimateTime - 0.5) {
             self.examCardView?.layer.opacity = 1
             self.examCardView?.transform = CGAffineTransform(translationX: 0, y: 5 - (imageSize?.height)!)
         }
     }
-
+    
     // MARK: - 选择分数的动画
     func animationOfScore() {
         scoreCardView?.removeFromSuperview()
@@ -457,7 +457,7 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             make.top.equalTo(personHeader.snp.top).offset(2)
             make.right.equalTo(personHeader.snp.right).offset(3)
         })
-
+        
         let scoreLabel = UILabel()
         scoreLabel.font = UIFont.systemFont(ofSize: 17)
         scoreLabel.text = self.callBackScore
@@ -466,20 +466,20 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
         scoreCardView?.addSubview(scoreLabel)
         scoreLabel.snp.makeConstraints { make in
             make.centerY.equalTo((scoreCardView?.snp.centerY)!)
-          
-          make.centerX.equalTo((scoreCardView?.snp.centerX)!).offset(7)
+            
+            make.centerX.equalTo((scoreCardView?.snp.centerX)!).offset(7)
         }
-
+        
         UIView.animate(withDuration: gradeAnimateTime) {
             self.scoreCardView?.layer.opacity = 1
         }
     }
-
+    
     // MARK: - 选择时间的动画
     func animationOfTime() {
         timeCardView?.removeFromSuperview()
         timeCardView = nil
-
+        
         timeCardView = UIImageView.init()
         timeCardView?.layer.opacity = 0
         timeCardView?.layer.masksToBounds = true
@@ -489,7 +489,7 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             make.centerX.equalTo(headerView.snp.centerX)
             make.bottom.equalTo(headerView.snp.top)
         }
-
+        
         let timeLabel = UILabel.init()
         timeLabel.text = self.callBackTime
         timeLabel.font = UIFont.systemFont(ofSize: 18)
@@ -499,18 +499,18 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             make.centerX.equalTo((timeCardView?.snp.centerX)!)
             make.bottom.equalTo((timeCardView?.snp.bottom)!).offset(-10)
         }
-
-        let imageSize = timeCardView?.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-
+        
+        let imageSize = timeCardView?.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        
         UIView.animate(withDuration: gradeAnimateTime - 0.5) {
             self.timeCardView?.layer.opacity = 1
             self.timeCardView?.transform = CGAffineTransform(translationX: 0, y: (imageSize?.height)!)
         }
     }
-
+    
     // MARK: - 选择年级的动画
     func animationOfGrade(tag: Int) {
-
+        
         switch tag {
         case 0:
             // 飞机  铅笔  衣服
@@ -544,7 +544,7 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             print("")
         }
     }
-
+    
     func animateLeft(imageName: String, tag: Int) {
         gradeLeftImageView?.removeFromSuperview()
         gradeLeftImageView = nil
@@ -552,7 +552,7 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
         gradeLeftImageView?.layer.opacity = 0
         headerView.addSubview(gradeLeftImageView!)
         gradeLeftImageView?.image = UIImage.init(named: imageName)
-
+        
         let imageW: CGFloat = 58
         var imageH: CGFloat = 68
         if tag == 4 {
@@ -565,7 +565,7 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
                 self.gradeLeftImageView?.layer.opacity = 1
                 self.gradeLeftImageView?.frame.origin.x = ScreenWidth / 2 - imageW - 30
             }
-
+            
         } else {
             gradeLeftImageView?.frame = CGRect(x: -imageW,
                                                y: headerView.center.y,
@@ -577,7 +577,7 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             }
         }
     }
-
+    
     func animateBody(imageName: String, tag _: Int) {
         gradeBodyImageView?.removeFromSuperview()
         gradeBodyImageView = nil
@@ -590,7 +590,7 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             self.gradeBodyImageView?.layer.opacity = 1
         }
     }
-
+    
     func animateHead(imageName: String, tag: Int) {
         gradeHeaderImageView?.removeFromSuperview()
         gradeHeaderImageView = nil
@@ -614,7 +614,7 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
                 make.centerX.equalTo(personHeader.snp.centerX)
                 make.centerY.equalTo(personHeader.snp.top).offset(10)
             })
-
+            
         default:
             print("")
         }
@@ -622,7 +622,7 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
             self.gradeHeaderImageView?.layer.opacity = 1
         }
     }
-
+    
     func animateRight(imageName: String, tag: Int) {
         gradeRightImageView?.removeFromSuperview()
         gradeRightImageView = nil
@@ -638,9 +638,9 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
                                                 y: headerH - imageH,
                                                 width: imageW,
                                                 height: imageH)
-
+            
         } else {
-
+            
             gradeRightImageView?.frame = CGRect(x: ScreenWidth,
                                                 y: headerH - imageH - 20,
                                                 width: imageW,
@@ -652,13 +652,13 @@ class LearnIntentionView: UIView, UITextFieldDelegate {
         }) { _ in
         }
     }
-
+    
     deinit {
         print("-----------------------------")
         print("LearnIntentionView deinit")
         NotificationCenter.default.removeObserver(self)
         if scoreTextField != nil {
-          NotificationCenter.default.removeObserver(scoreTextField!)
+            NotificationCenter.default.removeObserver(scoreTextField!)
         }
     }
 }

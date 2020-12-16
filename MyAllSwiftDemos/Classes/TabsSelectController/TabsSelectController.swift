@@ -103,9 +103,9 @@ class TabsSelectController: UIViewController, UIScrollViewDelegate {
         let t2VC = TestTwoController()
         let t3VC = TestThreeController()
 
-        self.addChildViewController(t1VC)
-        self.addChildViewController(t2VC)
-        self.addChildViewController(t3VC)
+        self.addChild(t1VC)
+        self.addChild(t2VC)
+        self.addChild(t3VC)
 
         containerView.addSubview(t1VC.view)
         containerView.addSubview(t2VC.view)

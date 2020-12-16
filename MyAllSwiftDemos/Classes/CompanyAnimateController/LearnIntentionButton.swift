@@ -40,7 +40,7 @@ class LearnIntentionButton: UIButton {
         self.callBack = callBack
     }
 
-    func clickThisButton(button: UIButton) {
+    @objc func clickThisButton(button: UIButton) {
 
         print("click this Button title=", self.title, button.tag)
 

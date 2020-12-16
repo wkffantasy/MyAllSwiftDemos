@@ -25,7 +25,7 @@ class EmitterAlertController: UIViewController {
         }
     }
 
-    func clickThisButton() {
+    @objc func clickThisButton() {
         GetSuccessView().show()
     }
 

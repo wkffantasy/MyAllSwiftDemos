@@ -70,7 +70,7 @@ class WKFPlayer: UIView {
     }
 
     public func seekToTime(seconds: Float) {
-        player.seek(to: CMTimeMakeWithSeconds(Float64(seconds), Int32(NSEC_PER_SEC)))
+        player.seek(to: CMTimeMakeWithSeconds(Float64(seconds), preferredTimescale: Int32(NSEC_PER_SEC)))
     }
 
     public func updatePlayerPauseAndPlay(isPlaying: Bool) {
@@ -159,14 +159,14 @@ class WKFPlayer: UIView {
                 self.PlayingCurrentTimeBlock!(getCurrentTime())
             }
 
-            let timeInterval: CMTime = CMTimeMakeWithSeconds(1.0, 10)
+            let timeInterval: CMTime = CMTimeMakeWithSeconds(1.0, preferredTimescale: 10)
             timeObserver = player.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main, using: { [weak self] _ in
 
                 if self?.PlayingCurrentTimeBlock != nil {
                     self?.PlayingCurrentTimeBlock!((self?.getCurrentTime())!)
                 }
 
-            }) as AnyObject!
+            }) as AnyObject?
 
         } else { // failed and unknown
             if self.PlayFailedBlock != nil {

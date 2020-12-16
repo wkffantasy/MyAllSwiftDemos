@@ -99,7 +99,7 @@ class SliderCircleView: UIView {
         circleView.addGestureRecognizer(pan)
     }
 
-    func paning(pan: UIPanGestureRecognizer) {
+    @objc func paning(pan: UIPanGestureRecognizer) {
 
         switch pan.state {
         case .began:

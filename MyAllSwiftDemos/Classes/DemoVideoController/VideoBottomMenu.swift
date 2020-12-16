@@ -188,14 +188,14 @@ class VideoBottomMenu: UIView {
         return label
     }
 
-    func clickPlayButton(button _: UIButton) {
+    @objc func clickPlayButton(button _: UIButton) {
 
         if self.playOrPauseBlock != nil {
             self.playOrPauseBlock!(!self.nowIsPlaying)
         }
     }
 
-    func clickFullButton(button _: UIButton) {
+    @objc func clickFullButton(button _: UIButton) {
 
         if nowIsFull == true {
             nowIsFull = false

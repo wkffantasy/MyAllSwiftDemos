@@ -117,7 +117,7 @@ class TimeChoiceView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         confirmButton.addTarget(self, action: #selector(getPickerViewInfo), for: .touchUpInside)
     }
 
-    func getPickerViewInfo() {
+    @objc func getPickerViewInfo() {
       var year = ""
       var month = ""
       var day = ""

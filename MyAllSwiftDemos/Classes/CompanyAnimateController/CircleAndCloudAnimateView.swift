@@ -75,10 +75,10 @@ class CircleAndCloudAnimateView: UIView {
             NSValue(cgPoint: CGPoint(x: x, y: y)),
         ]
         animation.timingFunctions = [
-            CAMediaTimingFunction(name: "easeOut"),
-            CAMediaTimingFunction(name: "easeIn"),
-            CAMediaTimingFunction(name: "easeOut"),
-            CAMediaTimingFunction(name: "easeIn"),
+            CAMediaTimingFunction(name: CAMediaTimingFunctionName(rawValue: "easeOut")),
+            CAMediaTimingFunction(name: CAMediaTimingFunctionName(rawValue: "easeIn")),
+            CAMediaTimingFunction(name: CAMediaTimingFunctionName(rawValue: "easeOut")),
+            CAMediaTimingFunction(name: CAMediaTimingFunctionName(rawValue: "easeIn")),
         ]
         animation.autoreverses = false
         animation.duration = 4

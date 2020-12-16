@@ -67,9 +67,9 @@ class GetSuccessView: NSObject {
         let emitterLayer = CAEmitterLayer()
         emitterLayer.emitterPosition = window!.center
         emitterLayer.emitterSize = window!.bounds.size
-        emitterLayer.emitterMode = kCAEmitterLayerOutline
-        emitterLayer.emitterShape = kCAEmitterLayerRectangle
-        emitterLayer.renderMode = kCAEmitterLayerOldestFirst
+        emitterLayer.emitterMode = CAEmitterLayerEmitterMode.outline
+        emitterLayer.emitterShape = CAEmitterLayerEmitterShape.rectangle
+        emitterLayer.renderMode = CAEmitterLayerRenderMode.oldestFirst
         emitterLayer.emitterCells = [cell1, cell2, cell3, cell4]
         return emitterLayer
     }
@@ -114,25 +114,25 @@ class GetSuccessView: NSObject {
         redBurst.fromValue = 30
         redBurst.toValue = 0
         redBurst.duration = 0.5
-        redBurst.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionLinear)
+        redBurst.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.linear)
 
         let yellowBurst = CABasicAnimation.init(keyPath: "emitterCells.yellow.birthRate")
         yellowBurst.fromValue = 30
         yellowBurst.toValue = 0
         yellowBurst.duration = 0.5
-        yellowBurst.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionLinear)
+        yellowBurst.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.linear)
 
         let blueBurst = CABasicAnimation.init(keyPath: "emitterCells.blue.birthRate")
         blueBurst.fromValue = 30
         blueBurst.toValue = 0
         blueBurst.duration = 0.5
-        blueBurst.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionLinear)
+        blueBurst.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.linear)
 
         let starBurst = CABasicAnimation.init(keyPath: "emitterCells.star.birthRate")
         starBurst.fromValue = 30
         starBurst.toValue = 0
         starBurst.duration = 0.5
-        starBurst.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionLinear)
+        starBurst.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.linear)
 
         let group = CAAnimationGroup()
         group.animations = [redBurst, yellowBurst, blueBurst, starBurst]
