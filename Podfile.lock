@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -6,21 +9,24 @@ PODS:
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
-  - FMDB
+  - Charts (= 3.6.0)
+  - FMDB (= 2.7.5)
   - SnapKit
   - SwiftyJSON (= 4.3)
 
 SPEC REPOS:
   trunk:
+    - Charts
     - FMDB
     - SnapKit
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 57cbb719368aac94476583072aad79f7b0387300
+PODFILE CHECKSUM: 9d4a0edaae57876fac6410a75e90578c8fc652e9
 
 COCOAPODS: 1.9.1
